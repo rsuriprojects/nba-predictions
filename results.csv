@@ -1,0 +1,15 @@
+logged_at_utc,game_date,away,home,home_elo,away_elo,p_home,pick,actual,correct,conf
+2026-07-29T15:45:18.382390+00:00,2024-01-15,Indiana Pacers,Utah Jazz,1542.1,1551.2,0.5927,Utah Jazz,Utah Jazz,True,0.5927
+2026-07-29T15:45:18.382429+00:00,2024-01-15,Boston Celtics,Toronto Raptors,1442.1,1635.4,0.3306,Boston Celtics,Boston Celtics,True,0.6694
+2026-07-29T15:45:18.382441+00:00,2024-01-15,Miami Heat,Brooklyn Nets,1443.3,1546.3,0.5118,Brooklyn Nets,Miami Heat,False,0.5118
+2026-07-29T15:45:18.382452+00:00,2024-01-15,Chicago Bulls,Cleveland Cavaliers,1544.2,1492.4,0.6378,Cleveland Cavaliers,Cleveland Cavaliers,True,0.6378
+2026-07-29T15:45:18.382463+00:00,2024-01-15,Golden State Warriors,Memphis Grizzlies,1459.9,1470.0,0.5321,Memphis Grizzlies,Memphis Grizzlies,True,0.5321
+2026-07-29T15:45:18.382474+00:00,2024-01-15,New Orleans Pelicans,Dallas Mavericks,1521.1,1564.8,0.4908,New Orleans Pelicans,Dallas Mavericks,False,0.5092
+2026-07-29T15:45:18.382484+00:00,2024-01-15,Detroit Pistons,Washington Wizards,1362.0,1283.2,0.6297,Washington Wizards,Detroit Pistons,False,0.6297
+2026-07-29T15:45:18.382501+00:00,2024-01-15,Orlando Magic,New York Knicks,1566.0,1513.1,0.6079,New York Knicks,Orlando Magic,False,0.6079
+2026-07-29T15:45:18.382514+00:00,2024-01-15,Houston Rockets,Philadelphia 76ers,1550.9,1488.9,0.634,Philadelphia 76ers,Philadelphia 76ers,True,0.634
+2026-07-29T15:45:18.382525+00:00,2024-01-15,Oklahoma City Thunder,Los Angeles Lakers,1479.2,1607.0,0.3893,Oklahoma City Thunder,Los Angeles Lakers,False,0.6107
+2026-07-29T15:45:18.382537+00:00,2024-01-15,San Antonio Spurs,Atlanta Hawks,1439.7,1345.2,0.6553,Atlanta Hawks,Atlanta Hawks,True,0.6553
+2026-07-29T16:17:26.481754+00:00,2024-01-16,Sacramento Kings,Phoenix Suns,1507.1,1532.0,0.5139,Phoenix Suns,Phoenix Suns,True,0.5139
+2026-07-29T16:17:26.481789+00:00,2024-01-16,Oklahoma City Thunder,Los Angeles Clippers,1588.1,1595.3,0.595,Los Angeles Clippers,Los Angeles Clippers,True,0.595
+2026-07-29T16:17:26.481798+00:00,2024-01-16,Denver Nuggets,Philadelphia 76ers,1557.4,1586.2,0.4359,Denver Nuggets,Philadelphia 76ers,False,0.5641
