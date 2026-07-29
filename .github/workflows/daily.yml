@@ -2,8 +2,8 @@ name: daily predictions
 
 on:
   schedule:
-    - cron: '0 14 * * *'      # 14:00 UTC = 10am ET
-  workflow_dispatch:           # lets you run it manually
+    - cron: '0 14 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,9 +19,12 @@ jobs:
           python-version: '3.11'
 
       - name: install deps
-        run: pip install pandas numpy scikit-learn lxml html5lib
+        run: pip install pandas numpy lxml html5lib
 
       - name: run predictions
+        env:
+          SEASON: ${{ vars.SEASON || 2027 }}
+          TEST_DATE: ${{ vars.TEST_DATE }}
         run: python predict.py
 
       - name: commit
