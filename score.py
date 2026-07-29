@@ -1,8 +1,8 @@
 """Grade past predictions against actual results."""
-import json, glob, time
+import json, glob, time, os
 import pandas as pd
 
-SEASON = 2027
+SEASON = int(os.environ.get("SEASON", 2027))
 MONTHS = ["october","november","december","january","february","march","april"]
 
 def fetch(year):
@@ -47,7 +47,6 @@ d = pd.DataFrame(rows)
 d["conf"] = d["p_home"].apply(lambda x: max(x, 1-x))
 
 print(f"{d['correct'].sum()} / {len(d)} = {d['correct'].mean():.1%}")
-print(f"baseline (always home): {(d['pick'] == d['home']).mean():.1%} of picks were home")
 print()
 bins = pd.cut(d["conf"], [0.5,0.6,0.7,1.0])
 print(d.groupby(bins, observed=True)["correct"].agg(["mean","count"]).round(3))
