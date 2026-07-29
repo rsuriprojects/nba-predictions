@@ -1,0 +1,112 @@
+[
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382390+00:00",
+    "game_date": "2024-01-15",
+    "away": "Indiana Pacers",
+    "home": "Utah Jazz",
+    "home_elo": 1542.1,
+    "away_elo": 1551.2,
+    "p_home": 0.5927,
+    "pick": "Utah Jazz"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382429+00:00",
+    "game_date": "2024-01-15",
+    "away": "Boston Celtics",
+    "home": "Toronto Raptors",
+    "home_elo": 1442.1,
+    "away_elo": 1635.4,
+    "p_home": 0.3306,
+    "pick": "Boston Celtics"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382441+00:00",
+    "game_date": "2024-01-15",
+    "away": "Miami Heat",
+    "home": "Brooklyn Nets",
+    "home_elo": 1443.3,
+    "away_elo": 1546.3,
+    "p_home": 0.5118,
+    "pick": "Brooklyn Nets"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382452+00:00",
+    "game_date": "2024-01-15",
+    "away": "Chicago Bulls",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1544.2,
+    "away_elo": 1492.4,
+    "p_home": 0.6378,
+    "pick": "Cleveland Cavaliers"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382463+00:00",
+    "game_date": "2024-01-15",
+    "away": "Golden State Warriors",
+    "home": "Memphis Grizzlies",
+    "home_elo": 1459.9,
+    "away_elo": 1470.0,
+    "p_home": 0.5321,
+    "pick": "Memphis Grizzlies"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382474+00:00",
+    "game_date": "2024-01-15",
+    "away": "New Orleans Pelicans",
+    "home": "Dallas Mavericks",
+    "home_elo": 1521.1,
+    "away_elo": 1564.8,
+    "p_home": 0.4908,
+    "pick": "New Orleans Pelicans"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382484+00:00",
+    "game_date": "2024-01-15",
+    "away": "Detroit Pistons",
+    "home": "Washington Wizards",
+    "home_elo": 1362.0,
+    "away_elo": 1283.2,
+    "p_home": 0.6297,
+    "pick": "Washington Wizards"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382501+00:00",
+    "game_date": "2024-01-15",
+    "away": "Orlando Magic",
+    "home": "New York Knicks",
+    "home_elo": 1566.0,
+    "away_elo": 1513.1,
+    "p_home": 0.6079,
+    "pick": "New York Knicks"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382514+00:00",
+    "game_date": "2024-01-15",
+    "away": "Houston Rockets",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1550.9,
+    "away_elo": 1488.9,
+    "p_home": 0.634,
+    "pick": "Philadelphia 76ers"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382525+00:00",
+    "game_date": "2024-01-15",
+    "away": "Oklahoma City Thunder",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1479.2,
+    "away_elo": 1607.0,
+    "p_home": 0.3893,
+    "pick": "Oklahoma City Thunder"
+  },
+  {
+    "logged_at_utc": "2026-07-29T15:45:18.382537+00:00",
+    "game_date": "2024-01-15",
+    "away": "San Antonio Spurs",
+    "home": "Atlanta Hawks",
+    "home_elo": 1439.7,
+    "away_elo": 1345.2,
+    "p_home": 0.6553,
+    "pick": "Atlanta Hawks"
+  }
+]
