@@ -29,23 +29,37 @@ if len(res) == 0:
     print("no finished games yet")
     raise SystemExit
 
-actual = {(str(r.date.date()), r.home, r.away):
-          (r.home if r.home_pts > r.away_pts else r.away) for r in res.itertuples()}
+actual = {}
+for r in res.itertuples():
+    actual[(str(r.date.date()), r.home, r.away)] = {
+        "home_pts": int(r.home_pts),
+        "away_pts": int(r.away_pts),
+        "winner": r.home if r.home_pts > r.away_pts else r.away,
+    }
 
 rows = []
 for f in sorted(glob.glob("predictions/*.json")):
     for p in json.load(open(f)):
-        win = actual.get((p["game_date"], p["home"], p["away"]))
-        if win:
-            rows.append({**p, "actual": win, "correct": p["pick"] == win})
+        a = actual.get((p["game_date"], p["home"], p["away"]))
+        if not a:
+            continue
+        rows.append({
+            "game_date": p["game_date"],
+            "away": p["away"], "home": p["home"],
+            "pick": p["pick"],
+            "p_home": p["p_home"],
+            "conf": round(max(p["p_home"], 1 - p["p_home"]), 4),
+            "away_pts": a["away_pts"], "home_pts": a["home_pts"],
+            "margin": a["home_pts"] - a["away_pts"],
+            "winner": a["winner"],
+            "correct": p["pick"] == a["winner"],
+        })
 
 if not rows:
     print("no graded games yet")
     raise SystemExit
 
-d = pd.DataFrame(rows)
-d["conf"] = d["p_home"].apply(lambda x: max(x, 1-x))
-
+d = pd.DataFrame(rows).sort_values("game_date")
 print(f"{d['correct'].sum()} / {len(d)} = {d['correct'].mean():.1%}")
 print()
 bins = pd.cut(d["conf"], [0.5,0.6,0.7,1.0])
