@@ -36,7 +36,8 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add predictions/ results.csv
-          git diff --staged --quiet || git commit -m "predictions $(date -u +%Y-%m-%d)"
-          git pull --rebase
+          git add -A
+          git diff --staged --quiet && echo "nothing to commit" && exit 0
+          git commit -m "predictions $(date -u +%Y-%m-%d)"
+          git pull --rebase || true
           git push
