@@ -6,7 +6,7 @@ import pandas as pd, numpy as np
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
 MONTHS = ["october","november","december","january","february","march","april"]
-BASE, K, HCA = 1500, 20, 65
+BASE, K, HCA, CARRY = 1500, 20, 65, 0.75
 
 def fetch_season(year):
     frames = []
@@ -18,7 +18,6 @@ def fetch_season(year):
             pass
         time.sleep(3)
     if not frames:
-        print(f"no schedule pages for {year} yet")
         return pd.DataFrame()
     df = pd.concat(frames, ignore_index=True)
     df = df.rename(columns={"Visitor/Neutral":"away","PTS":"away_pts",
@@ -29,8 +28,7 @@ def fetch_season(year):
     df["home_pts"] = pd.to_numeric(df["home_pts"], errors="coerce")
     return df.dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
 
-def elo_from(played):
-    r = {}
+def update_elo(r, played):
     for g in played.itertuples():
         rh, ra = r.get(g.home, BASE), r.get(g.away, BASE)
         exp = 1/(1+10**(-((rh+HCA)-ra)/400))
@@ -50,6 +48,16 @@ def main():
     today = pd.Timestamp(TEST_DATE) if TEST_DATE else \
             pd.Timestamp(datetime.now(timezone.utc) - timedelta(hours=5)).normalize()
 
+    # --- carry over last season's ratings ---
+    prev = fetch_season(SEASON - 1)
+    elo = {}
+    if len(prev):
+        elo = update_elo({}, prev.dropna(subset=["home_pts","away_pts"]))
+        elo = {t: BASE + CARRY*(v - BASE) for t, v in elo.items()}
+        print(f"carried {len(elo)} ratings from {SEASON-1}")
+    else:
+        print(f"no {SEASON-1} data; starting everyone at {BASE}")
+
     sched = fetch_season(SEASON)
     if len(sched) == 0:
         print("nothing to predict")
@@ -63,7 +71,7 @@ def main():
         print(f"no games on {today.date()}")
         return
 
-    elo  = elo_from(played)
+    elo  = update_elo(elo, played)
     rest = rest_days(played, today)
 
     W  = np.array([0.6109, 0.0868, -0.0450, -0.0933, 0.0850])
