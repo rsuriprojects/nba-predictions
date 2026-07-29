@@ -5,7 +5,7 @@
 <title>NBA Predictions</title>
 <style>
   body { background:#111; color:#eee; font-family:system-ui,sans-serif; max-width:700px; margin:40px auto; padding:0 16px; }
-  h1 { font-weight:600; }
+  h1, h2 { font-weight:600; }
   .game { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #2a2a2a; }
   .pick { color:#6ee7a8; font-weight:600; }
   .conf { color:#888; font-variant-numeric:tabular-nums; }
@@ -17,8 +17,12 @@
 <p class="muted" id="date"></p>
 <div id="games">loading…</div>
 
+<h2 style="margin-top:40px;">Track record</h2>
+<div id="record" class="muted">loading…</div>
+
 <script>
-const today = "2024-01-15";
+const today = new Date().toISOString().slice(0,10);
+
 fetch(`predictions/${today}.json`)
   .then(r => { if(!r.ok) throw 0; return r.json(); })
   .then(rows => {
@@ -31,6 +35,22 @@ fetch(`predictions/${today}.json`)
   })
   .catch(() => {
     document.getElementById('games').innerHTML = '<p class="muted">No games today.</p>';
+  });
+
+fetch('results.csv')
+  .then(r => { if(!r.ok) throw 0; return r.text(); })
+  .then(txt => {
+    const lines = txt.trim().split('\n');
+    const ci = lines[0].split(',').indexOf('correct');
+    const rows = lines.slice(1).map(l => l.split(','));
+    const n = rows.length;
+    const right = rows.filter(r => r[ci].toLowerCase() === 'true').length;
+    document.getElementById('record').innerHTML =
+      `<p style="color:#eee;font-size:24px;">${right} / ${n} correct
+       <span style="color:#6ee7a8;">(${(right/n*100).toFixed(1)}%)</span></p>`;
+  })
+  .catch(() => {
+    document.getElementById('record').textContent = 'No completed games yet.';
   });
 </script>
 </body>
