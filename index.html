@@ -18,7 +18,7 @@
 <div id="games">loading…</div>
 
 <script>
-const today = new Date().toISOString().slice(0,10);
+const today = "2024-01-15";
 fetch(`predictions/${today}.json`)
   .then(r => { if(!r.ok) throw 0; return r.json(); })
   .then(rows => {
