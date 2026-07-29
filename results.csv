@@ -1,15 +1,15 @@
-logged_at_utc,game_date,away,home,home_elo,away_elo,p_home,pick,actual,correct,conf
-2026-07-29T15:45:18.382390+00:00,2024-01-15,Indiana Pacers,Utah Jazz,1542.1,1551.2,0.5927,Utah Jazz,Utah Jazz,True,0.5927
-2026-07-29T15:45:18.382429+00:00,2024-01-15,Boston Celtics,Toronto Raptors,1442.1,1635.4,0.3306,Boston Celtics,Boston Celtics,True,0.6694
-2026-07-29T15:45:18.382441+00:00,2024-01-15,Miami Heat,Brooklyn Nets,1443.3,1546.3,0.5118,Brooklyn Nets,Miami Heat,False,0.5118
-2026-07-29T15:45:18.382452+00:00,2024-01-15,Chicago Bulls,Cleveland Cavaliers,1544.2,1492.4,0.6378,Cleveland Cavaliers,Cleveland Cavaliers,True,0.6378
-2026-07-29T15:45:18.382463+00:00,2024-01-15,Golden State Warriors,Memphis Grizzlies,1459.9,1470.0,0.5321,Memphis Grizzlies,Memphis Grizzlies,True,0.5321
-2026-07-29T15:45:18.382474+00:00,2024-01-15,New Orleans Pelicans,Dallas Mavericks,1521.1,1564.8,0.4908,New Orleans Pelicans,Dallas Mavericks,False,0.5092
-2026-07-29T15:45:18.382484+00:00,2024-01-15,Detroit Pistons,Washington Wizards,1362.0,1283.2,0.6297,Washington Wizards,Detroit Pistons,False,0.6297
-2026-07-29T15:45:18.382501+00:00,2024-01-15,Orlando Magic,New York Knicks,1566.0,1513.1,0.6079,New York Knicks,Orlando Magic,False,0.6079
-2026-07-29T15:45:18.382514+00:00,2024-01-15,Houston Rockets,Philadelphia 76ers,1550.9,1488.9,0.634,Philadelphia 76ers,Philadelphia 76ers,True,0.634
-2026-07-29T15:45:18.382525+00:00,2024-01-15,Oklahoma City Thunder,Los Angeles Lakers,1479.2,1607.0,0.3893,Oklahoma City Thunder,Los Angeles Lakers,False,0.6107
-2026-07-29T15:45:18.382537+00:00,2024-01-15,San Antonio Spurs,Atlanta Hawks,1439.7,1345.2,0.6553,Atlanta Hawks,Atlanta Hawks,True,0.6553
-2026-07-29T16:17:26.481754+00:00,2024-01-16,Sacramento Kings,Phoenix Suns,1507.1,1532.0,0.5139,Phoenix Suns,Phoenix Suns,True,0.5139
-2026-07-29T16:17:26.481789+00:00,2024-01-16,Oklahoma City Thunder,Los Angeles Clippers,1588.1,1595.3,0.595,Los Angeles Clippers,Los Angeles Clippers,True,0.595
-2026-07-29T16:17:26.481798+00:00,2024-01-16,Denver Nuggets,Philadelphia 76ers,1557.4,1586.2,0.4359,Denver Nuggets,Philadelphia 76ers,False,0.5641
+game_date,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner,correct
+2024-01-15,Indiana Pacers,Utah Jazz,Utah Jazz,0.5927,0.5927,105,132,27,Utah Jazz,True
+2024-01-15,Boston Celtics,Toronto Raptors,Boston Celtics,0.3306,0.6694,105,96,-9,Boston Celtics,True
+2024-01-15,Miami Heat,Brooklyn Nets,Brooklyn Nets,0.5118,0.5118,96,95,-1,Miami Heat,False
+2024-01-15,Chicago Bulls,Cleveland Cavaliers,Cleveland Cavaliers,0.6378,0.6378,91,109,18,Cleveland Cavaliers,True
+2024-01-15,Golden State Warriors,Memphis Grizzlies,Memphis Grizzlies,0.5321,0.5321,107,116,9,Memphis Grizzlies,True
+2024-01-15,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,0.4908,0.5092,120,125,5,Dallas Mavericks,False
+2024-01-15,Detroit Pistons,Washington Wizards,Washington Wizards,0.6297,0.6297,129,117,-12,Detroit Pistons,False
+2024-01-15,Orlando Magic,New York Knicks,New York Knicks,0.6079,0.6079,98,94,-4,Orlando Magic,False
+2024-01-15,Houston Rockets,Philadelphia 76ers,Philadelphia 76ers,0.634,0.634,115,124,9,Philadelphia 76ers,True
+2024-01-15,Oklahoma City Thunder,Los Angeles Lakers,Oklahoma City Thunder,0.3893,0.6107,105,112,7,Los Angeles Lakers,False
+2024-01-15,San Antonio Spurs,Atlanta Hawks,Atlanta Hawks,0.6553,0.6553,99,109,10,Atlanta Hawks,True
+2024-01-16,Sacramento Kings,Phoenix Suns,Phoenix Suns,0.5139,0.5139,117,119,2,Phoenix Suns,True
+2024-01-16,Oklahoma City Thunder,Los Angeles Clippers,Los Angeles Clippers,0.595,0.595,117,128,11,Los Angeles Clippers,True
+2024-01-16,Denver Nuggets,Philadelphia 76ers,Denver Nuggets,0.4359,0.5641,121,126,5,Philadelphia 76ers,False
