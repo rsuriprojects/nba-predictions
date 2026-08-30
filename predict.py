@@ -3,6 +3,8 @@ import json, os, time
 from datetime import datetime, timezone, timedelta
 import pandas as pd, numpy as np
 
+from nba_source import fetch_preseason
+
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
 MONTHS = ["october","november","december","january","february","march","april"]
@@ -48,6 +50,12 @@ def rest_days(played, today):
         last[g.away] = g.date
     return {t: min((today - d).days, 7) for t, d in last.items()}
 
+def games_on(sched, today):
+    """Rows of sched happening on `today`. Safe on an empty table."""
+    if len(sched) == 0:
+        return sched
+    return sched[sched["date"] == today]
+
 def main():
     # Both branches must produce a timezone-NAIVE timestamp, because the dates
     # scraped from Basketball Reference are naive and pandas refuses to compare
@@ -68,20 +76,26 @@ def main():
     else:
         print(f"no {SEASON-1} data; starting everyone at {BASE}")
 
+    # Regular season comes from Basketball Reference; preseason from NBA.com,
+    # because Basketball Reference does not publish preseason games.
     sched = fetch_season(SEASON)
-    if len(sched) == 0:
-        print("nothing to predict")
-        return
+    pre   = fetch_preseason(SEASON)
 
-    played = sched.dropna(subset=["home_pts","away_pts"])
-    played = played[played["date"] < today]
-    slate  = sched[sched["date"] == today]
+    slate_reg = games_on(sched, today)
+    slate_pre = games_on(pre, today)
 
-    print(f"{len(sched)} scheduled games, {len(played)} already played")
+    print(f"{len(sched)} regular-season games scheduled, {len(pre)} preseason")
 
-    if len(slate) == 0:
+    if len(slate_reg) == 0 and len(slate_pre) == 0:
         print(f"no games on {today.date()}")
         return
+
+    # IMPORTANT: only regular-season results update Elo. Preseason outcomes are
+    # noise (starters play ~15 minutes) and letting them move the ratings would
+    # corrupt the regular-season record this project exists to keep.
+    played = sched.dropna(subset=["home_pts","away_pts"]) if len(sched) else sched
+    if len(played):
+        played = played[played["date"] < today]
 
     elo  = update_elo(elo, played)
     rest = rest_days(played, today)
@@ -91,21 +105,26 @@ def main():
     SD = np.array([124.3, 1.3, 1.3, 0.41, 0.41])
     B  = 0.18
 
-    rows = []
-    for g in slate.itertuples():
-        rh, ra = elo.get(g.home, BASE), elo.get(g.away, BASE)
-        hr = rest.get(g.home, 3); ar = rest.get(g.away, 3)
-        x = np.array([rh-ra, hr, ar, int(hr<=1), int(ar<=1)])
-        z = np.dot((x-MU)/SD, W) + B
-        p = 1/(1+np.exp(-z))
-        rows.append({
-            "logged_at_utc": datetime.now(timezone.utc).isoformat(),
-            "game_date": str(today.date()),
-            "away": g.away, "home": g.home,
-            "home_elo": round(rh,1), "away_elo": round(ra,1),
-            "p_home": round(float(p),4),
-            "pick": g.home if p > 0.5 else g.away,
-        })
+    def predict(slate, season_type):
+        out = []
+        for g in slate.itertuples():
+            rh, ra = elo.get(g.home, BASE), elo.get(g.away, BASE)
+            hr = rest.get(g.home, 3); ar = rest.get(g.away, 3)
+            x = np.array([rh-ra, hr, ar, int(hr<=1), int(ar<=1)])
+            z = np.dot((x-MU)/SD, W) + B
+            p = 1/(1+np.exp(-z))
+            out.append({
+                "logged_at_utc": datetime.now(timezone.utc).isoformat(),
+                "game_date": str(today.date()),
+                "season_type": season_type,
+                "away": g.away, "home": g.home,
+                "home_elo": round(rh,1), "away_elo": round(ra,1),
+                "p_home": round(float(p),4),
+                "pick": g.home if p > 0.5 else g.away,
+            })
+        return out
+
+    rows = predict(slate_reg, "regular") + predict(slate_pre, "preseason")
 
     os.makedirs("predictions", exist_ok=True)
     path = f"predictions/{today.date()}.json"
@@ -114,7 +133,8 @@ def main():
 
     print(f"wrote {len(rows)} predictions to {path}")
     for r in rows:
-        print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}")
+        tag = "" if r["season_type"] == "regular" else " [preseason]"
+        print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{tag}")
 
 if __name__ == "__main__":
     main()
