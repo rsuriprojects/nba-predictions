@@ -21,16 +21,21 @@ CDN_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
 DATA_URL = ("https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/"
             "{year}/league/00_full_schedule.json")
 
-HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                   "AppleWebKit/537.36 (KHTML, like Gecko) "
-                   "Chrome/126.0.0.0 Safari/537.36"),
-    "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer": "https://www.nba.com/",
-    "Origin": "https://www.nba.com",
-    "Connection": "keep-alive",
-}
+# Three header sets, tried in order. A plain urllib request often succeeds
+# where a fake browser User-Agent from a datacenter IP gets blocked as a
+# scraper, so we start honest and only then try to look like a browser.
+# Whichever works gets reported in the log.
+HEADER_SETS = [
+    ("default", {}),
+    ("simple", {"User-Agent": "nba-predictions/1.0 (+github actions)"}),
+    ("browser", {
+        "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/126.0.0.0 Safari/537.36"),
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.9",
+    }),
+]
 
 COLS = ["date", "away", "home", "away_pts", "home_pts"]
 
@@ -69,9 +74,31 @@ def empty():
 
 
 def _get_json(url):
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    """Fetch JSON, trying each header set until one is accepted.
+
+    Sites are picky in different ways, so this reports what happened with each
+    attempt rather than failing silently on the first refusal.
+    """
+    errors = []
+    for label, headers in HEADER_SETS:
+        # Send a Referer matching the site we are actually calling. Sending
+        # nba.com's Referer to ESPN is itself a good way to earn a 403.
+        h = dict(headers)
+        if label == "browser":
+            host = url.split("/")[2]
+            root = "nba.com" if "nba.com" in host else host
+            h["Referer"] = f"https://www.{root}/"
+
+        try:
+            req = urllib.request.Request(url, headers=h)
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                if label != "default":
+                    print(f"  ({label} headers worked)")
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            errors.append(f"{label}: {e}")
+
+    raise RuntimeError("; ".join(errors))
 
 
 def _is_preseason(game_id):
