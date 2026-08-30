@@ -18,6 +18,11 @@
   .ok { color:#6ee7a8; }
   .no { color:#f08a8a; }
   .num { text-align:right; font-variant-numeric:tabular-nums; }
+  .tag { font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+         color:#c9a227; border:1px solid #5a4a12; border-radius:3px;
+         padding:1px 5px; margin-left:8px; }
+  .aside { border-left:2px solid #2a2a2a; padding-left:14px; margin-top:10px; }
+  .note { font-size:13px; color:#777; margin:6px 0 14px; }
 </style>
 </head>
 <body>
@@ -31,8 +36,14 @@
 <h2>Recent games</h2>
 <div id="recent" class="muted">loading…</div>
 
+<div id="preseason-section"></div>
+
 <script>
 const today = new Date().toISOString().slice(0,10);
+
+// Predictions logged before preseason support existed have no season_type.
+// Those are all regular season.
+const typeOf = r => (r.season_type || 'regular');
 
 fetch(`predictions/${today}.json`)
   .then(r => { if(!r.ok) throw 0; return r.json(); })
@@ -40,7 +51,7 @@ fetch(`predictions/${today}.json`)
     document.getElementById('date').textContent = rows[0].game_date;
     document.getElementById('games').innerHTML = rows.map(r => `
       <div class="game">
-        <span>${r.away} @ ${r.home}</span>
+        <span>${r.away} @ ${r.home}${typeOf(r)==='preseason' ? '<span class="tag">preseason</span>' : ''}</span>
         <span><span class="pick">${r.pick}</span> <span class="conf">${(Math.max(r.p_home,1-r.p_home)*100).toFixed(0)}%</span></span>
       </div>`).join('');
   })
@@ -59,33 +70,61 @@ function parseCSV(txt){
   });
 }
 
+function gamesTable(rows){
+  return `
+    <table>
+      <tr><th>Date</th><th>Game</th><th>Pick</th><th class="num">Conf</th><th>Result</th><th class="num">By</th><th></th></tr>
+      ${rows.map(r => {
+        const ok = r.correct.toLowerCase() === 'true';
+        const margin = Math.abs(parseInt(r.margin));
+        return `<tr>
+          <td class="muted">${r.game_date.slice(5)}</td>
+          <td>${r.away} @ ${r.home}</td>
+          <td>${r.pick}</td>
+          <td class="num muted">${(parseFloat(r.conf)*100).toFixed(0)}%</td>
+          <td>${r.winner}</td>
+          <td class="num muted">${margin}</td>
+          <td class="${ok?'ok':'no'}">${ok?'✓':'✗'}</td>
+        </tr>`;
+      }).join('')}
+    </table>`;
+}
+
 fetch('results.csv')
   .then(r => { if(!r.ok) throw 0; return r.text(); })
   .then(txt => {
-    const rows = parseCSV(txt);
-    const n = rows.length;
-    const right = rows.filter(r => r.correct.toLowerCase() === 'true').length;
-    document.getElementById('record').innerHTML =
-      `<p class="big" style="color:#eee;">${right} / ${n} correct <span class="ok">(${(right/n*100).toFixed(1)}%)</span></p>`;
+    const all = parseCSV(txt);
+    const reg = all.filter(r => typeOf(r) === 'regular');
+    const pre = all.filter(r => typeOf(r) === 'preseason');
 
-    const recent = rows.slice(-25).reverse();
-    document.getElementById('recent').innerHTML = `
-      <table>
-        <tr><th>Date</th><th>Game</th><th>Pick</th><th class="num">Conf</th><th>Result</th><th class="num">By</th><th></th></tr>
-        ${recent.map(r => {
-          const ok = r.correct.toLowerCase() === 'true';
-          const margin = Math.abs(parseInt(r.margin));
-          return `<tr>
-            <td class="muted">${r.game_date.slice(5)}</td>
-            <td>${r.away} @ ${r.home}</td>
-            <td>${r.pick}</td>
-            <td class="num muted">${(parseFloat(r.conf)*100).toFixed(0)}%</td>
-            <td>${r.winner}</td>
-            <td class="num muted">${margin}</td>
-            <td class="${ok?'ok':'no'}">${ok?'✓':'✗'}</td>
-          </tr>`;
-        }).join('')}
-      </table>`;
+    // The headline record is regular season only.
+    if (reg.length) {
+      const right = reg.filter(r => r.correct.toLowerCase() === 'true').length;
+      document.getElementById('record').innerHTML =
+        `<p class="big" style="color:#eee;">${right} / ${reg.length} correct <span class="ok">(${(right/reg.length*100).toFixed(1)}%)</span></p>
+         <p class="note">Regular-season games only.</p>`;
+      document.getElementById('recent').innerHTML = gamesTable(reg.slice(-25).reverse());
+    } else {
+      document.getElementById('record').textContent = 'No completed regular-season games yet.';
+      document.getElementById('recent').textContent = '';
+    }
+
+    // Preseason gets its own section, kept out of the record above.
+    if (pre.length) {
+      const right = pre.filter(r => r.correct.toLowerCase() === 'true').length;
+      document.getElementById('preseason-section').innerHTML = `
+        <h2>Preseason <span class="tag">not part of the record</span></h2>
+        <div class="aside">
+          <p class="note">
+            Preseason picks are logged and graded, but scored separately. Ratings
+            carried from last season describe rosters that have since changed, and
+            starters play about 15 minutes, so these games say little about the
+            model. They are here for the sake of a complete log, not as a test.
+          </p>
+          <p style="color:#eee;">${right} / ${pre.length} correct (${(right/pre.length*100).toFixed(1)}%)</p>
+          ${gamesTable(pre.slice(-25).reverse())}
+        </div>`;
+    }
   })
   .catch(() => {
     document.getElementById('record').textContent = 'No completed games yet.';
