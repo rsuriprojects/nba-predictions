@@ -24,8 +24,12 @@ def fetch_season(year):
                             "Home/Neutral":"home","PTS.1":"home_pts"})
     df = df[df["Date"] != "Date"]
     df["date"] = pd.to_datetime(df["Date"], format="%a, %b %d, %Y", errors="coerce")
-    df["away_pts"] = pd.to_numeric(df["away_pts"], errors="coerce")
-    df["home_pts"] = pd.to_numeric(df["home_pts"], errors="coerce")
+    # A schedule with no results yet may not have PTS columns at all.
+    # Create them as empty so the rest of the code has something to work with.
+    for col in ("away_pts", "home_pts"):
+        if col not in df.columns:
+            df[col] = np.nan
+        df[col] = pd.to_numeric(df[col], errors="coerce")
     return df.dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
 
 def update_elo(r, played):
@@ -45,8 +49,14 @@ def rest_days(played, today):
     return {t: min((today - d).days, 7) for t, d in last.items()}
 
 def main():
-    today = pd.Timestamp(TEST_DATE) if TEST_DATE else \
-            pd.Timestamp(datetime.now(timezone.utc) - timedelta(hours=5)).normalize()
+    # Both branches must produce a timezone-NAIVE timestamp, because the dates
+    # scraped from Basketball Reference are naive and pandas refuses to compare
+    # naive against aware.
+    if TEST_DATE:
+        today = pd.Timestamp(TEST_DATE).normalize()
+    else:
+        et_now = datetime.now(timezone.utc) - timedelta(hours=5)   # shift to US Eastern
+        today = pd.Timestamp(et_now).tz_localize(None).normalize()  # drop the UTC label
 
     # --- carry over last season's ratings ---
     prev = fetch_season(SEASON - 1)
@@ -66,6 +76,8 @@ def main():
     played = sched.dropna(subset=["home_pts","away_pts"])
     played = played[played["date"] < today]
     slate  = sched[sched["date"] == today]
+
+    print(f"{len(sched)} scheduled games, {len(played)} already played")
 
     if len(slate) == 0:
         print(f"no games on {today.date()}")
