@@ -1,25 +1,26 @@
-"""Preseason schedule + results from NBA.com's public schedule JSON.
+"""Preseason schedule + results.
 
 Basketball Reference does not publish preseason games at all, so this is a
 separate data source used ONLY for preseason. The regular season still comes
 from Basketball Reference.
 
-Two endpoints are tried in order, because NBA.com blocks some cloud IPs and
-the two are served by different infrastructure. Both carry the same games in
-different shapes. If both fail we print a warning and return nothing, so the
-regular-season pipeline is never broken by a preseason problem.
+Three endpoints are tried in order. ESPN comes first because NBA.com blocks
+GitHub Actions IP addresses; the two NBA.com URLs are kept as fallbacks in
+case that ever changes or ESPN goes down. If all three fail we print a warning
+and return nothing, so the regular-season pipeline is never broken by a
+preseason problem.
 """
 import json
 import urllib.request
 import pandas as pd
 import numpy as np
 
+ESPN_URL = ("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/"
+            "scoreboard?dates={start}-{end}&seasontype=1&limit=1000")
 CDN_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
 DATA_URL = ("https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/"
             "{year}/league/00_full_schedule.json")
 
-# NBA.com returns 403 to requests that don't look like a browser. A User-Agent
-# alone is not enough; it also wants to see that we came from nba.com.
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                    "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -33,10 +34,8 @@ HEADERS = {
 
 COLS = ["date", "away", "home", "away_pts", "home_pts"]
 
-# NBA.com identifies teams by three-letter code; Basketball Reference uses full
-# names, and our Elo ratings are keyed by the Basketball Reference name. This
-# map is the bridge. Anything not in here (international clubs that show up in
-# preseason, for example) gets skipped.
+# Our Elo ratings are keyed by the Basketball Reference team name, so every
+# other source has to be translated into those names.
 TRICODE = {
     "ATL": "Atlanta Hawks",          "BOS": "Boston Celtics",
     "BKN": "Brooklyn Nets",          "CHA": "Charlotte Hornets",
@@ -55,6 +54,14 @@ TRICODE = {
     "UTA": "Utah Jazz",              "WAS": "Washington Wizards",
 }
 
+# ESPN spells a few teams differently from Basketball Reference.
+ESPN_ALIAS = {
+    "LA Clippers": "Los Angeles Clippers",
+}
+
+# Every valid Basketball Reference name, for checking ESPN's full team names.
+BR_NAMES = set(TRICODE.values())
+
 
 def empty():
     """An empty table with the right columns, so callers can treat it normally."""
@@ -68,13 +75,65 @@ def _get_json(url):
 
 
 def _is_preseason(game_id):
-    # Game IDs look like 0012600001. The third character is the game type:
-    # 1 = preseason, 2 = regular season, 4 = playoffs.
+    # NBA.com game IDs look like 0012600001. The third character is the game
+    # type: 1 = preseason, 2 = regular season, 4 = playoffs.
     return len(game_id) >= 3 and game_id[2] == "1"
 
 
+def _eastern_date(iso):
+    """ESPN timestamps are UTC. Convert to the Eastern calendar date."""
+    ts = pd.to_datetime(iso)
+    try:
+        return ts.tz_convert("America/New_York").tz_localize(None).normalize()
+    except Exception:
+        # If timezone data isn't installed, shift by hand. Any offset in the
+        # 4-7 hour range lands evening games on the right Eastern date.
+        return (ts.tz_localize(None) - pd.Timedelta(hours=6)).normalize()
+
+
+def _parse_espn(data, season, skipped):
+    rows = []
+    for event in data.get("events", []):
+        if event.get("season", {}).get("type") != 1:   # 1 = preseason
+            continue
+
+        comps = event.get("competitions", [])
+        if not comps:
+            continue
+        comp = comps[0]
+
+        try:
+            date = _eastern_date(event.get("date"))
+        except Exception:
+            continue
+
+        done = comp.get("status", {}).get("type", {}).get("completed", False)
+
+        side = {}
+        for c in comp.get("competitors", []):
+            team = c.get("team", {})
+            name = team.get("displayName", "")
+            name = ESPN_ALIAS.get(name, name)
+            if name not in BR_NAMES:
+                name = TRICODE.get(team.get("abbreviation", ""))
+            if not name:
+                skipped.add(team.get("displayName") or team.get("abbreviation"))
+                continue
+
+            raw = str(c.get("score", "")).strip()
+            pts = int(raw) if (done and raw.isdigit()) else np.nan
+            side[c.get("homeAway")] = (name, pts)
+
+        if "home" not in side or "away" not in side:
+            continue
+
+        rows.append({"date": date,
+                     "away": side["away"][0], "home": side["home"][0],
+                     "away_pts": side["away"][1], "home_pts": side["home"][1]})
+    return rows
+
+
 def _parse_cdn(data, season, skipped):
-    """Parse the cdn.nba.com shape."""
     league = data.get("leagueSchedule", {})
 
     want = f"{season - 1}-{str(season)[-2:]}"          # 2027 -> "2026-27"
@@ -116,8 +175,7 @@ def _parse_cdn(data, season, skipped):
     return rows
 
 
-def _parse_data(data, skipped):
-    """Parse the older data.nba.com shape (months -> games)."""
+def _parse_data(data, season, skipped):
     rows = []
     for block in data.get("lscd", []):
         for g in block.get("mscd", {}).get("g", []):
@@ -138,8 +196,8 @@ def _parse_data(data, skipped):
                 continue
 
             # Scores are strings here, empty until the game is played.
-            def score(side):
-                s = str(g.get(side, {}).get("s", "")).strip()
+            def score(sd):
+                s = str(g.get(sd, {}).get("s", "")).strip()
                 return int(s) if s.isdigit() else np.nan
 
             rows.append({"date": date, "away": away, "home": home,
@@ -157,8 +215,13 @@ def fetch_preseason(season):
     skipped = set()
     rows = []
 
-    # data.nba.com indexes by the year the season starts: 2026-27 -> 2026.
+    # Preseason always falls in the autumn of the season's first year. This
+    # window is deliberately wide; season type is what actually filters.
+    start = f"{season - 1}0915"
+    end = f"{season - 1}1115"
+
     attempts = [
+        ("ESPN", ESPN_URL.format(start=start, end=end), _parse_espn),
         ("cdn.nba.com", CDN_URL, _parse_cdn),
         ("data.nba.com", DATA_URL.format(year=season - 1), _parse_data),
     ]
@@ -171,8 +234,7 @@ def fetch_preseason(season):
             continue
 
         try:
-            rows = parse(data, season, skipped) if parse is _parse_cdn \
-                   else parse(data, skipped)
+            rows = parse(data, season, skipped)
         except Exception as e:
             print(f"could not parse {name} ({e})")
             continue
@@ -180,15 +242,18 @@ def fetch_preseason(season):
         if rows:
             print(f"preseason source: {name}")
             break
+        print(f"{name} returned no preseason games")
 
     if skipped:
-        print(f"skipped non-NBA preseason opponents: {', '.join(sorted(skipped))}")
+        print(f"skipped non-NBA preseason opponents: "
+              f"{', '.join(sorted(str(s) for s in skipped))}")
 
     if not rows:
-        print("WARNING: no preseason games available from NBA.com")
+        print("WARNING: no preseason games available")
         return empty()
 
     df = pd.DataFrame(rows, columns=COLS)
     df["away_pts"] = pd.to_numeric(df["away_pts"], errors="coerce")
     df["home_pts"] = pd.to_numeric(df["home_pts"], errors="coerce")
-    return df.sort_values("date").reset_index(drop=True)
+    return df.drop_duplicates(subset=["date", "home", "away"]) \
+             .sort_values("date").reset_index(drop=True)
