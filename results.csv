@@ -1,0 +1,6 @@
+game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner,correct
+2026-10-10,preseason,Philadelphia 76ers,Boston Celtics,Boston Celtics,0.6218,0.6218,106,144,38,Boston Celtics,True
+2026-10-10,preseason,Minnesota Timberwolves,Miami Heat,Minnesota Timberwolves,0.4724,0.5276,125,124,-1,Minnesota Timberwolves,True
+2026-10-10,preseason,Atlanta Hawks,Indiana Pacers,Atlanta Hawks,0.344,0.656,119,117,-2,Atlanta Hawks,True
+2026-10-10,preseason,Los Angeles Clippers,Toronto Raptors,Toronto Raptors,0.5644,0.5644,106,114,8,Toronto Raptors,True
+2026-10-10,preseason,Detroit Pistons,Washington Wizards,Detroit Pistons,0.2405,0.7595,108,114,6,Washington Wizards,False
