@@ -17,6 +17,8 @@ import numpy as np
 
 ESPN_URL = ("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/"
             "scoreboard?dates={start}-{end}&seasontype=1&limit=1000")
+ESPN_DAY_URL = ("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/"
+                "scoreboard?dates={day}")
 CDN_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
 DATA_URL = ("https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/"
             "{year}/league/00_full_schedule.json")
@@ -99,6 +101,34 @@ def _get_json(url):
             errors.append(f"{label}: {e}")
 
     raise RuntimeError("; ".join(errors))
+
+
+def _get_espn(start, end):
+    """ESPN preseason scoreboard for start..end (YYYYMMDD strings).
+
+    Tries one ranged request first. Since October 2026 ESPN has answered that
+    with HTTP 400, so on failure fall back to one request per day, which is the
+    plainest form of the endpoint. Days after today are skipped: there are no
+    results for them and today's slate is all predict.py needs.
+    """
+    try:
+        return _get_json(ESPN_URL.format(start=start, end=end))
+    except Exception as e:
+        print(f"  ESPN range request failed ({e}); trying day by day")
+
+    last = min(pd.Timestamp(end), pd.Timestamp.now().normalize() + pd.Timedelta(days=1))
+    events, errors = [], []
+    for day in pd.date_range(pd.Timestamp(start), last):
+        try:
+            events += _get_json(ESPN_DAY_URL.format(day=day.strftime("%Y%m%d"))) \
+                          .get("events", [])
+        except Exception as e:
+            errors.append(f"{day.date()}: {e}")
+    if errors and not events:
+        raise RuntimeError(errors[-1])
+    if errors:
+        print(f"  ESPN failed on {len(errors)} day(s), e.g. {errors[-1]}")
+    return {"events": events}
 
 
 def _is_preseason(game_id):
@@ -248,14 +278,15 @@ def fetch_preseason(season):
     end = f"{season - 1}1115"
 
     attempts = [
-        ("ESPN", ESPN_URL.format(start=start, end=end), _parse_espn),
-        ("cdn.nba.com", CDN_URL, _parse_cdn),
-        ("data.nba.com", DATA_URL.format(year=season - 1), _parse_data),
+        ("ESPN", lambda: _get_espn(start, end), _parse_espn),
+        ("cdn.nba.com", lambda: _get_json(CDN_URL), _parse_cdn),
+        ("data.nba.com", lambda: _get_json(DATA_URL.format(year=season - 1)),
+         _parse_data),
     ]
 
-    for name, url, parse in attempts:
+    for name, fetch, parse in attempts:
         try:
-            data = _get_json(url)
+            data = fetch()
         except Exception as e:
             print(f"could not reach {name} ({e})")
             continue
