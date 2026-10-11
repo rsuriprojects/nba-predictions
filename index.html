@@ -259,6 +259,7 @@
   .rank .bar span { display: block; height: 100%; border-radius: 99px; background: var(--c); }
   .rank .el { font: 700 13px var(--mono); text-align: right; }
 
+  body.reg .phase-chips { display: none; }
   footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--ink-3); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer a { color: var(--ink-2); }
 
@@ -302,7 +303,7 @@
 
     <div class="stats">
       <div class="tile main">
-        <div class="k">Overall accuracy</div>
+        <div class="k" id="s-acc-k">Overall accuracy</div>
         <div class="v" id="s-acc">—</div>
         <div class="s" id="s-acc-sub">Waiting for the first final</div>
         <svg class="ring" viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="33"/><circle class="fill" id="ring" cx="40" cy="40" r="33" stroke-dasharray="207.3" stroke-dashoffset="207.3"/></svg>
@@ -331,6 +332,7 @@
       <button data-tab="upcoming">Upcoming<span class="count" id="c-up"></span></button>
       <button data-tab="past">Past games<span class="count" id="c-past"></span></button>
       <button data-tab="ranks">Power rankings</button>
+      <button data-tab="preseason" id="tab-pre" hidden>Preseason<span class="count" id="c-pre"></span></button>
     </div>
   </nav>
 
@@ -346,9 +348,9 @@
       <div><h2>Upcoming</h2><div class="sub">Every scheduled game, projected with today's ratings. Rebuilt every morning.</div></div>
       <div class="controls">
         <select class="chip" id="up-team"><option value="">All teams</option></select>
-        <button class="chip on" data-up="all">All</button>
+        <span class="controls phase-chips"><button class="chip on" data-up="all">All</button>
         <button class="chip" data-up="regular">Regular</button>
-        <button class="chip" data-up="preseason">Preseason</button>
+        <button class="chip" data-up="preseason">Preseason</button></span>
       </div>
     </div>
     <div id="upcoming"><div class="empty">Loading…</div></div>
@@ -357,7 +359,7 @@
   <section class="panel" id="p-past">
     <div class="panel-head">
       <div><h2>Past games</h2><div class="sub">Every graded pick, newest first.</div></div>
-      <div class="controls">
+      <div class="controls phase-chips">
         <button class="chip on" data-past="all">All</button>
         <button class="chip" data-past="regular">Regular</button>
         <button class="chip" data-past="preseason">Preseason</button>
@@ -369,6 +371,14 @@
       <div class="calib" id="calib"></div>
     </div>
     <div id="past"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="panel" id="p-preseason">
+    <div class="panel-head">
+      <div><h2>Preseason</h2><div class="sub">Logged and graded, but kept out of the main record: starters play about 15 minutes and ratings are still last year's.</div></div>
+      <div class="sub" id="pre-rec"></div>
+    </div>
+    <div id="pre-past"></div>
   </section>
 
   <section class="panel" id="p-ranks">
@@ -442,7 +452,6 @@ document.querySelectorAll(".tabbar button").forEach(b => b.onclick = () => {
   if (b.dataset.tab === "past") drawChart();
   try { localStorage.setItem("tab", b.dataset.tab); } catch (e) {}
 });
-try { const t = localStorage.getItem("tab"); if (t) document.querySelector(`[data-tab="${t}"]`)?.click(); } catch (e) {}
 
 // ---------------------------------------------------------------- game card
 function probBar(g) {
@@ -489,7 +498,7 @@ function row(g) {
 const groupBy = (rows, k) => rows.reduce((m, r) => ((m[r[k]] ||= []).push(r), m), {});
 
 // ---------------------------------------------------------------- state
-let RESULTS = [], UPCOMING = [], pastFilter = "all", upFilter = "all", upTeam = "", upShown = 10, pastShown = 7;
+let RESULTS = [], UPCOMING = [], pastFilter = "all", upFilter = "all", upTeam = "", upShown = 10, pastShown = 7, preShown = 7, REGULAR = false;
 
 // ---------------------------------------------------------------- today
 function renderToday(rows) {
@@ -511,7 +520,7 @@ function renderUpcoming() {
   const rows = UPCOMING.filter(g => g.game_date > etToday)
     .filter(g => upFilter === "all" || typeOf(g) === upFilter)
     .filter(g => !upTeam || g.home === upTeam || g.away === upTeam);
-  document.getElementById("c-up").textContent = UPCOMING.filter(g => g.game_date > etToday).length || "";
+  document.getElementById("c-up").textContent = UPCOMING.filter(g => g.game_date > etToday && (!REGULAR || typeOf(g) === "regular")).length || "";
   if (!rows.length) { el.innerHTML = `<div class="empty"><span class="big">Nothing scheduled</span>No upcoming games match.</div>`; return; }
   const days = Object.entries(groupBy(rows, "game_date"));
   el.innerHTML = days.slice(0, upShown).map(([d, gs]) => `
@@ -534,8 +543,12 @@ teamSel.onchange = () => { upTeam = teamSel.value; upShown = 10; renderUpcoming(
 // ---------------------------------------------------------------- stats + past
 function pastRows() { return RESULTS.filter(r => pastFilter === "all" || typeOf(r) === pastFilter); }
 
+// Once the regular season starts, it owns the main view and preseason moves
+// to its own tab. Before that, preseason is all there is, so it is shown.
+const mainResults = () => REGULAR ? RESULTS.filter(r => typeOf(r) === "regular") : RESULTS;
+
 function renderStats() {
-  const all = RESULTS;
+  const all = mainResults();
   const n = all.length, w = all.filter(r => r.correct).length;
   if (n) {
     document.getElementById("s-acc").innerHTML = `${(w / n * 100).toFixed(1)}<small>%</small>`;
@@ -561,21 +574,29 @@ function renderStats() {
   document.getElementById("c-past").textContent = n || "";
 }
 
-function renderPast() {
-  const el = document.getElementById("past");
-  const rows = pastRows();
-  if (!rows.length) { el.innerHTML = `<div class="empty"><span class="big">No finals yet</span>Graded games show up here the morning after.</div>`; drawChart(); renderCalib(); return; }
+function renderDays(el, rows, shown, more) {
+  if (!rows.length) { el.innerHTML = `<div class="empty"><span class="big">No finals yet</span>Graded games show up here the morning after.</div>`; return; }
   const days = Object.entries(groupBy(rows, "game_date")).sort((a, b) => b[0].localeCompare(a[0]));
-  el.innerHTML = days.slice(0, pastShown).map(([d, gs]) => {
+  el.innerHTML = days.slice(0, shown).map(([d, gs]) => {
     const w = gs.filter(g => g.correct).length;
     return `<div class="day">
       <div class="day-head"><span class="d">${relDay(d)}</span><span class="n">${fmtDay(d, { month: "short", day: "numeric" })}</span><span class="rec">${w}/${gs.length} correct</span></div>
       <div class="grid">${gs.map(g => card(g, { result: true })).join("")}</div>
     </div>`;
   }).join("") +
-    (days.length > pastShown ? `<button class="chip more" id="past-more">Show older games (${days.length - pastShown} more days)</button>` : "");
-  document.getElementById("past-more")?.addEventListener("click", () => { pastShown += 7; renderPast(); });
+    (days.length > shown ? `<button class="chip more">Show older games (${days.length - shown} more days)</button>` : "");
+  el.querySelector(".more")?.addEventListener("click", more);
+}
+function renderPast() {
+  renderDays(document.getElementById("past"), pastRows(), pastShown, () => { pastShown += 7; renderPast(); });
   drawChart(); renderCalib();
+}
+function renderPreseason() {
+  const rows = RESULTS.filter(r => typeOf(r) === "preseason");
+  const w = rows.filter(r => r.correct).length;
+  document.getElementById("c-pre").textContent = rows.length || "";
+  document.getElementById("pre-rec").textContent = rows.length ? `${w}–${rows.length - w} · ${(w / rows.length * 100).toFixed(1)}%` : "";
+  renderDays(document.getElementById("pre-past"), rows, preShown, () => { preShown += 7; renderPreseason(); });
 }
 document.querySelectorAll("[data-past]").forEach(b => b.onclick = () => {
   pastFilter = b.dataset.past; pastShown = 7;
@@ -667,7 +688,22 @@ Promise.allSettled([
     document.getElementById("updated").textContent = "Updated " + t.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   }
   const todays = today.status === "fulfilled" ? today.value : UPCOMING.filter(g => g.game_date === etToday);
+  const forced = new URLSearchParams(location.search).get("phase");
+  REGULAR = forced ? forced === "regular" :
+    RESULTS.some(r => typeOf(r) === "regular") ||
+    UPCOMING.some(g => typeOf(g) === "regular" && g.game_date <= etToday);
+  if (REGULAR) {
+    document.body.classList.add("reg");
+    pastFilter = upFilter = "regular";
+    document.getElementById("tab-pre").hidden = false;
+    document.getElementById("s-acc-k").textContent = "Regular-season accuracy";
+    renderPreseason();
+  }
   renderStats(); renderToday(todays); renderUpcoming(); renderPast(); renderRanks(U?.elo);
+  try {
+    const t = localStorage.getItem("tab"), b = document.querySelector(`[data-tab="${t}"]`);
+    if (b && !b.hidden) b.click();
+  } catch (e) {}
 });
 </script>
 </body>
