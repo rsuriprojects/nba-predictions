@@ -108,17 +108,16 @@ def _get_espn(start, end):
 
     Tries one ranged request first. Since October 2026 ESPN has answered that
     with HTTP 400, so on failure fall back to one request per day, which is the
-    plainest form of the endpoint. Days after today are skipped: there are no
-    results for them and today's slate is all predict.py needs.
+    plainest form of the endpoint. Every day in the window is fetched, future
+    ones included, so the site can list the whole preseason schedule.
     """
     try:
         return _get_json(ESPN_URL.format(start=start, end=end))
     except Exception as e:
         print(f"  ESPN range request failed ({e}); trying day by day")
 
-    last = min(pd.Timestamp(end), pd.Timestamp.now().normalize() + pd.Timedelta(days=1))
     events, errors = [], []
-    for day in pd.date_range(pd.Timestamp(start), last):
+    for day in pd.date_range(pd.Timestamp(start), pd.Timestamp(end)):
         try:
             events += _get_json(ESPN_DAY_URL.format(day=day.strftime("%Y%m%d"))) \
                           .get("events", [])
