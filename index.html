@@ -1,135 +1,674 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NBA Predictions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Court Vision · NBA Predictions</title>
+<meta name="description" content="Daily NBA game predictions from an Elo + logistic regression model, graded every morning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  body { background:#111; color:#eee; font-family:system-ui,sans-serif; max-width:760px; margin:40px auto; padding:0 16px; }
-  h1,h2 { font-weight:600; }
-  h2 { margin-top:44px; }
-  .game { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #2a2a2a; }
-  .pick { color:#6ee7a8; font-weight:600; }
-  .conf { color:#888; font-variant-numeric:tabular-nums; }
-  .muted { color:#666; }
-  .big { font-size:26px; }
-  table { width:100%; border-collapse:collapse; font-size:14px; }
-  td, th { padding:9px 6px; border-bottom:1px solid #222; text-align:left; }
-  th { color:#888; font-weight:500; }
-  .ok { color:#6ee7a8; }
-  .no { color:#f08a8a; }
-  .num { text-align:right; font-variant-numeric:tabular-nums; }
-  .tag { font-size:11px; text-transform:uppercase; letter-spacing:.06em;
-         color:#c9a227; border:1px solid #5a4a12; border-radius:3px;
-         padding:1px 5px; margin-left:8px; }
-  .aside { border-left:2px solid #2a2a2a; padding-left:14px; margin-top:10px; }
-  .note { font-size:13px; color:#777; margin:6px 0 14px; }
+  :root {
+    --bg: #07080c;
+    --bg-2: #0d0f16;
+    --card: rgba(255,255,255,.035);
+    --card-hi: rgba(255,255,255,.06);
+    --line: rgba(255,255,255,.08);
+    --line-hi: rgba(255,255,255,.16);
+    --ink: #f4f5f8;
+    --ink-2: #a9adbb;
+    --ink-3: #6b7080;
+    --accent: #ff6b1a;
+    --accent-2: #ffb347;
+    --good: #2ee59d;
+    --bad: #ff5470;
+    --radius: 18px;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --display: "Anton", Impact, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh; overflow-x: hidden;
+  }
+  /* court glow backdrop */
+  body::before {
+    content: ""; position: fixed; inset: -20vh -20vw auto; height: 90vh; z-index: -1;
+    background:
+      radial-gradient(60% 50% at 20% 10%, rgba(255,107,26,.22), transparent 60%),
+      radial-gradient(50% 45% at 85% 0%, rgba(90,110,255,.18), transparent 60%);
+    filter: blur(20px);
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header { padding: 28px 0 8px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .ball {
+    width: 38px; height: 38px; border-radius: 50%; flex: none;
+    background: radial-gradient(circle at 30% 30%, #ff9a4d, var(--accent) 55%, #b5400a);
+    box-shadow: 0 0 24px rgba(255,107,26,.55), inset -4px -4px 10px rgba(0,0,0,.35);
+    position: relative; overflow: hidden;
+  }
+  .ball::before, .ball::after {
+    content: ""; position: absolute; border: 1.5px solid rgba(0,0,0,.45); border-radius: 50%;
+  }
+  .ball::before { inset: -2px 16px; border-top: none; border-bottom: none; border-radius: 0; border-left: none; }
+  .ball::after { inset: 17px -4px; border-left: none; border-right: none; border-bottom: none; border-radius: 0; }
+  .brand-name { font-family: var(--display); font-size: 26px; letter-spacing: .04em; text-transform: uppercase; line-height: 1; }
+  .brand-name span { color: var(--accent); }
+  .live {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-2);
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; background: var(--card);
+    white-space: nowrap;
+  }
+  .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 10px var(--good); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 48px 0 28px; }
+  .eyebrow { font: 600 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+  h1 {
+    font-family: var(--display); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(44px, 9vw, 104px); line-height: .92; letter-spacing: .01em;
+    margin: 14px 0 16px;
+  }
+  h1 .outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,.55); }
+  h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { color: var(--ink-2); max-width: 560px; font-size: 16px; margin: 0; }
+
+  /* ---------- stat tiles ---------- */
+  .stats { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 14px; margin: 36px 0 8px; }
+  .tile {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px 20px 18px; position: relative; overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  .tile .k { font: 600 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+  .tile .v { font-family: var(--display); font-size: 46px; line-height: 1; margin-top: 14px; letter-spacing: .01em; }
+  .tile .v small { font-size: 22px; color: var(--ink-2); margin-left: 2px; }
+  .tile .s { color: var(--ink-2); font-size: 13px; margin-top: 8px; }
+  .tile.main { background: linear-gradient(135deg, rgba(255,107,26,.18), rgba(255,107,26,.03) 60%), var(--card); border-color: rgba(255,107,26,.35); }
+  .tile.main .v { font-size: 64px; }
+  .ring { position: absolute; right: 18px; top: 18px; width: 78px; height: 78px; }
+  .ring circle { fill: none; stroke-width: 7; }
+  .ring .track { stroke: rgba(255,255,255,.08); }
+  .ring .fill { stroke: var(--accent); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1); }
+  .streak-dots { display: flex; gap: 4px; margin-top: 12px; flex-wrap: wrap; }
+  .streak-dots i { width: 10px; height: 10px; border-radius: 3px; background: var(--bad); opacity: .9; }
+  .streak-dots i.w { background: var(--good); }
+
+  /* ---------- nav tabs ---------- */
+  nav.tabs {
+    position: sticky; top: 0; z-index: 20; margin: 28px -20px 0; padding: 12px 20px;
+    pointer-events: none;
+  }
+  nav.tabs .tabbar { pointer-events: auto; box-shadow: 0 10px 30px -10px rgba(0,0,0,.8); }
+  .tabbar { display: flex; gap: 6px; padding: 5px; border: 1px solid var(--line); border-radius: 999px; background: rgba(13,15,22,.85); backdrop-filter: blur(12px); width: max-content; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .tabbar button {
+    appearance: none; border: 0; background: transparent; color: var(--ink-2); cursor: pointer;
+    font: 600 14px Inter, sans-serif; padding: 9px 18px; border-radius: 999px; white-space: nowrap;
+    transition: background .2s, color .2s;
+  }
+  .tabbar button:hover { color: var(--ink); }
+  .tabbar button.on { background: var(--ink); color: #0a0b10; }
+  .tabbar .count { font: 700 11px var(--mono); margin-left: 6px; opacity: .6; }
+
+  section.panel { display: none; padding: 18px 0 40px; animation: rise .4s ease; }
+  section.panel.on { display: block; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+  .panel-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 34px; letter-spacing: .02em; margin: 0; line-height: 1; }
+  .sub { color: var(--ink-3); font-size: 13px; margin-top: 6px; }
+
+  /* ---------- controls ---------- */
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    appearance: none; border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
+    font: 600 13px Inter, sans-serif; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+    transition: all .2s;
+  }
+  .chip:hover { border-color: var(--line-hi); color: var(--ink); }
+  .chip.on { border-color: var(--accent); color: var(--ink); background: rgba(255,107,26,.14); }
+  select.chip { padding-right: 32px; background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%), linear-gradient(135deg, var(--ink-2) 50%, transparent 50%); background-position: calc(100% - 17px) 55%, calc(100% - 12px) 55%; background-size: 5px 5px; background-repeat: no-repeat; -webkit-appearance: none; }
+  select.chip option { background: var(--bg-2); color: var(--ink); }
+
+  /* ---------- game cards ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .game {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px; position: relative; overflow: hidden;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s, background .25s;
+  }
+  .game:hover { transform: translateY(-3px); border-color: var(--line-hi); background: var(--card-hi); }
+  .game::before {
+    content: ""; position: absolute; inset: 0 0 auto; height: 3px;
+    background: linear-gradient(90deg, var(--c-away), var(--c-home));
+    opacity: .85;
+  }
+  .game-top { display: flex; justify-content: space-between; align-items: center; font: 600 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .tag { font: 700 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; border: 1px solid; }
+  .tag.pre { color: var(--accent-2); border-color: rgba(255,179,71,.35); background: rgba(255,179,71,.08); }
+  .tag.bf { color: var(--ink-3); border-color: var(--line); }
+  .teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin: 16px 0 14px; }
+  .team { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; min-width: 0; }
+  .badge {
+    width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
+    font: 800 15px/1 Inter, sans-serif; letter-spacing: .02em; color: #fff;
+    background: linear-gradient(145deg, var(--c), color-mix(in srgb, var(--c) 55%, #000));
+    box-shadow: 0 8px 20px -8px var(--c), inset 0 1px 0 rgba(255,255,255,.25);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .team .nm { font-weight: 600; font-size: 13px; color: var(--ink-2); line-height: 1.25; max-width: 130px; min-height: 2.5em; display: flex; align-items: flex-start; justify-content: center; }
+  .team.picked .nm { color: var(--ink); }
+  .team.picked .badge { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .team .score { font-family: var(--display); font-size: 30px; line-height: 1; color: var(--ink-3); }
+  .team.won .score { color: var(--ink); }
+  .vs { font: 700 12px var(--mono); color: var(--ink-3); }
+  .prob { margin-top: 2px; }
+  .prob-bar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; gap: 2px; background: transparent; }
+  .prob-bar span { display: block; height: 100%; transition: width 1s cubic-bezier(.2,.8,.2,1); }
+  .prob-bar span:first-child { border-radius: 99px 0 0 99px; }
+  .prob-bar span:last-child { border-radius: 0 99px 99px 0; }
+  .prob-lbl { display: flex; justify-content: space-between; font: 700 12px var(--mono); color: var(--ink-2); margin-top: 7px; }
+  .pick-line { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--ink-2); }
+  .pick-line b { color: var(--ink); }
+  .conf-pill { font: 700 12px var(--mono); padding: 5px 9px; border-radius: 8px; background: rgba(255,107,26,.14); color: var(--accent-2); }
+  .conf-pill.lock { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #160800; }
+  .verdict { display: inline-flex; align-items: center; gap: 6px; font: 700 12px var(--mono); padding: 5px 9px; border-radius: 8px; }
+  .verdict.ok { color: var(--good); background: rgba(46,229,157,.12); }
+  .verdict.no { color: var(--bad); background: rgba(255,84,112,.12); }
+
+  /* ---------- date groups ---------- */
+  .day { margin-bottom: 30px; }
+  .day-head { display: flex; align-items: baseline; gap: 12px; margin: 0 0 12px; }
+  .day-head .d { font-family: var(--display); font-size: 22px; text-transform: uppercase; letter-spacing: .03em; }
+  .day-head .n { font: 600 12px var(--mono); color: var(--ink-3); }
+  .day-head .rec { margin-left: auto; font: 700 12px var(--mono); color: var(--ink-2); }
+  .day-head::after { content: ""; flex: 1; height: 1px; background: var(--line); order: 2; }
+  .day-head .rec { order: 3; }
+
+  /* compact rows for long upcoming list */
+  .rows { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+  .row { display: grid; grid-template-columns: minmax(0,1fr) 140px 74px; gap: 14px; align-items: center; padding: 12px 16px; border-top: 1px solid var(--line); transition: background .2s; }
+  .row:first-child { border-top: 0; }
+  .row:hover { background: var(--card-hi); }
+  .matchup { display: flex; align-items: center; gap: 10px; min-width: 0; font-weight: 600; font-size: 14px; }
+  .matchup .at { color: var(--ink-3); font: 600 12px var(--mono); }
+  .mini { width: 30px; height: 30px; border-radius: 9px; font-size: 10px; flex: none; box-shadow: none; }
+  .matchup .t { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .matchup .t span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .matchup .t.p span { color: var(--ink); }
+  .matchup .t:not(.p) span { color: var(--ink-2); font-weight: 500; }
+  .row .prob-bar { height: 6px; }
+  .row .pct { font: 700 13px var(--mono); text-align: right; }
+
+  .more { display: block; margin: 20px auto 0; }
+  .empty {
+    border: 1px dashed var(--line-hi); border-radius: var(--radius); padding: 44px 20px; text-align: center; color: var(--ink-2);
+  }
+  .empty .big { font-family: var(--display); font-size: 28px; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 6px; }
+
+  /* ---------- chart ---------- */
+  .chart-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin-bottom: 28px; }
+  .chart-card .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .chart-card h3 { margin: 0; font-size: 15px; font-weight: 700; }
+  .chart-card .note { color: var(--ink-3); font-size: 12px; }
+  #chart { position: relative; height: 220px; }
+  #chart svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  #chart .grid-l { stroke: var(--line); stroke-width: 1; }
+  #chart .axis-t { fill: var(--ink-3); font: 500 11px var(--mono); }
+  #chart .ref { stroke: var(--ink-3); stroke-dasharray: 3 4; stroke-width: 1; }
+  #chart .ln { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  #chart .area { fill: url(#ag); }
+  #chart .cross { stroke: var(--line-hi); stroke-width: 1; }
+  #chart .dot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+  .tip {
+    position: absolute; pointer-events: none; background: #151823; border: 1px solid var(--line-hi);
+    border-radius: 10px; padding: 8px 11px; font-size: 12px; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px));
+    box-shadow: 0 10px 30px rgba(0,0,0,.4); opacity: 0; transition: opacity .12s;
+  }
+  .tip b { font: 700 14px var(--mono); display: block; }
+  .tip span { color: var(--ink-3); }
+
+  .calib { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  .calib div { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+  .calib .k { font: 600 11px var(--mono); color: var(--ink-3); letter-spacing: .06em; }
+  .calib .v { font: 700 20px var(--mono); margin-top: 4px; }
+  .calib .s { font-size: 12px; color: var(--ink-3); }
+
+  /* ---------- power rankings ---------- */
+  .ranks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+  .rank { display: grid; grid-template-columns: 30px 34px minmax(0,1fr) 1.2fr 56px; gap: 12px; align-items: center; padding: 10px 4px; border-bottom: 1px solid var(--line); }
+  .rank .n { font: 700 13px var(--mono); color: var(--ink-3); text-align: right; }
+  .rank:nth-child(-n+3) .n { color: var(--accent-2); }
+  .rank .nm { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank .bar { height: 6px; border-radius: 99px; background: rgba(255,255,255,.06); overflow: hidden; }
+  .rank .bar span { display: block; height: 100%; border-radius: 99px; background: var(--c); }
+  .rank .el { font: 700 13px var(--mono); text-align: right; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--ink-3); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--ink-2); }
+
+  @media (max-width: 860px) {
+    .stats { grid-template-columns: 1fr 1fr; }
+    .tile.main, .tile:last-child { grid-column: 1 / -1; }
+    .ranks { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    nav.tabs { margin: 20px -16px 0; padding: 10px 16px; }
+    .hero { padding-top: 32px; }
+    .tile .v { font-size: 36px; }
+    .tile.main .v { font-size: 54px; }
+    .grid { grid-template-columns: 1fr; }
+    .row { grid-template-columns: minmax(0,1fr) 64px; }
+    .row .prob-bar, .row .tag { display: none; }
+    .matchup .t span { max-width: 92px; }
+    .live .txt { display: none; }
+    .calib { grid-template-columns: 1fr; }
+    .rank { grid-template-columns: 24px 30px minmax(0,1fr) 52px; }
+    .rank .bar { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
-<h1>NBA Predictions</h1>
-<p class="muted" id="date"></p>
-<div id="games">loading…</div>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#">
+      <div class="ball"></div>
+      <div class="brand-name">Court<span>Vision</span></div>
+    </a>
+    <div class="live"><i></i><span class="txt" id="updated">Updated daily</span></div>
+  </header>
 
-<h2>Track record</h2>
-<div id="record" class="muted">loading…</div>
+  <div class="hero">
+    <div class="eyebrow" id="today-label">NBA · 2026–27</div>
+    <h1><span class="outline">Every game.</span><br><span class="grad">Called daily.</span></h1>
+    <p class="lede">An Elo rating system plus a logistic regression on rest and form picks every NBA game each morning, then grades itself when the final buzzer sounds.</p>
 
-<h2>Recent games</h2>
-<div id="recent" class="muted">loading…</div>
+    <div class="stats">
+      <div class="tile main">
+        <div class="k">Overall accuracy</div>
+        <div class="v" id="s-acc">—</div>
+        <div class="s" id="s-acc-sub">Waiting for the first final</div>
+        <svg class="ring" viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="33"/><circle class="fill" id="ring" cx="40" cy="40" r="33" stroke-dasharray="207.3" stroke-dashoffset="207.3"/></svg>
+      </div>
+      <div class="tile">
+        <div class="k">Record</div>
+        <div class="v" id="s-rec">0–0</div>
+        <div class="s">Correct – missed</div>
+      </div>
+      <div class="tile">
+        <div class="k">Locks ≥ 65%</div>
+        <div class="v" id="s-lock">—</div>
+        <div class="s" id="s-lock-sub">High-confidence picks</div>
+      </div>
+      <div class="tile">
+        <div class="k">Form</div>
+        <div class="v" id="s-streak">—</div>
+        <div class="streak-dots" id="s-dots"></div>
+      </div>
+    </div>
+  </div>
 
-<div id="preseason-section"></div>
+  <nav class="tabs">
+    <div class="tabbar" role="tablist">
+      <button class="on" data-tab="today">Today<span class="count" id="c-today"></span></button>
+      <button data-tab="upcoming">Upcoming<span class="count" id="c-up"></span></button>
+      <button data-tab="past">Past games<span class="count" id="c-past"></span></button>
+      <button data-tab="ranks">Power rankings</button>
+    </div>
+  </nav>
+
+  <section class="panel on" id="p-today">
+    <div class="panel-head">
+      <div><h2 id="today-h">Today's slate</h2><div class="sub">Picks lock each morning before tip-off.</div></div>
+    </div>
+    <div id="today"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="panel" id="p-upcoming">
+    <div class="panel-head">
+      <div><h2>Upcoming</h2><div class="sub">Every scheduled game, projected with today's ratings. Rebuilt every morning.</div></div>
+      <div class="controls">
+        <select class="chip" id="up-team"><option value="">All teams</option></select>
+        <button class="chip on" data-up="all">All</button>
+        <button class="chip" data-up="regular">Regular</button>
+        <button class="chip" data-up="preseason">Preseason</button>
+      </div>
+    </div>
+    <div id="upcoming"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="panel" id="p-past">
+    <div class="panel-head">
+      <div><h2>Past games</h2><div class="sub">Every graded pick, newest first.</div></div>
+      <div class="controls">
+        <button class="chip on" data-past="all">All</button>
+        <button class="chip" data-past="regular">Regular</button>
+        <button class="chip" data-past="preseason">Preseason</button>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="top"><h3>Running accuracy</h3><span class="note">Cumulative % correct · dashed line = coin flip</span></div>
+      <div id="chart"></div>
+      <div class="calib" id="calib"></div>
+    </div>
+    <div id="past"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="panel" id="p-ranks">
+    <div class="panel-head">
+      <div><h2>Power rankings</h2><div class="sub">Current Elo ratings. 1500 is average; regular-season results only.</div></div>
+    </div>
+    <div id="ranks"><div class="empty">Loading…</div></div>
+  </section>
+
+  <footer>
+    <span>Elo (K=20, home court +65) · last season carried at 75% · preseason is logged but never moves ratings.</span>
+    <span>Data: Basketball Reference, ESPN</span>
+  </footer>
+</div>
+
+<div class="tip" id="tip"></div>
 
 <script>
-const today = new Date().toISOString().slice(0,10);
+// ---------------------------------------------------------------- teams
+const TEAMS = {
+  "Atlanta Hawks":["ATL","#E03A3E"], "Boston Celtics":["BOS","#007A33"], "Brooklyn Nets":["BKN","#444444"],
+  "Charlotte Hornets":["CHA","#1D8CAB"], "Chicago Bulls":["CHI","#CE1141"], "Cleveland Cavaliers":["CLE","#860038"],
+  "Dallas Mavericks":["DAL","#0064B1"], "Denver Nuggets":["DEN","#0E2240"], "Detroit Pistons":["DET","#C8102E"],
+  "Golden State Warriors":["GSW","#1D428A"], "Houston Rockets":["HOU","#CE1141"], "Indiana Pacers":["IND","#002D62"],
+  "Los Angeles Clippers":["LAC","#C8102E"], "Los Angeles Lakers":["LAL","#552583"], "Memphis Grizzlies":["MEM","#5D76A9"],
+  "Miami Heat":["MIA","#98002E"], "Milwaukee Bucks":["MIL","#00471B"], "Minnesota Timberwolves":["MIN","#236192"],
+  "New Orleans Pelicans":["NOP","#0C2340"], "New York Knicks":["NYK","#F58426"], "Oklahoma City Thunder":["OKC","#007AC1"],
+  "Orlando Magic":["ORL","#0077C0"], "Philadelphia 76ers":["PHI","#006BB6"], "Phoenix Suns":["PHX","#E56020"],
+  "Portland Trail Blazers":["POR","#E03A3E"], "Sacramento Kings":["SAC","#5A2D81"], "San Antonio Spurs":["SAS","#8A8D8F"],
+  "Toronto Raptors":["TOR","#CE1141"], "Utah Jazz":["UTA","#3E2680"], "Washington Wizards":["WAS","#002B5C"],
+};
+const code = n => (TEAMS[n] || [n.slice(0,3).toUpperCase()])[0];
+const color = n => (TEAMS[n] || [0,"#555"])[1];
+const short = n => n.split(" ").slice(-1)[0] === "76ers" ? "76ers" : n.replace(/^(Los Angeles|Golden State|Oklahoma City|New Orleans|New York|San Antonio|Portland Trail|Portland)\s/, "").split(" ").slice(-1)[0];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const badge = (n, cls="") => `<div class="badge ${cls}" style="--c:${color(n)}">${code(n)}</div>`;
 
-// Predictions logged before preseason support existed have no season_type.
-// Those are all regular season.
-const typeOf = r => (r.season_type || 'regular');
+// ---------------------------------------------------------------- dates (US Eastern)
+const etToday = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date());
+const fmtDay = (iso, opts = { weekday: "long", month: "short", day: "numeric" }) =>
+  new Date(iso + "T12:00:00").toLocaleDateString("en-US", opts);
+const relDay = iso => {
+  const diff = Math.round((new Date(iso + "T12:00:00") - new Date(etToday + "T12:00:00")) / 864e5);
+  return diff === 0 ? "Today" : diff === 1 ? "Tomorrow" : diff === -1 ? "Yesterday" : fmtDay(iso);
+};
+document.getElementById("today-label").textContent = `NBA 2026–27 · ${fmtDay(etToday, { weekday:"long", month:"long", day:"numeric" })}`;
 
-fetch(`predictions/${today}.json`)
-  .then(r => { if(!r.ok) throw 0; return r.json(); })
-  .then(rows => {
-    document.getElementById('date').textContent = rows[0].game_date;
-    document.getElementById('games').innerHTML = rows.map(r => `
-      <div class="game">
-        <span>${r.away} @ ${r.home}${typeOf(r)==='preseason' ? '<span class="tag">preseason</span>' : ''}</span>
-        <span><span class="pick">${r.pick}</span> <span class="conf">${(Math.max(r.p_home,1-r.p_home)*100).toFixed(0)}%</span></span>
-      </div>`).join('');
-  })
-  .catch(() => {
-    document.getElementById('games').innerHTML = '<p class="muted">No games today.</p>';
-  });
+const typeOf = r => r.season_type || "regular";
+const pct = x => (x * 100).toFixed(0) + "%";
+const getJSON = u => fetch(u, { cache: "no-store" }).then(r => { if (!r.ok) throw r.status; return r.json(); });
+const getText = u => fetch(u, { cache: "no-store" }).then(r => { if (!r.ok) throw r.status; return r.text(); });
 
-function parseCSV(txt){
-  const lines = txt.trim().split('\n');
-  const head = lines[0].split(',');
+function parseCSV(txt) {
+  const lines = txt.trim().split("\n");
+  const head = lines[0].split(",");
   return lines.slice(1).map(l => {
-    const cells = l.split(',');
-    const o = {};
-    head.forEach((h,i) => o[h] = cells[i]);
+    const cells = l.split(","), o = {};
+    head.forEach((h, i) => o[h] = cells[i]);
+    o.correct = String(o.correct).toLowerCase() === "true";
+    o.backfilled = String(o.backfilled).toLowerCase() === "true";
+    o.conf = parseFloat(o.conf); o.p_home = parseFloat(o.p_home);
+    o.home_pts = +o.home_pts; o.away_pts = +o.away_pts;
     return o;
   });
 }
 
-function gamesTable(rows){
-  return `
-    <table>
-      <tr><th>Date</th><th>Game</th><th>Pick</th><th class="num">Conf</th><th>Result</th><th class="num">By</th><th></th></tr>
-      ${rows.map(r => {
-        const ok = r.correct.toLowerCase() === 'true';
-        const margin = Math.abs(parseInt(r.margin));
-        return `<tr>
-          <td class="muted">${r.game_date.slice(5)}</td>
-          <td>${r.away} @ ${r.home}</td>
-          <td>${r.pick}</td>
-          <td class="num muted">${(parseFloat(r.conf)*100).toFixed(0)}%</td>
-          <td>${r.winner}</td>
-          <td class="num muted">${margin}</td>
-          <td class="${ok?'ok':'no'}">${ok?'✓':'✗'}</td>
-        </tr>`;
-      }).join('')}
-    </table>`;
+// ---------------------------------------------------------------- tabs
+document.querySelectorAll(".tabbar button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabbar button").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.id === "p-" + b.dataset.tab));
+  if (b.dataset.tab === "past") drawChart();
+  try { localStorage.setItem("tab", b.dataset.tab); } catch (e) {}
+});
+try { const t = localStorage.getItem("tab"); if (t) document.querySelector(`[data-tab="${t}"]`)?.click(); } catch (e) {}
+
+// ---------------------------------------------------------------- game card
+function probBar(g) {
+  const ph = g.p_home, pa = 1 - ph;
+  return `<div class="prob">
+    <div class="prob-bar"><span style="width:${pa*100}%;background:${color(g.away)}"></span><span style="width:${ph*100}%;background:${color(g.home)}"></span></div>
+    <div class="prob-lbl"><span>${pct(pa)}</span><span>${pct(ph)}</span></div></div>`;
+}
+function card(g, { result = null } = {}) {
+  const conf = Math.max(g.p_home, 1 - g.p_home);
+  const done = result != null;
+  const winner = done ? g.winner : null;
+  const team = (n, side) => `
+    <div class="team ${g.pick === n ? "picked" : ""} ${winner === n ? "won" : ""}">
+      ${badge(n)}
+      <div class="nm">${esc(n)}</div>
+      ${done ? `<div class="score">${side === "home" ? g.home_pts : g.away_pts}</div>` : ""}
+    </div>`;
+  const tags = [
+    typeOf(g) === "preseason" ? `<span class="tag pre">Preseason</span>` : "",
+    g.backfilled ? `<span class="tag bf" title="Logged after the game, computed only from data available before it">Backfilled</span>` : "",
+  ].join(" ");
+  return `<article class="game" style="--c-away:${color(g.away)};--c-home:${color(g.home)}">
+    <div class="game-top"><span>${done ? "Final" : relDay(g.game_date)}</span><span>${tags}</span></div>
+    <div class="teams">${team(g.away, "away")}<div class="vs">@</div>${team(g.home, "home")}</div>
+    ${probBar(g)}
+    <div class="pick-line">
+      <span>Pick: <b>${esc(g.pick)}</b></span>
+      ${done
+        ? `<span class="verdict ${g.correct ? "ok" : "no"}">${g.correct ? "✓ Hit" : "✗ Miss"} · ${pct(conf)}</span>`
+        : `<span class="conf-pill ${conf >= .65 ? "lock" : ""}">${conf >= .65 ? "🔒 " : ""}${pct(conf)}</span>`}
+    </div>
+  </article>`;
+}
+function row(g) {
+  const conf = Math.max(g.p_home, 1 - g.p_home);
+  const t = n => `<div class="t ${g.pick === n ? "p" : ""}">${badge(n, "mini")}<span>${esc(short(n))}</span></div>`;
+  return `<div class="row">
+    <div class="matchup">${t(g.away)}<span class="at">@</span>${t(g.home)}${typeOf(g) === "preseason" ? ` <span class="tag pre">Pre</span>` : ""}</div>
+    <div class="prob-bar"><span style="width:${(1-g.p_home)*100}%;background:${color(g.away)}"></span><span style="width:${g.p_home*100}%;background:${color(g.home)}"></span></div>
+    <div class="pct" title="Pick: ${esc(g.pick)}">${code(g.pick)} ${pct(conf)}</div>
+  </div>`;
+}
+const groupBy = (rows, k) => rows.reduce((m, r) => ((m[r[k]] ||= []).push(r), m), {});
+
+// ---------------------------------------------------------------- state
+let RESULTS = [], UPCOMING = [], pastFilter = "all", upFilter = "all", upTeam = "", upShown = 10, pastShown = 7;
+
+// ---------------------------------------------------------------- today
+function renderToday(rows) {
+  const el = document.getElementById("today");
+  document.getElementById("c-today").textContent = rows.length || "";
+  if (!rows.length) {
+    const next = UPCOMING.find(g => g.game_date > etToday);
+    el.innerHTML = `<div class="empty"><span class="big">No games today</span>${next ? `Next up: ${relDay(next.game_date)} — ${esc(next.away)} @ ${esc(next.home)}` : "Check back soon."}</div>`;
+    return;
+  }
+  // graded games from today show the final
+  const graded = Object.fromEntries(RESULTS.filter(r => r.game_date === etToday).map(r => [r.home + r.away, r]));
+  el.innerHTML = `<div class="grid">${rows.map(g => graded[g.home + g.away] ? card(graded[g.home + g.away], { result: true }) : card(g)).join("")}</div>`;
 }
 
-fetch('results.csv')
-  .then(r => { if(!r.ok) throw 0; return r.text(); })
-  .then(txt => {
-    const all = parseCSV(txt);
-    const reg = all.filter(r => typeOf(r) === 'regular');
-    const pre = all.filter(r => typeOf(r) === 'preseason');
+// ---------------------------------------------------------------- upcoming
+function renderUpcoming() {
+  const el = document.getElementById("upcoming");
+  const rows = UPCOMING.filter(g => g.game_date > etToday)
+    .filter(g => upFilter === "all" || typeOf(g) === upFilter)
+    .filter(g => !upTeam || g.home === upTeam || g.away === upTeam);
+  document.getElementById("c-up").textContent = UPCOMING.filter(g => g.game_date > etToday).length || "";
+  if (!rows.length) { el.innerHTML = `<div class="empty"><span class="big">Nothing scheduled</span>No upcoming games match.</div>`; return; }
+  const days = Object.entries(groupBy(rows, "game_date"));
+  el.innerHTML = days.slice(0, upShown).map(([d, gs]) => `
+    <div class="day">
+      <div class="day-head"><span class="d">${relDay(d)}</span><span class="n">${fmtDay(d, { month: "short", day: "numeric" })} · ${gs.length} game${gs.length > 1 ? "s" : ""}</span></div>
+      <div class="rows">${gs.map(row).join("")}</div>
+    </div>`).join("") +
+    (days.length > upShown ? `<button class="chip more" id="up-more">Show more days (${days.length - upShown} left)</button>` : "");
+  document.getElementById("up-more")?.addEventListener("click", () => { upShown += 14; renderUpcoming(); });
+}
+document.querySelectorAll("[data-up]").forEach(b => b.onclick = () => {
+  upFilter = b.dataset.up; upShown = 10;
+  document.querySelectorAll("[data-up]").forEach(x => x.classList.toggle("on", x === b));
+  renderUpcoming();
+});
+const teamSel = document.getElementById("up-team");
+Object.keys(TEAMS).forEach(t => teamSel.insertAdjacentHTML("beforeend", `<option>${t}</option>`));
+teamSel.onchange = () => { upTeam = teamSel.value; upShown = 10; renderUpcoming(); };
 
-    // The headline record is regular season only.
-    if (reg.length) {
-      const right = reg.filter(r => r.correct.toLowerCase() === 'true').length;
-      document.getElementById('record').innerHTML =
-        `<p class="big" style="color:#eee;">${right} / ${reg.length} correct <span class="ok">(${(right/reg.length*100).toFixed(1)}%)</span></p>
-         <p class="note">Regular-season games only.</p>`;
-      document.getElementById('recent').innerHTML = gamesTable(reg.slice(-25).reverse());
-    } else {
-      document.getElementById('record').textContent = 'No completed regular-season games yet.';
-      document.getElementById('recent').textContent = '';
-    }
+// ---------------------------------------------------------------- stats + past
+function pastRows() { return RESULTS.filter(r => pastFilter === "all" || typeOf(r) === pastFilter); }
 
-    // Preseason gets its own section, kept out of the record above.
-    if (pre.length) {
-      const right = pre.filter(r => r.correct.toLowerCase() === 'true').length;
-      document.getElementById('preseason-section').innerHTML = `
-        <h2>Preseason <span class="tag">not part of the record</span></h2>
-        <div class="aside">
-          <p class="note">
-            Preseason picks are logged and graded, but scored separately. Ratings
-            carried from last season describe rosters that have since changed, and
-            starters play about 15 minutes, so these games say little about the
-            model. They are here for the sake of a complete log, not as a test.
-          </p>
-          <p style="color:#eee;">${right} / ${pre.length} correct (${(right/pre.length*100).toFixed(1)}%)</p>
-          ${gamesTable(pre.slice(-25).reverse())}
-        </div>`;
-    }
-  })
-  .catch(() => {
-    document.getElementById('record').textContent = 'No completed games yet.';
-    document.getElementById('recent').textContent = '';
-  });
+function renderStats() {
+  const all = RESULTS;
+  const n = all.length, w = all.filter(r => r.correct).length;
+  if (n) {
+    document.getElementById("s-acc").innerHTML = `${(w / n * 100).toFixed(1)}<small>%</small>`;
+    const reg = all.filter(r => typeOf(r) === "regular"), pre = all.filter(r => typeOf(r) === "preseason");
+    const part = (xs, l) => xs.length ? `${l} ${(xs.filter(r => r.correct).length / xs.length * 100).toFixed(0)}%` : "";
+    document.getElementById("s-acc-sub").textContent = [`${n} graded`, part(reg, "Regular"), part(pre, "Preseason")].filter(Boolean).join(" · ");
+    requestAnimationFrame(() => document.getElementById("ring").style.strokeDashoffset = 207.3 * (1 - w / n));
+  }
+  document.getElementById("s-rec").textContent = `${w}–${n - w}`;
+  const locks = all.filter(r => r.conf >= .65);
+  if (locks.length) {
+    const lw = locks.filter(r => r.correct).length;
+    document.getElementById("s-lock").innerHTML = `${(lw / locks.length * 100).toFixed(0)}<small>%</small>`;
+    document.getElementById("s-lock-sub").textContent = `${lw} of ${locks.length} high-confidence picks`;
+  }
+  const last = all.slice(-10);
+  if (last.length) {
+    let k = 0; const cur = last[last.length - 1].correct;
+    for (let i = all.length - 1; i >= 0 && all[i].correct === cur; i--) k++;
+    document.getElementById("s-streak").textContent = (cur ? "W" : "L") + k;
+    document.getElementById("s-dots").innerHTML = last.map(r => `<i class="${r.correct ? "w" : ""}" title="${esc(r.away)} @ ${esc(r.home)}"></i>`).join("");
+  }
+  document.getElementById("c-past").textContent = n || "";
+}
+
+function renderPast() {
+  const el = document.getElementById("past");
+  const rows = pastRows();
+  if (!rows.length) { el.innerHTML = `<div class="empty"><span class="big">No finals yet</span>Graded games show up here the morning after.</div>`; drawChart(); renderCalib(); return; }
+  const days = Object.entries(groupBy(rows, "game_date")).sort((a, b) => b[0].localeCompare(a[0]));
+  el.innerHTML = days.slice(0, pastShown).map(([d, gs]) => {
+    const w = gs.filter(g => g.correct).length;
+    return `<div class="day">
+      <div class="day-head"><span class="d">${relDay(d)}</span><span class="n">${fmtDay(d, { month: "short", day: "numeric" })}</span><span class="rec">${w}/${gs.length} correct</span></div>
+      <div class="grid">${gs.map(g => card(g, { result: true })).join("")}</div>
+    </div>`;
+  }).join("") +
+    (days.length > pastShown ? `<button class="chip more" id="past-more">Show older games (${days.length - pastShown} more days)</button>` : "");
+  document.getElementById("past-more")?.addEventListener("click", () => { pastShown += 7; renderPast(); });
+  drawChart(); renderCalib();
+}
+document.querySelectorAll("[data-past]").forEach(b => b.onclick = () => {
+  pastFilter = b.dataset.past; pastShown = 7;
+  document.querySelectorAll("[data-past]").forEach(x => x.classList.toggle("on", x === b));
+  renderPast();
+});
+
+function renderCalib() {
+  const rows = pastRows();
+  const bins = [[.5, .6, "Toss-up 50–60%"], [.6, .7, "Lean 60–70%"], [.7, 1.01, "Strong 70%+"]];
+  document.getElementById("calib").innerHTML = bins.map(([a, b, l]) => {
+    const xs = rows.filter(r => r.conf > a - 1e-9 && r.conf < b);
+    const w = xs.filter(r => r.correct).length;
+    return `<div><div class="k">${l}</div><div class="v">${xs.length ? pct(w / xs.length) : "—"}</div><div class="s">${w} of ${xs.length} picks</div></div>`;
+  }).join("");
+}
+
+// ---------------------------------------------------------------- chart (single series: running accuracy)
+function drawChart() {
+  const box = document.getElementById("chart");
+  if (!box.offsetWidth) return;
+  const rows = pastRows();
+  if (rows.length < 2) { box.innerHTML = `<div class="empty" style="height:100%;display:grid;place-items:center">The line starts after a couple of graded games.</div>`; return; }
+  let w = 0;
+  const pts = rows.map((r, i) => ({ i, acc: (w += r.correct) / (i + 1), r, w }));
+  const W = box.offsetWidth, H = box.offsetHeight, L = 40, R = 10, T = 10, B = 24;
+  const x = i => L + (W - L - R) * (pts.length === 1 ? 0 : i / (pts.length - 1));
+  const y = v => T + (H - T - B) * (1 - v);
+  const line = pts.map((p, k) => `${k ? "L" : "M"}${x(p.i).toFixed(1)},${y(p.acc).toFixed(1)}`).join("");
+  const area = `${line}L${x(pts.length - 1)},${y(0)}L${x(0)},${y(0)}Z`;
+  const ticks = [0, .25, .5, .75, 1];
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b1a" stop-opacity=".28"/><stop offset="1" stop-color="#ff6b1a" stop-opacity="0"/></linearGradient></defs>
+    ${ticks.map(t => `<line class="grid-l" x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}"/><text class="axis-t" x="${L - 8}" y="${y(t) + 4}" text-anchor="end">${t * 100}%</text>`).join("")}
+    <line class="ref" x1="${L}" x2="${W - R}" y1="${y(.5)}" y2="${y(.5)}"/>
+    <path class="area" d="${area}"/><path class="ln" d="${line}"/>
+    <text class="axis-t" x="${L}" y="${H - 4}">${fmtDay(rows[0].game_date, { month: "short", day: "numeric" })}</text>
+    <text class="axis-t" x="${W - R}" y="${H - 4}" text-anchor="end">${fmtDay(rows[rows.length - 1].game_date, { month: "short", day: "numeric" })}</text>
+    <line class="cross" id="cx" y1="${T}" y2="${y(0)}" style="display:none"/>
+    <circle class="dot" id="cd" r="5" style="display:none"/>
+    <rect x="${L}" y="0" width="${W - L - R}" height="${H}" fill="transparent" id="hit"/>
+  </svg>`;
+  const tip = document.getElementById("tip"), cx = box.querySelector("#cx"), cd = box.querySelector("#cd");
+  const hit = box.querySelector("#hit");
+  const move = e => {
+    const rect = box.getBoundingClientRect();
+    const px = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    const i = Math.max(0, Math.min(pts.length - 1, Math.round((px - L) / (W - L - R) * (pts.length - 1))));
+    const p = pts[i];
+    cx.setAttribute("x1", x(i)); cx.setAttribute("x2", x(i)); cx.style.display = "";
+    cd.setAttribute("cx", x(i)); cd.setAttribute("cy", y(p.acc)); cd.style.display = "";
+    tip.innerHTML = `<b>${(p.acc * 100).toFixed(1)}%</b><span>${p.w}/${i + 1} through ${fmtDay(p.r.game_date, { month: "short", day: "numeric" })}</span>`;
+    tip.style.left = rect.left + window.scrollX + x(i) + "px";
+    tip.style.top = rect.top + window.scrollY + y(p.acc) + "px";
+    tip.style.opacity = 1;
+  };
+  const out = () => { tip.style.opacity = 0; cx.style.display = cd.style.display = "none"; };
+  hit.addEventListener("mousemove", move); hit.addEventListener("touchmove", move, { passive: true });
+  hit.addEventListener("mouseleave", out); hit.addEventListener("touchend", out);
+}
+addEventListener("resize", () => { clearTimeout(window._rz); window._rz = setTimeout(drawChart, 150); });
+
+// ---------------------------------------------------------------- power rankings
+function renderRanks(elo) {
+  const el = document.getElementById("ranks");
+  const rows = Object.entries(elo || {}).sort((a, b) => b[1] - a[1]);
+  if (!rows.length) { el.innerHTML = `<div class="empty">Ratings appear after the next morning run.</div>`; return; }
+  const lo = Math.min(...rows.map(r => r[1])) - 20, hi = Math.max(...rows.map(r => r[1]));
+  el.innerHTML = `<div class="ranks">${rows.map(([t, v], i) => `
+    <div class="rank" style="--c:${color(t)}">
+      <span class="n">${i + 1}</span>${badge(t, "mini")}
+      <span class="nm">${esc(t)}</span>
+      <div class="bar"><span style="width:${((v - lo) / (hi - lo) * 100).toFixed(1)}%"></span></div>
+      <span class="el">${Math.round(v)}</span>
+    </div>`).join("")}</div>`;
+}
+
+// ---------------------------------------------------------------- load
+Promise.allSettled([
+  getText("results.csv").then(parseCSV),
+  getJSON("upcoming.json"),
+  getJSON(`predictions/${etToday}.json`),
+]).then(([res, up, today]) => {
+  RESULTS = res.status === "fulfilled" ? res.value.sort((a, b) => a.game_date.localeCompare(b.game_date)) : [];
+  const U = up.status === "fulfilled" ? up.value : null;
+  UPCOMING = U ? U.games : [];
+  if (U?.generated_at_utc) {
+    const t = new Date(U.generated_at_utc);
+    document.getElementById("updated").textContent = "Updated " + t.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  }
+  const todays = today.status === "fulfilled" ? today.value : UPCOMING.filter(g => g.game_date === etToday);
+  renderStats(); renderToday(todays); renderUpcoming(); renderPast(); renderRanks(U?.elo);
+});
 </script>
 </body>
 </html>

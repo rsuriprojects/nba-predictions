@@ -72,13 +72,14 @@ for f in sorted(glob.glob("predictions/*.json")):
             "margin": a["home_pts"] - a["away_pts"],
             "winner": a["winner"],
             "correct": p["pick"] == a["winner"],
+            "backfilled": bool(p.get("backfilled", False)),
         })
 
 if not rows:
     print("no graded games yet")
     raise SystemExit
 
-d = pd.DataFrame(rows).sort_values(["season_type", "game_date"])
+d = pd.DataFrame(rows).sort_values(["game_date", "home"])
 
 def report(sub, label):
     if not len(sub):

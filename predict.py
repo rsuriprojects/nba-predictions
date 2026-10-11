@@ -56,6 +56,91 @@ def games_on(sched, today):
         return sched
     return sched[sched["date"] == today]
 
+W  = np.array([0.6109, 0.0868, -0.0450, -0.0933, 0.0850])
+MU = np.array([0.0, 2.2, 2.2, 0.22, 0.22])
+SD = np.array([124.3, 1.3, 1.3, 0.41, 0.41])
+B  = 0.18
+
+def win_prob(elo, rest, home, away):
+    rh, ra = elo.get(home, BASE), elo.get(away, BASE)
+    hr = rest.get(home, 3); ar = rest.get(away, 3)
+    x = np.array([rh-ra, hr, ar, int(hr<=1), int(ar<=1)])
+    z = np.dot((x-MU)/SD, W) + B
+    return rh, ra, float(1/(1+np.exp(-z)))
+
+def state_before(base_elo, sched, day):
+    """Elo and rest days using ONLY regular-season results from before `day`.
+
+    Preseason outcomes never move Elo: starters play ~15 minutes, and letting
+    them in would corrupt the regular-season record this project exists to keep.
+    """
+    played = sched.dropna(subset=["home_pts","away_pts"]) if len(sched) else sched
+    if len(played):
+        played = played[played["date"] < day]
+    return update_elo(dict(base_elo), played), rest_days(played, day)
+
+def predict_day(base_elo, sched, pre, day, backfilled=False):
+    elo, rest = state_before(base_elo, sched, day)
+    out = []
+    for slate, season_type in ((games_on(sched, day), "regular"),
+                               (games_on(pre, day), "preseason")):
+        for g in slate.itertuples():
+            rh, ra, p = win_prob(elo, rest, g.home, g.away)
+            row = {
+                "logged_at_utc": datetime.now(timezone.utc).isoformat(),
+                "game_date": str(day.date()),
+                "season_type": season_type,
+                "away": g.away, "home": g.home,
+                "home_elo": round(rh,1), "away_elo": round(ra,1),
+                "p_home": round(p,4),
+                "pick": g.home if p > 0.5 else g.away,
+            }
+            if backfilled:
+                # Logged after the game, but computed only from data that
+                # existed before it. Flagged so the site can say so.
+                row["backfilled"] = True
+            out.append(row)
+    return out
+
+def write_day(rows, day):
+    os.makedirs("predictions", exist_ok=True)
+    path = f"predictions/{day.date()}.json"
+    with open(path, "w") as f:
+        json.dump(rows, f, indent=2)
+    return path
+
+def write_upcoming(base_elo, sched, pre, today):
+    """Every scheduled game from today on, with a projected pick.
+
+    Projections use today's ratings for every future game and are rebuilt each
+    run, so they sharpen as the season goes. Rest days come from the schedule
+    itself, which is fixed in advance.
+    """
+    elo, _ = state_before(base_elo, sched, today)
+    games = []
+    for df, season_type in ((sched, "regular"), (pre, "preseason")):
+        if not len(df):
+            continue
+        for g in df[df["date"] >= today].itertuples():
+            prior = sched[(sched["date"] < g.date)] if len(sched) else sched
+            rest = rest_days(prior, g.date)
+            rh, ra, p = win_prob(elo, rest, g.home, g.away)
+            games.append({
+                "game_date": str(g.date.date()),
+                "season_type": season_type,
+                "away": g.away, "home": g.home,
+                "home_elo": round(rh,1), "away_elo": round(ra,1),
+                "p_home": round(p,4),
+                "pick": g.home if p > 0.5 else g.away,
+            })
+    games.sort(key=lambda r: (r["game_date"], r["home"]))
+    with open("upcoming.json", "w") as f:
+        json.dump({"generated_at_utc": datetime.now(timezone.utc).isoformat(),
+                   "today": str(today.date()),
+                   "elo": {t: round(v,1) for t, v in sorted(elo.items(), key=lambda kv: -kv[1])},
+                   "games": games}, f, indent=1)
+    print(f"wrote {len(games)} upcoming games to upcoming.json")
+
 def main():
     # Both branches must produce a timezone-NAIVE timestamp, because the dates
     # scraped from Basketball Reference are naive and pandas refuses to compare
@@ -76,65 +161,37 @@ def main():
     else:
         print(f"no {SEASON-1} data; starting everyone at {BASE}")
 
-    # Regular season comes from Basketball Reference; preseason from NBA.com,
+    # Regular season comes from Basketball Reference; preseason from ESPN,
     # because Basketball Reference does not publish preseason games.
     sched = fetch_season(SEASON)
     pre   = fetch_preseason(SEASON)
-
-    slate_reg = games_on(sched, today)
-    slate_pre = games_on(pre, today)
-
     print(f"{len(sched)} regular-season games scheduled, {len(pre)} preseason")
 
-    if len(slate_reg) == 0 and len(slate_pre) == 0:
+    # Fill in any earlier game day that has no predictions file (a missed run,
+    # or the start of the season before the pipeline was working).
+    days = set()
+    for df in (sched, pre):
+        if len(df):
+            days |= set(df.loc[df["date"] < today, "date"])
+    for day in sorted(days):
+        if os.path.exists(f"predictions/{day.date()}.json"):
+            continue
+        rows = predict_day(elo, sched, pre, day, backfilled=True)
+        if rows:
+            print(f"backfilled {len(rows)} predictions for {day.date()}")
+            write_day(rows, day)
+
+    rows = predict_day(elo, sched, pre, today)
+    if rows:
+        path = write_day(rows, today)
+        print(f"wrote {len(rows)} predictions to {path}")
+        for r in rows:
+            tag = "" if r["season_type"] == "regular" else " [preseason]"
+            print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{tag}")
+    else:
         print(f"no games on {today.date()}")
-        return
 
-    # IMPORTANT: only regular-season results update Elo. Preseason outcomes are
-    # noise (starters play ~15 minutes) and letting them move the ratings would
-    # corrupt the regular-season record this project exists to keep.
-    played = sched.dropna(subset=["home_pts","away_pts"]) if len(sched) else sched
-    if len(played):
-        played = played[played["date"] < today]
-
-    elo  = update_elo(elo, played)
-    rest = rest_days(played, today)
-
-    W  = np.array([0.6109, 0.0868, -0.0450, -0.0933, 0.0850])
-    MU = np.array([0.0, 2.2, 2.2, 0.22, 0.22])
-    SD = np.array([124.3, 1.3, 1.3, 0.41, 0.41])
-    B  = 0.18
-
-    def predict(slate, season_type):
-        out = []
-        for g in slate.itertuples():
-            rh, ra = elo.get(g.home, BASE), elo.get(g.away, BASE)
-            hr = rest.get(g.home, 3); ar = rest.get(g.away, 3)
-            x = np.array([rh-ra, hr, ar, int(hr<=1), int(ar<=1)])
-            z = np.dot((x-MU)/SD, W) + B
-            p = 1/(1+np.exp(-z))
-            out.append({
-                "logged_at_utc": datetime.now(timezone.utc).isoformat(),
-                "game_date": str(today.date()),
-                "season_type": season_type,
-                "away": g.away, "home": g.home,
-                "home_elo": round(rh,1), "away_elo": round(ra,1),
-                "p_home": round(float(p),4),
-                "pick": g.home if p > 0.5 else g.away,
-            })
-        return out
-
-    rows = predict(slate_reg, "regular") + predict(slate_pre, "preseason")
-
-    os.makedirs("predictions", exist_ok=True)
-    path = f"predictions/{today.date()}.json"
-    with open(path, "w") as f:
-        json.dump(rows, f, indent=2)
-
-    print(f"wrote {len(rows)} predictions to {path}")
-    for r in rows:
-        tag = "" if r["season_type"] == "regular" else " [preseason]"
-        print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{tag}")
+    write_upcoming(elo, sched, pre, today)
 
 if __name__ == "__main__":
     main()
