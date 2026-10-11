@@ -1,61 +1,6 @@
 [
   {
-    "logged_at_utc": "2026-10-11T03:17:02.951494+00:00",
-    "game_date": "2026-10-10",
-    "season_type": "preseason",
-    "away": "San Antonio Spurs",
-    "home": "Phoenix Suns",
-    "home_elo": 1495.8,
-    "away_elo": 1658.5,
-    "p_home": 0.3567,
-    "pick": "San Antonio Spurs"
-  },
-  {
-    "logged_at_utc": "2026-10-11T03:17:02.951520+00:00",
-    "game_date": "2026-10-10",
-    "season_type": "preseason",
-    "away": "Philadelphia 76ers",
-    "home": "Boston Celtics",
-    "home_elo": 1604.1,
-    "away_elo": 1545.7,
-    "p_home": 0.6218,
-    "pick": "Boston Celtics"
-  },
-  {
-    "logged_at_utc": "2026-10-11T03:17:02.951535+00:00",
-    "game_date": "2026-10-10",
-    "season_type": "preseason",
-    "away": "Minnesota Timberwolves",
-    "home": "Miami Heat",
-    "home_elo": 1501.4,
-    "away_elo": 1566.6,
-    "p_home": 0.4724,
-    "pick": "Minnesota Timberwolves"
-  },
-  {
-    "logged_at_utc": "2026-10-11T03:17:02.951548+00:00",
-    "game_date": "2026-10-10",
-    "season_type": "preseason",
-    "away": "Sacramento Kings",
-    "home": "Golden State Warriors",
-    "home_elo": 1449.1,
-    "away_elo": 1390.5,
-    "p_home": 0.622,
-    "pick": "Golden State Warriors"
-  },
-  {
-    "logged_at_utc": "2026-10-11T03:17:02.951560+00:00",
-    "game_date": "2026-10-10",
-    "season_type": "preseason",
-    "away": "Atlanta Hawks",
-    "home": "Indiana Pacers",
-    "home_elo": 1368.1,
-    "away_elo": 1542.1,
-    "p_home": 0.344,
-    "pick": "Atlanta Hawks"
-  },
-  {
-    "logged_at_utc": "2026-10-11T03:17:02.951573+00:00",
+    "logged_at_utc": "2026-10-11T03:21:55.447533+00:00",
     "game_date": "2026-10-10",
     "season_type": "preseason",
     "away": "Los Angeles Clippers",
@@ -66,7 +11,18 @@
     "pick": "Toronto Raptors"
   },
   {
-    "logged_at_utc": "2026-10-11T03:17:02.951584+00:00",
+    "logged_at_utc": "2026-10-11T03:21:55.447559+00:00",
+    "game_date": "2026-10-10",
+    "season_type": "preseason",
+    "away": "Atlanta Hawks",
+    "home": "Indiana Pacers",
+    "home_elo": 1368.1,
+    "away_elo": 1542.1,
+    "p_home": 0.344,
+    "pick": "Atlanta Hawks"
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:21:55.447570+00:00",
     "game_date": "2026-10-10",
     "season_type": "preseason",
     "away": "Detroit Pistons",
@@ -75,5 +31,49 @@
     "away_elo": 1600.6,
     "p_home": 0.2405,
     "pick": "Detroit Pistons"
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:21:55.447579+00:00",
+    "game_date": "2026-10-10",
+    "season_type": "preseason",
+    "away": "Minnesota Timberwolves",
+    "home": "Miami Heat",
+    "home_elo": 1501.4,
+    "away_elo": 1566.6,
+    "p_home": 0.4724,
+    "pick": "Minnesota Timberwolves"
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:21:55.447588+00:00",
+    "game_date": "2026-10-10",
+    "season_type": "preseason",
+    "away": "Philadelphia 76ers",
+    "home": "Boston Celtics",
+    "home_elo": 1604.1,
+    "away_elo": 1545.7,
+    "p_home": 0.6218,
+    "pick": "Boston Celtics"
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:21:55.447597+00:00",
+    "game_date": "2026-10-10",
+    "season_type": "preseason",
+    "away": "Sacramento Kings",
+    "home": "Golden State Warriors",
+    "home_elo": 1449.1,
+    "away_elo": 1390.5,
+    "p_home": 0.622,
+    "pick": "Golden State Warriors"
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:21:55.447607+00:00",
+    "game_date": "2026-10-10",
+    "season_type": "preseason",
+    "away": "San Antonio Spurs",
+    "home": "Phoenix Suns",
+    "home_elo": 1495.8,
+    "away_elo": 1658.5,
+    "p_home": 0.3567,
+    "pick": "San Antonio Spurs"
   }
 ]
