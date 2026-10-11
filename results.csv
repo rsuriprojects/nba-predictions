@@ -28,5 +28,7 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-10,preseason,Sacramento Kings,Golden State Warriors,Golden State Warriors,0.622,0.622,106,111,5,Golden State Warriors,True,False
 2026-10-10,preseason,Atlanta Hawks,Indiana Pacers,Atlanta Hawks,0.344,0.656,119,117,-2,Atlanta Hawks,True,False
 2026-10-10,preseason,Minnesota Timberwolves,Miami Heat,Minnesota Timberwolves,0.4724,0.5276,125,124,-1,Minnesota Timberwolves,True,False
+2026-10-10,preseason,San Antonio Spurs,Phoenix Suns,San Antonio Spurs,0.3567,0.6433,98,102,4,Phoenix Suns,False,False
 2026-10-10,preseason,Los Angeles Clippers,Toronto Raptors,Toronto Raptors,0.5644,0.5644,106,114,8,Toronto Raptors,True,False
 2026-10-10,preseason,Detroit Pistons,Washington Wizards,Detroit Pistons,0.2405,0.7595,108,114,6,Washington Wizards,False,False
+2026-10-11,preseason,Dallas Mavericks,Houston Rockets,Houston Rockets,0.733,0.733,132,115,-17,Dallas Mavericks,False,False

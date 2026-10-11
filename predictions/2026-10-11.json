@@ -1,0 +1,46 @@
+[
+  {
+    "logged_at_utc": "2026-10-11T17:47:54.098141+00:00",
+    "game_date": "2026-10-11",
+    "season_type": "preseason",
+    "away": "Chicago Bulls",
+    "home": "Denver Nuggets",
+    "home_elo": 1579.9,
+    "away_elo": 1402.6,
+    "p_home": 0.7468,
+    "pick": "Denver Nuggets"
+  },
+  {
+    "logged_at_utc": "2026-10-11T17:47:54.098163+00:00",
+    "game_date": "2026-10-11",
+    "season_type": "preseason",
+    "away": "Milwaukee Bucks",
+    "home": "Charlotte Hornets",
+    "home_elo": 1560.9,
+    "away_elo": 1424.6,
+    "p_home": 0.7069,
+    "pick": "Charlotte Hornets"
+  },
+  {
+    "logged_at_utc": "2026-10-11T17:47:54.098171+00:00",
+    "game_date": "2026-10-11",
+    "season_type": "preseason",
+    "away": "Dallas Mavericks",
+    "home": "Houston Rockets",
+    "home_elo": 1562.9,
+    "away_elo": 1400.1,
+    "p_home": 0.733,
+    "pick": "Houston Rockets"
+  },
+  {
+    "logged_at_utc": "2026-10-11T17:47:54.098178+00:00",
+    "game_date": "2026-10-11",
+    "season_type": "preseason",
+    "away": "Orlando Magic",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1579.2,
+    "away_elo": 1549.6,
+    "p_home": 0.588,
+    "pick": "Cleveland Cavaliers"
+  }
+]
