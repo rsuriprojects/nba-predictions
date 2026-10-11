@@ -1,6 +1,32 @@
-game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner,correct
-2026-10-10,preseason,Philadelphia 76ers,Boston Celtics,Boston Celtics,0.6218,0.6218,106,144,38,Boston Celtics,True
-2026-10-10,preseason,Minnesota Timberwolves,Miami Heat,Minnesota Timberwolves,0.4724,0.5276,125,124,-1,Minnesota Timberwolves,True
-2026-10-10,preseason,Atlanta Hawks,Indiana Pacers,Atlanta Hawks,0.344,0.656,119,117,-2,Atlanta Hawks,True
-2026-10-10,preseason,Los Angeles Clippers,Toronto Raptors,Toronto Raptors,0.5644,0.5644,106,114,8,Toronto Raptors,True
-2026-10-10,preseason,Detroit Pistons,Washington Wizards,Detroit Pistons,0.2405,0.7595,108,114,6,Washington Wizards,False
+game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner,correct,backfilled
+2026-10-03,preseason,Miami Heat,Toronto Raptors,Toronto Raptors,0.5795,0.5795,129,105,-24,Miami Heat,False,True
+2026-10-04,preseason,Utah Jazz,Denver Nuggets,Denver Nuggets,0.7876,0.7876,109,97,-12,Utah Jazz,False,True
+2026-10-04,preseason,Golden State Warriors,Los Angeles Clippers,Los Angeles Clippers,0.6292,0.6292,101,104,3,Los Angeles Clippers,True,True
+2026-10-05,preseason,Memphis Grizzlies,Atlanta Hawks,Atlanta Hawks,0.7533,0.7533,132,123,-9,Memphis Grizzlies,False,True
+2026-10-05,preseason,Phoenix Suns,Detroit Pistons,Detroit Pistons,0.6738,0.6738,107,109,2,Detroit Pistons,True,True
+2026-10-05,preseason,Minnesota Timberwolves,Milwaukee Bucks,Minnesota Timberwolves,0.3804,0.6196,116,97,-19,Minnesota Timberwolves,True,True
+2026-10-05,preseason,New York Knicks,Philadelphia 76ers,New York Knicks,0.4915,0.5085,97,120,23,Philadelphia 76ers,False,True
+2026-10-05,preseason,Los Angeles Lakers,Sacramento Kings,Los Angeles Lakers,0.3237,0.6763,127,103,-24,Los Angeles Lakers,True,True
+2026-10-06,preseason,Brooklyn Nets,Charlotte Hornets,Charlotte Hornets,0.7726,0.7726,124,90,-34,Brooklyn Nets,False,True
+2026-10-06,preseason,Los Angeles Lakers,Golden State Warriors,Los Angeles Lakers,0.3896,0.6104,98,124,26,Golden State Warriors,False,True
+2026-10-06,preseason,New Orleans Pelicans,Oklahoma City Thunder,Oklahoma City Thunder,0.7995,0.7995,116,110,-6,New Orleans Pelicans,False,True
+2026-10-06,preseason,Denver Nuggets,Utah Jazz,Denver Nuggets,0.2911,0.7089,117,106,-11,Denver Nuggets,True,True
+2026-10-07,preseason,Phoenix Suns,Chicago Bulls,Phoenix Suns,0.4384,0.5616,117,124,7,Chicago Bulls,False,True
+2026-10-07,preseason,Minnesota Timberwolves,Indiana Pacers,Minnesota Timberwolves,0.3174,0.6826,112,123,11,Indiana Pacers,False,True
+2026-10-07,preseason,Orlando Magic,Memphis Grizzlies,Orlando Magic,0.3247,0.6753,122,118,-4,Orlando Magic,True,True
+2026-10-07,preseason,Milwaukee Bucks,Oklahoma City Thunder,Oklahoma City Thunder,0.7994,0.7994,128,126,-2,Milwaukee Bucks,False,True
+2026-10-07,preseason,Golden State Warriors,Portland Trail Blazers,Portland Trail Blazers,0.6374,0.6374,118,123,5,Portland Trail Blazers,True,True
+2026-10-08,preseason,Philadelphia 76ers,Brooklyn Nets,Philadelphia 76ers,0.3256,0.6744,108,114,6,Brooklyn Nets,False,True
+2026-10-08,preseason,Boston Celtics,Cleveland Cavaliers,Cleveland Cavaliers,0.5219,0.5219,124,113,-11,Boston Celtics,False,True
+2026-10-08,preseason,Sacramento Kings,Los Angeles Lakers,Los Angeles Lakers,0.7608,0.7608,110,114,4,Los Angeles Lakers,True,True
+2026-10-08,preseason,New Orleans Pelicans,Miami Heat,Miami Heat,0.6431,0.6431,118,128,10,Miami Heat,True,True
+2026-10-08,preseason,Washington Wizards,New York Knicks,New York Knicks,0.8241,0.8241,111,109,-2,Washington Wizards,False,True
+2026-10-08,preseason,Atlanta Hawks,San Antonio Spurs,San Antonio Spurs,0.6862,0.6862,123,116,-7,Atlanta Hawks,False,True
+2026-10-09,preseason,Memphis Grizzlies,Chicago Bulls,Chicago Bulls,0.6059,0.6059,104,100,-4,Memphis Grizzlies,False,True
+2026-10-09,preseason,Houston Rockets,Dallas Mavericks,Houston Rockets,0.3567,0.6433,135,117,-18,Houston Rockets,True,True
+2026-10-10,preseason,Philadelphia 76ers,Boston Celtics,Boston Celtics,0.6218,0.6218,106,144,38,Boston Celtics,True,False
+2026-10-10,preseason,Sacramento Kings,Golden State Warriors,Golden State Warriors,0.622,0.622,106,111,5,Golden State Warriors,True,False
+2026-10-10,preseason,Atlanta Hawks,Indiana Pacers,Atlanta Hawks,0.344,0.656,119,117,-2,Atlanta Hawks,True,False
+2026-10-10,preseason,Minnesota Timberwolves,Miami Heat,Minnesota Timberwolves,0.4724,0.5276,125,124,-1,Minnesota Timberwolves,True,False
+2026-10-10,preseason,Los Angeles Clippers,Toronto Raptors,Toronto Raptors,0.5644,0.5644,106,114,8,Toronto Raptors,True,False
+2026-10-10,preseason,Detroit Pistons,Washington Wizards,Detroit Pistons,0.2405,0.7595,108,114,6,Washington Wizards,False,False

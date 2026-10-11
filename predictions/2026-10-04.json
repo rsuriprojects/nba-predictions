@@ -1,0 +1,26 @@
+[
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.927494+00:00",
+    "game_date": "2026-10-04",
+    "season_type": "preseason",
+    "away": "Utah Jazz",
+    "home": "Denver Nuggets",
+    "home_elo": 1579.9,
+    "away_elo": 1356.0,
+    "p_home": 0.7876,
+    "pick": "Denver Nuggets",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.927522+00:00",
+    "game_date": "2026-10-04",
+    "season_type": "preseason",
+    "away": "Golden State Warriors",
+    "home": "Los Angeles Clippers",
+    "home_elo": 1513.9,
+    "away_elo": 1449.1,
+    "p_home": 0.6292,
+    "pick": "Los Angeles Clippers",
+    "backfilled": true
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943540+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "Sacramento Kings",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1583.2,
+    "away_elo": 1390.5,
+    "p_home": 0.7608,
+    "pick": "Los Angeles Lakers",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943566+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "Atlanta Hawks",
+    "home": "San Antonio Spurs",
+    "home_elo": 1658.5,
+    "away_elo": 1542.1,
+    "p_home": 0.6862,
+    "pick": "San Antonio Spurs",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943582+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "Washington Wizards",
+    "home": "New York Knicks",
+    "home_elo": 1595.4,
+    "away_elo": 1323.9,
+    "p_home": 0.8241,
+    "pick": "New York Knicks",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943595+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "Philadelphia 76ers",
+    "home": "Brooklyn Nets",
+    "home_elo": 1354.8,
+    "away_elo": 1545.7,
+    "p_home": 0.3256,
+    "pick": "Philadelphia 76ers",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943607+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "New Orleans Pelicans",
+    "home": "Miami Heat",
+    "home_elo": 1501.4,
+    "away_elo": 1424.4,
+    "p_home": 0.6431,
+    "pick": "Miami Heat",
+    "backfilled": true
+  },
+  {
+    "logged_at_utc": "2026-10-11T03:17:02.943619+00:00",
+    "game_date": "2026-10-08",
+    "season_type": "preseason",
+    "away": "Boston Celtics",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1579.2,
+    "away_elo": 1604.1,
+    "p_home": 0.5219,
+    "pick": "Cleveland Cavaliers",
+    "backfilled": true
+  }
+]
