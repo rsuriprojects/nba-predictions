@@ -11,6 +11,7 @@ and return nothing, so the regular-season pipeline is never broken by a
 preseason problem.
 """
 import json
+import math
 import urllib.request
 import pandas as pd
 import numpy as np
@@ -39,7 +40,7 @@ HEADER_SETS = [
     }),
 ]
 
-COLS = ["date", "away", "home", "away_pts", "home_pts"]
+COLS = ["date", "away", "home", "away_pts", "home_pts", "p_market"]
 
 # Our Elo ratings are keyed by the Basketball Reference team name, so every
 # other source has to be translated into those names.
@@ -103,7 +104,7 @@ def _get_json(url):
     raise RuntimeError("; ".join(errors))
 
 
-def _get_espn(start, end):
+def _get_espn(start, end, day_by_day=False):
     """ESPN preseason scoreboard for start..end (YYYYMMDD strings).
 
     Tries one ranged request first. Since October 2026 ESPN has answered that
@@ -111,10 +112,11 @@ def _get_espn(start, end):
     plainest form of the endpoint. Every day in the window is fetched, future
     ones included, so the site can list the whole preseason schedule.
     """
-    try:
-        return _get_json(ESPN_URL.format(start=start, end=end))
-    except Exception as e:
-        print(f"  ESPN range request failed ({e}); trying day by day")
+    if not day_by_day:
+        try:
+            return _get_json(ESPN_URL.format(start=start, end=end))
+        except Exception as e:
+            print(f"  ESPN range request failed ({e}); trying day by day")
 
     events, errors = [], []
     for day in pd.date_range(pd.Timestamp(start), pd.Timestamp(end)):
@@ -185,8 +187,36 @@ def _parse_espn(data, season, skipped):
 
         rows.append({"date": date,
                      "away": side["away"][0], "home": side["home"][0],
-                     "away_pts": side["away"][1], "home_pts": side["home"][1]})
+                     "away_pts": side["away"][1], "home_pts": side["home"][1],
+                     "p_market": _market_prob(comp)})
     return rows
+
+
+def _ml_prob(ml):
+    ml = float(ml)
+    return 100 / (ml + 100) if ml > 0 else -ml / (-ml + 100)
+
+
+def _market_prob(comp):
+    """Home win probability implied by ESPN's betting line, or NaN.
+
+    Moneylines are used when both sides are posted (with the bookmaker's margin
+    removed); otherwise the point spread, at roughly 12 points per standard
+    deviation of NBA margins.
+    """
+    try:
+        odds = (comp.get("odds") or [{}])[0]
+        h, a = odds.get("homeTeamOdds", {}), odds.get("awayTeamOdds", {})
+        if h.get("moneyLine") not in (None, "") and a.get("moneyLine") not in (None, ""):
+            ph, pa = _ml_prob(h["moneyLine"]), _ml_prob(a["moneyLine"])
+            return ph / (ph + pa)
+        spread = odds.get("spread")
+        if spread not in (None, "") and (h.get("favorite") or a.get("favorite")):
+            pts = abs(float(spread)) * (1 if h.get("favorite") else -1)
+            return 0.5 * (1 + math.erf(pts / 12 / math.sqrt(2)))
+    except Exception:
+        pass
+    return np.nan
 
 
 def _parse_cdn(data, season, skipped):
