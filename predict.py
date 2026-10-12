@@ -61,12 +61,29 @@ MU = np.array([0.0, 2.2, 2.2, 0.22, 0.22])
 SD = np.array([124.3, 1.3, 1.3, 0.41, 0.41])
 B  = 0.18
 
-def win_prob(elo, rest, home, away):
+# Preseason: last season's ratings say much less (stars rest, rosters changed).
+# Backtested on the 2022-23 to 2025-26 preseasons (263 games), counting the
+# Elo gap at half strength gave the best-calibrated probabilities; accuracy
+# was ~53% whatever we did. When ESPN posts a betting line, that is used instead.
+PRESEASON_SHRINK = 0.5
+
+def win_prob(elo, rest, home, away, shrink=1.0):
     rh, ra = elo.get(home, BASE), elo.get(away, BASE)
     hr = rest.get(home, 3); ar = rest.get(away, 3)
-    x = np.array([rh-ra, hr, ar, int(hr<=1), int(ar<=1)])
+    x = np.array([(rh-ra)*shrink, hr, ar, int(hr<=1), int(ar<=1)])
     z = np.dot((x-MU)/SD, W) + B
     return rh, ra, float(1/(1+np.exp(-z)))
+
+def game_prob(elo, rest, g, season_type):
+    """(home elo, away elo, p_home, source) for one scheduled game."""
+    if season_type == "preseason":
+        market = getattr(g, "p_market", np.nan)
+        rh, ra, p = win_prob(elo, rest, g.home, g.away, PRESEASON_SHRINK)
+        if pd.notna(market):
+            return rh, ra, float(market), "market"
+        return rh, ra, p, "elo"
+    rh, ra, p = win_prob(elo, rest, g.home, g.away)
+    return rh, ra, p, "elo"
 
 def state_before(base_elo, sched, day):
     """Elo and rest days using ONLY regular-season results from before `day`.
@@ -85,7 +102,7 @@ def predict_day(base_elo, sched, pre, day, backfilled=False):
     for slate, season_type in ((games_on(sched, day), "regular"),
                                (games_on(pre, day), "preseason")):
         for g in slate.itertuples():
-            rh, ra, p = win_prob(elo, rest, g.home, g.away)
+            rh, ra, p, source = game_prob(elo, rest, g, season_type)
             row = {
                 "logged_at_utc": datetime.now(timezone.utc).isoformat(),
                 "game_date": str(day.date()),
@@ -94,6 +111,7 @@ def predict_day(base_elo, sched, pre, day, backfilled=False):
                 "home_elo": round(rh,1), "away_elo": round(ra,1),
                 "p_home": round(p,4),
                 "pick": g.home if p > 0.5 else g.away,
+                "source": source,
             }
             if backfilled:
                 # Logged after the game, but computed only from data that
@@ -124,7 +142,7 @@ def write_upcoming(base_elo, sched, pre, today):
         for g in df[df["date"] >= today].itertuples():
             prior = sched[(sched["date"] < g.date)] if len(sched) else sched
             rest = rest_days(prior, g.date)
-            rh, ra, p = win_prob(elo, rest, g.home, g.away)
+            rh, ra, p, source = game_prob(elo, rest, g, season_type)
             games.append({
                 "game_date": str(g.date.date()),
                 "season_type": season_type,
@@ -132,6 +150,7 @@ def write_upcoming(base_elo, sched, pre, today):
                 "home_elo": round(rh,1), "away_elo": round(ra,1),
                 "p_home": round(p,4),
                 "pick": g.home if p > 0.5 else g.away,
+                "source": source,
             })
     games.sort(key=lambda r: (r["game_date"], r["home"]))
     with open("upcoming.json", "w") as f:
