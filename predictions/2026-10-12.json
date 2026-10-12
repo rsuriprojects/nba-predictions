@@ -1,0 +1,50 @@
+[
+  {
+    "logged_at_utc": "2026-10-12T21:25:11.372273+00:00",
+    "game_date": "2026-10-12",
+    "season_type": "preseason",
+    "away": "Oklahoma City Thunder",
+    "home": "Atlanta Hawks",
+    "home_elo": 1542.1,
+    "away_elo": 1663.1,
+    "p_home": 0.6766,
+    "pick": "Atlanta Hawks",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-12T21:25:11.372310+00:00",
+    "game_date": "2026-10-12",
+    "season_type": "preseason",
+    "away": "Brooklyn Nets",
+    "home": "Washington Wizards",
+    "home_elo": 1323.9,
+    "away_elo": 1354.8,
+    "p_home": 0.5335,
+    "pick": "Washington Wizards",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-12T21:25:11.372330+00:00",
+    "game_date": "2026-10-12",
+    "season_type": "preseason",
+    "away": "Minnesota Timberwolves",
+    "home": "New York Knicks",
+    "home_elo": 1595.4,
+    "away_elo": 1566.6,
+    "p_home": 0.5497,
+    "pick": "New York Knicks",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-12T21:25:11.372349+00:00",
+    "game_date": "2026-10-12",
+    "season_type": "preseason",
+    "away": "San Antonio Spurs",
+    "home": "Utah Jazz",
+    "home_elo": 1356.0,
+    "away_elo": 1658.5,
+    "p_home": 0.6462,
+    "pick": "Utah Jazz",
+    "source": "market"
+  }
+]
