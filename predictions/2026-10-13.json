@@ -1,0 +1,62 @@
+[
+  {
+    "logged_at_utc": "2026-10-13T19:32:47.303739+00:00",
+    "game_date": "2026-10-13",
+    "season_type": "preseason",
+    "away": "Cleveland Cavaliers",
+    "home": "Orlando Magic",
+    "home_elo": 1549.6,
+    "away_elo": 1579.2,
+    "p_home": 0.4503,
+    "pick": "Cleveland Cavaliers",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-13T19:32:47.303769+00:00",
+    "game_date": "2026-10-13",
+    "season_type": "preseason",
+    "away": "New York Knicks",
+    "home": "Toronto Raptors",
+    "home_elo": 1523.9,
+    "away_elo": 1595.4,
+    "p_home": 0.8092,
+    "pick": "Toronto Raptors",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-13T19:32:47.303782+00:00",
+    "game_date": "2026-10-13",
+    "season_type": "preseason",
+    "away": "Indiana Pacers",
+    "home": "Oklahoma City Thunder",
+    "home_elo": 1663.1,
+    "away_elo": 1368.1,
+    "p_home": 0.7606,
+    "pick": "Oklahoma City Thunder",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-13T19:32:47.303793+00:00",
+    "game_date": "2026-10-13",
+    "season_type": "preseason",
+    "away": "Golden State Warriors",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1583.2,
+    "away_elo": 1449.1,
+    "p_home": 0.5497,
+    "pick": "Los Angeles Lakers",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-13T19:32:47.303803+00:00",
+    "game_date": "2026-10-13",
+    "season_type": "preseason",
+    "away": "Portland Trail Blazers",
+    "home": "Sacramento Kings",
+    "home_elo": 1390.5,
+    "away_elo": 1521.1,
+    "p_home": 0.5825,
+    "pick": "Sacramento Kings",
+    "source": "market"
+  }
+]

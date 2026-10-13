@@ -1,6 +1,6 @@
 {
- "generated_at_utc": "2026-10-12T21:25:14.921977+00:00",
- "today": "2026-10-12",
+ "generated_at_utc": "2026-10-13T19:32:49.829760+00:00",
+ "today": "2026-10-13",
  "elo": {
   "Oklahoma City Thunder": 1663.1,
   "San Antonio Spurs": 1658.5,
@@ -35,59 +35,15 @@
  },
  "games": [
   {
-   "game_date": "2026-10-12",
-   "season_type": "preseason",
-   "away": "Oklahoma City Thunder",
-   "home": "Atlanta Hawks",
-   "home_elo": 1542.1,
-   "away_elo": 1663.1,
-   "p_home": 0.6766,
-   "pick": "Atlanta Hawks",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-12",
-   "season_type": "preseason",
-   "away": "Minnesota Timberwolves",
-   "home": "New York Knicks",
-   "home_elo": 1595.4,
-   "away_elo": 1566.6,
-   "p_home": 0.5497,
-   "pick": "New York Knicks",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-12",
-   "season_type": "preseason",
-   "away": "San Antonio Spurs",
-   "home": "Utah Jazz",
-   "home_elo": 1356.0,
-   "away_elo": 1658.5,
-   "p_home": 0.6462,
-   "pick": "Utah Jazz",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-12",
-   "season_type": "preseason",
-   "away": "Brooklyn Nets",
-   "home": "Washington Wizards",
-   "home_elo": 1323.9,
-   "away_elo": 1354.8,
-   "p_home": 0.5335,
-   "pick": "Washington Wizards",
-   "source": "elo"
-  },
-  {
    "game_date": "2026-10-13",
    "season_type": "preseason",
    "away": "Golden State Warriors",
    "home": "Los Angeles Lakers",
    "home_elo": 1583.2,
    "away_elo": 1449.1,
-   "p_home": 0.6318,
+   "p_home": 0.5497,
    "pick": "Los Angeles Lakers",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-13",
@@ -96,9 +52,9 @@
    "home": "Oklahoma City Thunder",
    "home_elo": 1663.1,
    "away_elo": 1368.1,
-   "p_home": 0.7181,
+   "p_home": 0.7606,
    "pick": "Oklahoma City Thunder",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-13",
@@ -107,9 +63,9 @@
    "home": "Orlando Magic",
    "home_elo": 1549.6,
    "away_elo": 1579.2,
-   "p_home": 0.5343,
-   "pick": "Orlando Magic",
-   "source": "elo"
+   "p_home": 0.4503,
+   "pick": "Cleveland Cavaliers",
+   "source": "market"
   },
   {
    "game_date": "2026-10-13",
@@ -118,9 +74,9 @@
    "home": "Sacramento Kings",
    "home_elo": 1390.5,
    "away_elo": 1521.1,
-   "p_home": 0.4723,
-   "pick": "Portland Trail Blazers",
-   "source": "elo"
+   "p_home": 0.5825,
+   "pick": "Sacramento Kings",
+   "source": "market"
   },
   {
    "game_date": "2026-10-13",
@@ -129,9 +85,9 @@
    "home": "Toronto Raptors",
    "home_elo": 1523.9,
    "away_elo": 1595.4,
-   "p_home": 0.5086,
+   "p_home": 0.8092,
    "pick": "Toronto Raptors",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-14",
