@@ -1,0 +1,86 @@
+[
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939820+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Detroit Pistons",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1566.6,
+    "away_elo": 1600.6,
+    "p_home": 0.6462,
+    "pick": "Minnesota Timberwolves",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939855+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Denver Nuggets",
+    "home": "Los Angeles Clippers",
+    "home_elo": 1513.9,
+    "away_elo": 1579.9,
+    "p_home": 0.4175,
+    "pick": "Denver Nuggets",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939875+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Chicago Bulls",
+    "home": "Milwaukee Bucks",
+    "home_elo": 1424.6,
+    "away_elo": 1402.6,
+    "p_home": 0.4503,
+    "pick": "Chicago Bulls",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939892+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Charlotte Hornets",
+    "home": "Boston Celtics",
+    "home_elo": 1604.1,
+    "away_elo": 1560.9,
+    "p_home": 0.7606,
+    "pick": "Boston Celtics",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939907+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Phoenix Suns",
+    "home": "San Antonio Spurs",
+    "home_elo": 1658.5,
+    "away_elo": 1495.8,
+    "p_home": 0.7606,
+    "pick": "San Antonio Spurs",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939922+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "Brooklyn Nets",
+    "home": "Miami Heat",
+    "home_elo": 1501.4,
+    "away_elo": 1354.8,
+    "p_home": 0.706,
+    "pick": "Miami Heat",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-14T17:38:43.939938+00:00",
+    "game_date": "2026-10-14",
+    "season_type": "preseason",
+    "away": "New Orleans Pelicans",
+    "home": "Dallas Mavericks",
+    "home_elo": 1400.1,
+    "away_elo": 1424.4,
+    "p_home": 0.4503,
+    "pick": "New Orleans Pelicans",
+    "source": "market"
+  }
+]
