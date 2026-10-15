@@ -1,0 +1,26 @@
+[
+  {
+    "logged_at_utc": "2026-10-15T17:22:02.832659+00:00",
+    "game_date": "2026-10-15",
+    "season_type": "preseason",
+    "away": "Toronto Raptors",
+    "home": "New York Knicks",
+    "home_elo": 1595.4,
+    "away_elo": 1523.9,
+    "p_home": 0.6766,
+    "pick": "New York Knicks",
+    "source": "market"
+  },
+  {
+    "logged_at_utc": "2026-10-15T17:22:02.832692+00:00",
+    "game_date": "2026-10-15",
+    "season_type": "preseason",
+    "away": "Oklahoma City Thunder",
+    "home": "Houston Rockets",
+    "home_elo": 1562.9,
+    "away_elo": 1663.1,
+    "p_home": 0.3538,
+    "pick": "Oklahoma City Thunder",
+    "source": "market"
+  }
+]

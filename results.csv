@@ -44,3 +44,10 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-13,preseason,Cleveland Cavaliers,Orlando Magic,Cleveland Cavaliers,0.4503,0.5497,116,132,16,Orlando Magic,False,False
 2026-10-13,preseason,Portland Trail Blazers,Sacramento Kings,Sacramento Kings,0.5825,0.5825,110,98,-12,Portland Trail Blazers,False,False
 2026-10-13,preseason,New York Knicks,Toronto Raptors,Toronto Raptors,0.8092,0.8092,98,148,50,Toronto Raptors,True,False
+2026-10-14,preseason,Charlotte Hornets,Boston Celtics,Boston Celtics,0.7606,0.7606,93,114,21,Boston Celtics,True,False
+2026-10-14,preseason,New Orleans Pelicans,Dallas Mavericks,New Orleans Pelicans,0.4503,0.5497,101,97,-4,New Orleans Pelicans,True,False
+2026-10-14,preseason,Denver Nuggets,Los Angeles Clippers,Denver Nuggets,0.4175,0.5825,110,122,12,Los Angeles Clippers,False,False
+2026-10-14,preseason,Brooklyn Nets,Miami Heat,Miami Heat,0.706,0.706,128,144,16,Miami Heat,True,False
+2026-10-14,preseason,Chicago Bulls,Milwaukee Bucks,Chicago Bulls,0.4503,0.5497,125,104,-21,Chicago Bulls,True,False
+2026-10-14,preseason,Detroit Pistons,Minnesota Timberwolves,Minnesota Timberwolves,0.6462,0.6462,128,106,-22,Detroit Pistons,False,False
+2026-10-14,preseason,Phoenix Suns,San Antonio Spurs,San Antonio Spurs,0.7606,0.7606,103,123,20,San Antonio Spurs,True,False

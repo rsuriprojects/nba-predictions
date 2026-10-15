@@ -1,6 +1,6 @@
 {
- "generated_at_utc": "2026-10-14T17:38:47.411251+00:00",
- "today": "2026-10-14",
+ "generated_at_utc": "2026-10-15T17:22:06.307164+00:00",
+ "today": "2026-10-15",
  "elo": {
   "Oklahoma City Thunder": 1663.1,
   "San Antonio Spurs": 1658.5,
@@ -35,92 +35,15 @@
  },
  "games": [
   {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Charlotte Hornets",
-   "home": "Boston Celtics",
-   "home_elo": 1604.1,
-   "away_elo": 1560.9,
-   "p_home": 0.7606,
-   "pick": "Boston Celtics",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "New Orleans Pelicans",
-   "home": "Dallas Mavericks",
-   "home_elo": 1400.1,
-   "away_elo": 1424.4,
-   "p_home": 0.4503,
-   "pick": "New Orleans Pelicans",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Denver Nuggets",
-   "home": "Los Angeles Clippers",
-   "home_elo": 1513.9,
-   "away_elo": 1579.9,
-   "p_home": 0.4175,
-   "pick": "Denver Nuggets",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Brooklyn Nets",
-   "home": "Miami Heat",
-   "home_elo": 1501.4,
-   "away_elo": 1354.8,
-   "p_home": 0.706,
-   "pick": "Miami Heat",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Chicago Bulls",
-   "home": "Milwaukee Bucks",
-   "home_elo": 1424.6,
-   "away_elo": 1402.6,
-   "p_home": 0.4503,
-   "pick": "Chicago Bulls",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Detroit Pistons",
-   "home": "Minnesota Timberwolves",
-   "home_elo": 1566.6,
-   "away_elo": 1600.6,
-   "p_home": 0.6462,
-   "pick": "Minnesota Timberwolves",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-14",
-   "season_type": "preseason",
-   "away": "Phoenix Suns",
-   "home": "San Antonio Spurs",
-   "home_elo": 1658.5,
-   "away_elo": 1495.8,
-   "p_home": 0.7606,
-   "pick": "San Antonio Spurs",
-   "source": "market"
-  },
-  {
    "game_date": "2026-10-15",
    "season_type": "preseason",
    "away": "Oklahoma City Thunder",
    "home": "Houston Rockets",
    "home_elo": 1562.9,
    "away_elo": 1663.1,
-   "p_home": 0.491,
+   "p_home": 0.3538,
    "pick": "Oklahoma City Thunder",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-15",
@@ -129,9 +52,9 @@
    "home": "New York Knicks",
    "home_elo": 1595.4,
    "away_elo": 1523.9,
-   "p_home": 0.5953,
+   "p_home": 0.6766,
    "pick": "New York Knicks",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
