@@ -1,6 +1,6 @@
 {
- "generated_at_utc": "2026-10-15T17:22:06.307164+00:00",
- "today": "2026-10-15",
+ "generated_at_utc": "2026-10-16T16:57:49.337518+00:00",
+ "today": "2026-10-16",
  "elo": {
   "Oklahoma City Thunder": 1663.1,
   "San Antonio Spurs": 1658.5,
@@ -35,37 +35,15 @@
  },
  "games": [
   {
-   "game_date": "2026-10-15",
-   "season_type": "preseason",
-   "away": "Oklahoma City Thunder",
-   "home": "Houston Rockets",
-   "home_elo": 1562.9,
-   "away_elo": 1663.1,
-   "p_home": 0.3538,
-   "pick": "Oklahoma City Thunder",
-   "source": "market"
-  },
-  {
-   "game_date": "2026-10-15",
-   "season_type": "preseason",
-   "away": "Toronto Raptors",
-   "home": "New York Knicks",
-   "home_elo": 1595.4,
-   "away_elo": 1523.9,
-   "p_home": 0.6766,
-   "pick": "New York Knicks",
-   "source": "market"
-  },
-  {
    "game_date": "2026-10-16",
    "season_type": "preseason",
    "away": "Minnesota Timberwolves",
    "home": "Chicago Bulls",
    "home_elo": 1402.6,
    "away_elo": 1566.6,
-   "p_home": 0.4519,
+   "p_home": 0.4175,
    "pick": "Minnesota Timberwolves",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -74,9 +52,9 @@
    "home": "Dallas Mavericks",
    "home_elo": 1400.1,
    "away_elo": 1542.1,
-   "p_home": 0.4654,
-   "pick": "Atlanta Hawks",
-   "source": "elo"
+   "p_home": 0.5497,
+   "pick": "Dallas Mavericks",
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -85,9 +63,9 @@
    "home": "Detroit Pistons",
    "home_elo": 1600.6,
    "away_elo": 1523.9,
-   "p_home": 0.5984,
+   "p_home": 0.7857,
    "pick": "Detroit Pistons",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -96,9 +74,9 @@
    "home": "Golden State Warriors",
    "home_elo": 1449.1,
    "away_elo": 1521.1,
-   "p_home": 0.5083,
-   "pick": "Golden State Warriors",
-   "source": "elo"
+   "p_home": 0.3853,
+   "pick": "Portland Trail Blazers",
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -107,9 +85,9 @@
    "home": "Indiana Pacers",
    "home_elo": 1368.1,
    "away_elo": 1424.6,
-   "p_home": 0.5178,
+   "p_home": 0.734,
    "pick": "Indiana Pacers",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -118,9 +96,9 @@
    "home": "Los Angeles Lakers",
    "home_elo": 1583.2,
    "away_elo": 1579.9,
-   "p_home": 0.5544,
+   "p_home": 0.6766,
    "pick": "Los Angeles Lakers",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -129,9 +107,9 @@
    "home": "Memphis Grizzlies",
    "home_elo": 1357.8,
    "away_elo": 1560.9,
-   "p_home": 0.4283,
+   "p_home": 0.4503,
    "pick": "Charlotte Hornets",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -140,9 +118,9 @@
    "home": "New Orleans Pelicans",
    "home_elo": 1424.4,
    "away_elo": 1323.9,
-   "p_home": 0.6123,
-   "pick": "New Orleans Pelicans",
-   "source": "elo"
+   "p_home": 0.4175,
+   "pick": "Washington Wizards",
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -151,9 +129,9 @@
    "home": "Orlando Magic",
    "home_elo": 1549.6,
    "away_elo": 1501.4,
-   "p_home": 0.5814,
+   "p_home": 0.5825,
    "pick": "Orlando Magic",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -162,9 +140,9 @@
    "home": "Philadelphia 76ers",
    "home_elo": 1545.7,
    "away_elo": 1604.1,
-   "p_home": 0.5167,
+   "p_home": 0.6462,
    "pick": "Philadelphia 76ers",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -173,9 +151,9 @@
    "home": "Phoenix Suns",
    "home_elo": 1495.8,
    "away_elo": 1356.0,
-   "p_home": 0.635,
+   "p_home": 0.6462,
    "pick": "Phoenix Suns",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-16",
@@ -184,9 +162,9 @@
    "home": "San Antonio Spurs",
    "home_elo": 1658.5,
    "away_elo": 1390.5,
-   "p_home": 0.7045,
+   "p_home": 0.9154,
    "pick": "San Antonio Spurs",
-   "source": "elo"
+   "source": "market"
   },
   {
    "game_date": "2026-10-20",
