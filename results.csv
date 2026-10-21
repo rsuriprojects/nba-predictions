@@ -65,3 +65,6 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-16,preseason,Boston Celtics,Philadelphia 76ers,Philadelphia 76ers,0.6462,0.6462,125,120,-5,Boston Celtics,False,False
 2026-10-16,preseason,Utah Jazz,Phoenix Suns,Phoenix Suns,0.6462,0.6462,119,116,-3,Utah Jazz,False,False
 2026-10-16,preseason,Sacramento Kings,San Antonio Spurs,San Antonio Spurs,0.9154,0.9154,97,126,29,San Antonio Spurs,True,False
+2026-10-20,regular,Boston Celtics,Detroit Pistons,Detroit Pistons,0.5481,0.5481,113,121,8,Detroit Pistons,True,False
+2026-10-20,regular,Philadelphia 76ers,New York Knicks,New York Knicks,0.6117,0.6117,106,100,-6,Philadelphia 76ers,False,False
+2026-10-20,regular,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,0.5468,0.5468,116,104,-12,Oklahoma City Thunder,False,False
