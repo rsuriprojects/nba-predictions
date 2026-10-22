@@ -1,0 +1,26 @@
+[
+  {
+    "logged_at_utc": "2026-10-22T17:38:34.535247+00:00",
+    "game_date": "2026-10-22",
+    "season_type": "regular",
+    "away": "Cleveland Cavaliers",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1558.9,
+    "away_elo": 1579.2,
+    "p_home": 0.5109,
+    "pick": "Philadelphia 76ers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-22T17:38:34.535287+00:00",
+    "game_date": "2026-10-22",
+    "season_type": "regular",
+    "away": "Denver Nuggets",
+    "home": "Oklahoma City Thunder",
+    "home_elo": 1674.8,
+    "away_elo": 1579.9,
+    "p_home": 0.6479,
+    "pick": "Oklahoma City Thunder",
+    "source": "elo"
+  }
+]

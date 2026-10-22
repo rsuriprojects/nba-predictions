@@ -68,3 +68,14 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-20,regular,Boston Celtics,Detroit Pistons,Detroit Pistons,0.5481,0.5481,113,121,8,Detroit Pistons,True,False
 2026-10-20,regular,Philadelphia 76ers,New York Knicks,New York Knicks,0.6117,0.6117,106,100,-6,Philadelphia 76ers,False,False
 2026-10-20,regular,Oklahoma City Thunder,San Antonio Spurs,San Antonio Spurs,0.5468,0.5468,116,104,-12,Oklahoma City Thunder,False,False
+2026-10-21,regular,Charlotte Hornets,Brooklyn Nets,Charlotte Hornets,0.3095,0.6905,110,103,-7,Charlotte Hornets,True,False
+2026-10-21,regular,Dallas Mavericks,Houston Rockets,Houston Rockets,0.733,0.733,110,128,18,Houston Rockets,True,False
+2026-10-21,regular,Sacramento Kings,Los Angeles Clippers,Los Angeles Clippers,0.6935,0.6935,96,121,25,Los Angeles Clippers,True,False
+2026-10-21,regular,Golden State Warriors,Los Angeles Lakers,Los Angeles Lakers,0.7046,0.7046,105,127,22,Los Angeles Lakers,True,False
+2026-10-21,regular,Utah Jazz,Memphis Grizzlies,Memphis Grizzlies,0.5545,0.5545,103,123,20,Memphis Grizzlies,True,False
+2026-10-21,regular,Minnesota Timberwolves,Miami Heat,Minnesota Timberwolves,0.4724,0.5276,131,106,-25,Minnesota Timberwolves,True,False
+2026-10-21,regular,Indiana Pacers,New Orleans Pelicans,New Orleans Pelicans,0.6194,0.6194,123,120,-3,Indiana Pacers,False,False
+2026-10-21,regular,Atlanta Hawks,Orlando Magic,Orlando Magic,0.5614,0.5614,132,125,-7,Atlanta Hawks,False,False
+2026-10-21,regular,Phoenix Suns,Portland Trail Blazers,Portland Trail Blazers,0.583,0.583,83,124,41,Portland Trail Blazers,True,False
+2026-10-21,regular,Chicago Bulls,Toronto Raptors,Toronto Raptors,0.6913,0.6913,92,135,43,Toronto Raptors,True,False
+2026-10-21,regular,Milwaukee Bucks,Washington Wizards,Milwaukee Bucks,0.4293,0.5707,116,128,12,Washington Wizards,False,False
