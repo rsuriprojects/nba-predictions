@@ -79,3 +79,5 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-21,regular,Phoenix Suns,Portland Trail Blazers,Portland Trail Blazers,0.583,0.583,83,124,41,Portland Trail Blazers,True,False
 2026-10-21,regular,Chicago Bulls,Toronto Raptors,Toronto Raptors,0.6913,0.6913,92,135,43,Toronto Raptors,True,False
 2026-10-21,regular,Milwaukee Bucks,Washington Wizards,Milwaukee Bucks,0.4293,0.5707,116,128,12,Washington Wizards,False,False
+2026-10-22,regular,Denver Nuggets,Oklahoma City Thunder,Oklahoma City Thunder,0.6479,0.6479,84,96,12,Oklahoma City Thunder,True,False
+2026-10-22,regular,Cleveland Cavaliers,Philadelphia 76ers,Philadelphia 76ers,0.5109,0.5109,106,114,8,Philadelphia 76ers,True,False
