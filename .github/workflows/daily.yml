@@ -2,10 +2,10 @@ name: daily predictions
 
 on:
   schedule:
-    # 8:43am US Eastern (12:43 UTC during daylight time). Off the top of the
-    # hour because GitHub delays :00 jobs, sometimes by hours. Grades last
-    # night's games and picks today's well before the earliest tip-off.
-    - cron: '43 12 * * *'
+    # 3:17am US Eastern (07:17 UTC during daylight time), after the last West
+    # Coast game is final. GitHub has been starting scheduled runs up to ~5
+    # hours late, so this still lands before the earliest tip-off.
+    - cron: '17 7 * * *'
   workflow_dispatch:
 
 permissions:
