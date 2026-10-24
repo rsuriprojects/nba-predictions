@@ -1,0 +1,98 @@
+[
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049293+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Miami Heat",
+    "home": "Charlotte Hornets",
+    "home_elo": 1554.9,
+    "away_elo": 1482.9,
+    "p_home": 0.6176,
+    "pick": "Charlotte Hornets",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049323+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Milwaukee Bucks",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1567.6,
+    "away_elo": 1401.3,
+    "p_home": 0.7751,
+    "pick": "Philadelphia 76ers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049333+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Brooklyn Nets",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1570.5,
+    "away_elo": 1348.7,
+    "p_home": 0.7744,
+    "pick": "Cleveland Cavaliers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049341+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "San Antonio Spurs",
+    "home": "Dallas Mavericks",
+    "home_elo": 1407.3,
+    "away_elo": 1632.9,
+    "p_home": 0.2723,
+    "pick": "San Antonio Spurs",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049348+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Washington Wizards",
+    "home": "Chicago Bulls",
+    "home_elo": 1409.8,
+    "away_elo": 1328.5,
+    "p_home": 0.6284,
+    "pick": "Chicago Bulls",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049356+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Houston Rockets",
+    "home": "Atlanta Hawks",
+    "home_elo": 1566.4,
+    "away_elo": 1581.1,
+    "p_home": 0.5134,
+    "pick": "Atlanta Hawks",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049363+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "New Orleans Pelicans",
+    "home": "Denver Nuggets",
+    "home_elo": 1574.2,
+    "away_elo": 1401.1,
+    "p_home": 0.7809,
+    "pick": "Denver Nuggets",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-24T12:03:44.049377+00:00",
+    "game_date": "2026-10-24",
+    "season_type": "regular",
+    "away": "Golden State Warriors",
+    "home": "Phoenix Suns",
+    "home_elo": 1488.3,
+    "away_elo": 1430.4,
+    "p_home": 0.6838,
+    "pick": "Phoenix Suns",
+    "source": "elo"
+  }
+]
