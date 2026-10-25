@@ -93,3 +93,11 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-23,regular,Houston Rockets,San Antonio Spurs,San Antonio Spurs,0.6539,0.6539,114,110,-4,Houston Rockets,False,False
 2026-10-23,regular,New Orleans Pelicans,Utah Jazz,New Orleans Pelicans,0.4671,0.5329,119,120,1,Utah Jazz,False,False
 2026-10-23,regular,Toronto Raptors,Washington Wizards,Toronto Raptors,0.3152,0.6848,112,102,-10,Toronto Raptors,True,False
+2026-10-24,regular,Houston Rockets,Atlanta Hawks,Atlanta Hawks,0.5134,0.5134,121,114,-7,Houston Rockets,False,False
+2026-10-24,regular,Miami Heat,Charlotte Hornets,Charlotte Hornets,0.6176,0.6176,110,115,5,Charlotte Hornets,True,False
+2026-10-24,regular,Washington Wizards,Chicago Bulls,Chicago Bulls,0.6284,0.6284,124,120,-4,Washington Wizards,False,False
+2026-10-24,regular,Brooklyn Nets,Cleveland Cavaliers,Cleveland Cavaliers,0.7744,0.7744,121,125,4,Cleveland Cavaliers,True,False
+2026-10-24,regular,San Antonio Spurs,Dallas Mavericks,San Antonio Spurs,0.2723,0.7277,122,106,-16,San Antonio Spurs,True,False
+2026-10-24,regular,New Orleans Pelicans,Denver Nuggets,Denver Nuggets,0.7809,0.7809,135,141,6,Denver Nuggets,True,False
+2026-10-24,regular,Milwaukee Bucks,Philadelphia 76ers,Philadelphia 76ers,0.7751,0.7751,116,127,11,Philadelphia 76ers,True,False
+2026-10-24,regular,Golden State Warriors,Phoenix Suns,Phoenix Suns,0.6838,0.6838,122,131,9,Phoenix Suns,True,False

@@ -1,0 +1,86 @@
+[
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525849+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1571.8,
+    "away_elo": 1617.4,
+    "p_home": 0.4158,
+    "pick": "Detroit Pistons",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525876+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Memphis Grizzlies",
+    "home": "Sacramento Kings",
+    "home_elo": 1377.7,
+    "away_elo": 1379.8,
+    "p_home": 0.5418,
+    "pick": "Sacramento Kings",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525885+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Los Angeles Clippers",
+    "home": "Oklahoma City Thunder",
+    "home_elo": 1680.5,
+    "away_elo": 1512.6,
+    "p_home": 0.7445,
+    "pick": "Oklahoma City Thunder",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525893+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Indiana Pacers",
+    "home": "Brooklyn Nets",
+    "home_elo": 1345.5,
+    "away_elo": 1370.0,
+    "p_home": 0.4411,
+    "pick": "Indiana Pacers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525900+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Toronto Raptors",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1587.4,
+    "away_elo": 1535.4,
+    "p_home": 0.6066,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525907+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Orlando Magic",
+    "home": "New York Knicks",
+    "home_elo": 1574.5,
+    "away_elo": 1526.8,
+    "p_home": 0.6017,
+    "pick": "New York Knicks",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-25T12:37:08.525914+00:00",
+    "game_date": "2026-10-25",
+    "season_type": "regular",
+    "away": "Los Angeles Lakers",
+    "home": "Utah Jazz",
+    "home_elo": 1357.9,
+    "away_elo": 1594.4,
+    "p_home": 0.272,
+    "pick": "Los Angeles Lakers",
+    "source": "elo"
+  }
+]
