@@ -417,7 +417,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 const badge = (n, cls="") => `<div class="badge ${cls}" style="--c:${color(n)}">${code(n)}</div>`;
 
 // ---------------------------------------------------------------- dates (US Eastern)
-const etToday = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date());
+// The site's "today" rolls over at 6am Eastern, not midnight, so late-night
+// games stay on the Today tab until the overnight run has graded them.
+const etToday = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(new Date(Date.now() - 6 * 36e5));
 const fmtDay = (iso, opts = { weekday: "long", month: "short", day: "numeric" }) =>
   new Date(iso + "T12:00:00").toLocaleDateString("en-US", opts);
 const relDay = iso => {
