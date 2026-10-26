@@ -101,3 +101,10 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-24,regular,New Orleans Pelicans,Denver Nuggets,Denver Nuggets,0.7809,0.7809,135,141,6,Denver Nuggets,True,False
 2026-10-24,regular,Milwaukee Bucks,Philadelphia 76ers,Philadelphia 76ers,0.7751,0.7751,116,127,11,Philadelphia 76ers,True,False
 2026-10-24,regular,Golden State Warriors,Phoenix Suns,Phoenix Suns,0.6838,0.6838,122,131,9,Phoenix Suns,True,False
+2026-10-25,regular,Indiana Pacers,Brooklyn Nets,Indiana Pacers,0.4411,0.5589,136,109,-27,Indiana Pacers,True,False
+2026-10-25,regular,Toronto Raptors,Minnesota Timberwolves,Minnesota Timberwolves,0.6066,0.6066,94,117,23,Minnesota Timberwolves,True,False
+2026-10-25,regular,Orlando Magic,New York Knicks,New York Knicks,0.6017,0.6017,111,102,-9,Orlando Magic,False,False
+2026-10-25,regular,Los Angeles Clippers,Oklahoma City Thunder,Oklahoma City Thunder,0.7445,0.7445,101,108,7,Oklahoma City Thunder,True,False
+2026-10-25,regular,Detroit Pistons,Philadelphia 76ers,Detroit Pistons,0.4158,0.5842,106,93,-13,Detroit Pistons,True,False
+2026-10-25,regular,Memphis Grizzlies,Sacramento Kings,Sacramento Kings,0.5418,0.5418,123,112,-11,Memphis Grizzlies,False,False
+2026-10-25,regular,Los Angeles Lakers,Utah Jazz,Los Angeles Lakers,0.272,0.728,132,123,-9,Los Angeles Lakers,True,False
