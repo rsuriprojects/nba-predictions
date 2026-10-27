@@ -108,3 +108,12 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-25,regular,Detroit Pistons,Philadelphia 76ers,Detroit Pistons,0.4158,0.5842,106,93,-13,Detroit Pistons,True,False
 2026-10-25,regular,Memphis Grizzlies,Sacramento Kings,Sacramento Kings,0.5418,0.5418,123,112,-11,Memphis Grizzlies,False,False
 2026-10-25,regular,Los Angeles Lakers,Utah Jazz,Los Angeles Lakers,0.272,0.728,132,123,-9,Los Angeles Lakers,True,False
+2026-10-26,regular,Chicago Bulls,Boston Celtics,Boston Celtics,0.7801,0.7801,99,134,35,Boston Celtics,True,False
+2026-10-26,regular,Washington Wizards,Charlotte Hornets,Charlotte Hornets,0.7778,0.7778,103,110,7,Charlotte Hornets,True,False
+2026-10-26,regular,Minnesota Timberwolves,Cleveland Cavaliers,Cleveland Cavaliers,0.5792,0.5792,125,127,2,Cleveland Cavaliers,True,False
+2026-10-26,regular,Golden State Warriors,Denver Nuggets,Denver Nuggets,0.7185,0.7185,134,114,-20,Golden State Warriors,False,False
+2026-10-26,regular,Atlanta Hawks,Houston Rockets,Houston Rockets,0.5897,0.5897,110,120,10,Houston Rockets,True,False
+2026-10-26,regular,Dallas Mavericks,Miami Heat,Miami Heat,0.6333,0.6333,113,109,-4,Dallas Mavericks,False,False
+2026-10-26,regular,Indiana Pacers,Milwaukee Bucks,Milwaukee Bucks,0.6221,0.6221,102,110,8,Milwaukee Bucks,True,False
+2026-10-26,regular,Phoenix Suns,Oklahoma City Thunder,Oklahoma City Thunder,0.6934,0.6934,114,125,11,Oklahoma City Thunder,True,False
+2026-10-26,regular,Memphis Grizzlies,Utah Jazz,Memphis Grizzlies,0.4833,0.5167,110,105,-5,Memphis Grizzlies,True,False
