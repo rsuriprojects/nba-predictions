@@ -1,0 +1,38 @@
+[
+  {
+    "logged_at_utc": "2026-10-29T14:26:03.980424+00:00",
+    "game_date": "2026-10-29",
+    "season_type": "regular",
+    "away": "Cleveland Cavaliers",
+    "home": "Atlanta Hawks",
+    "home_elo": 1533.8,
+    "away_elo": 1585.3,
+    "p_home": 0.4681,
+    "pick": "Cleveland Cavaliers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-29T14:26:03.980460+00:00",
+    "game_date": "2026-10-29",
+    "season_type": "regular",
+    "away": "Sacramento Kings",
+    "home": "New Orleans Pelicans",
+    "home_elo": 1389.8,
+    "away_elo": 1363.4,
+    "p_home": 0.5034,
+    "pick": "New Orleans Pelicans",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-29T14:26:03.980476+00:00",
+    "game_date": "2026-10-29",
+    "season_type": "regular",
+    "away": "Memphis Grizzlies",
+    "home": "Portland Trail Blazers",
+    "home_elo": 1549.9,
+    "away_elo": 1402.4,
+    "p_home": 0.7045,
+    "pick": "Portland Trail Blazers",
+    "source": "elo"
+  }
+]

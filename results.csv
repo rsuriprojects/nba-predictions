@@ -121,3 +121,15 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-27,regular,Portland Trail Blazers,Los Angeles Lakers,Los Angeles Lakers,0.6036,0.6036,136,129,-7,Portland Trail Blazers,False,False
 2026-10-27,regular,Detroit Pistons,New York Knicks,Detroit Pistons,0.4628,0.5372,97,111,14,New York Knicks,False,False
 2026-10-27,regular,Sacramento Kings,San Antonio Spurs,San Antonio Spurs,0.8299,0.8299,103,130,27,San Antonio Spurs,True,False
+2026-10-28,regular,Miami Heat,Atlanta Hawks,Atlanta Hawks,0.6447,0.6447,129,117,-12,Miami Heat,False,False
+2026-10-28,regular,New York Knicks,Chicago Bulls,New York Knicks,0.387,0.613,133,127,-6,New York Knicks,True,False
+2026-10-28,regular,Washington Wizards,Cleveland Cavaliers,Cleveland Cavaliers,0.7979,0.7979,111,121,10,Cleveland Cavaliers,True,False
+2026-10-28,regular,Oklahoma City Thunder,Dallas Mavericks,Oklahoma City Thunder,0.2381,0.7619,96,120,24,Dallas Mavericks,False,False
+2026-10-28,regular,Charlotte Hornets,Detroit Pistons,Detroit Pistons,0.5366,0.5366,89,97,8,Detroit Pistons,True,False
+2026-10-28,regular,Philadelphia 76ers,Indiana Pacers,Philadelphia 76ers,0.3144,0.6856,114,109,-5,Philadelphia 76ers,True,False
+2026-10-28,regular,Los Angeles Lakers,Los Angeles Clippers,Los Angeles Clippers,0.5261,0.5261,103,87,-16,Los Angeles Lakers,False,False
+2026-10-28,regular,Houston Rockets,Milwaukee Bucks,Houston Rockets,0.3144,0.6856,132,100,-32,Houston Rockets,True,False
+2026-10-28,regular,Golden State Warriors,Minnesota Timberwolves,Minnesota Timberwolves,0.7101,0.7101,119,114,-5,Golden State Warriors,False,False
+2026-10-28,regular,Denver Nuggets,New Orleans Pelicans,Denver Nuggets,0.377,0.623,104,91,-13,Denver Nuggets,True,False
+2026-10-28,regular,Orlando Magic,Toronto Raptors,Toronto Raptors,0.5387,0.5387,99,129,30,Toronto Raptors,True,False
+2026-10-28,regular,San Antonio Spurs,Utah Jazz,San Antonio Spurs,0.259,0.741,117,111,-6,San Antonio Spurs,True,False
