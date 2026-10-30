@@ -1,0 +1,122 @@
+[
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395158+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Indiana Pacers",
+    "home": "Miami Heat",
+    "home_elo": 1476.9,
+    "away_elo": 1366.8,
+    "p_home": 0.6724,
+    "pick": "Miami Heat",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395183+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Denver Nuggets",
+    "home": "Phoenix Suns",
+    "home_elo": 1491.2,
+    "away_elo": 1569.8,
+    "p_home": 0.4813,
+    "pick": "Denver Nuggets",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395192+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Los Angeles Lakers",
+    "home": "Golden State Warriors",
+    "home_elo": 1454.8,
+    "away_elo": 1595.9,
+    "p_home": 0.3739,
+    "pick": "Los Angeles Lakers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395200+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Los Angeles Clippers",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1570.0,
+    "away_elo": 1498.9,
+    "p_home": 0.6289,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395207+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Houston Rockets",
+    "home": "Dallas Mavericks",
+    "home_elo": 1430.8,
+    "away_elo": 1606.1,
+    "p_home": 0.3355,
+    "pick": "Houston Rockets",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395215+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "New York Knicks",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1567.9,
+    "away_elo": 1578.2,
+    "p_home": 0.5317,
+    "pick": "Philadelphia 76ers",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395221+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Orlando Magic",
+    "home": "Toronto Raptors",
+    "home_elo": 1537.1,
+    "away_elo": 1531.4,
+    "p_home": 0.5513,
+    "pick": "Toronto Raptors",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395234+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Brooklyn Nets",
+    "home_elo": 1331.8,
+    "away_elo": 1624.6,
+    "p_home": 0.2325,
+    "pick": "Detroit Pistons",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395243+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Chicago Bulls",
+    "home": "Boston Celtics",
+    "home_elo": 1609.6,
+    "away_elo": 1385.5,
+    "p_home": 0.7935,
+    "pick": "Boston Celtics",
+    "source": "elo"
+  },
+  {
+    "logged_at_utc": "2026-10-30T14:16:36.395251+00:00",
+    "game_date": "2026-10-30",
+    "season_type": "regular",
+    "away": "Charlotte Hornets",
+    "home": "Washington Wizards",
+    "home_elo": 1336.3,
+    "away_elo": 1557.7,
+    "p_home": 0.287,
+    "pick": "Charlotte Hornets",
+    "source": "elo"
+  }
+]

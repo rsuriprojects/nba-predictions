@@ -133,3 +133,6 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-28,regular,Denver Nuggets,New Orleans Pelicans,Denver Nuggets,0.377,0.623,104,91,-13,Denver Nuggets,True,False
 2026-10-28,regular,Orlando Magic,Toronto Raptors,Toronto Raptors,0.5387,0.5387,99,129,30,Toronto Raptors,True,False
 2026-10-28,regular,San Antonio Spurs,Utah Jazz,San Antonio Spurs,0.259,0.741,117,111,-6,San Antonio Spurs,True,False
+2026-10-29,regular,Cleveland Cavaliers,Atlanta Hawks,Cleveland Cavaliers,0.4681,0.5319,111,114,3,Atlanta Hawks,False,False
+2026-10-29,regular,Sacramento Kings,New Orleans Pelicans,New Orleans Pelicans,0.5034,0.5034,120,132,12,New Orleans Pelicans,True,False
+2026-10-29,regular,Memphis Grizzlies,Portland Trail Blazers,Portland Trail Blazers,0.7045,0.7045,124,103,-21,Memphis Grizzlies,False,False
