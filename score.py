@@ -73,6 +73,10 @@ for f in sorted(glob.glob("predictions/*.json")):
             "winner": a["winner"],
             "correct": p["pick"] == a["winner"],
             "backfilled": bool(p.get("backfilled", False)),
+            # Betting-favorite baseline. Blank for games logged without odds.
+            "fav": p.get("fav", ""),
+            "fav_prob": p.get("fav_prob", ""),
+            "fav_correct": (p["fav"] == a["winner"]) if p.get("fav") else "",
         })
 
 if not rows:
@@ -92,6 +96,18 @@ def report(sub, label):
 
 report(d[d["season_type"] == "regular"], "REGULAR SEASON (the record)")
 report(d[d["season_type"] == "preseason"], "PRESEASON (logged separately)")
+
+# Model vs favorite, on the games where both made a pick.
+both = d[d["fav"] != ""]
+if len(both):
+    fav_ok = both["fav_correct"] == True
+    split = both[both["pick"] != both["fav"]]
+    print("=== MODEL vs FAVORITE ===")
+    print(f"model    {both['correct'].sum()} / {len(both)} = {both['correct'].mean():.1%}")
+    print(f"favorite {fav_ok.sum()} / {len(both)} = {fav_ok.mean():.1%}")
+    print(f"disagreed on {len(split)}: model won {split['correct'].sum()}, "
+          f"favorite won {(split['fav_correct'] == True).sum()}")
+    print()
 
 d.to_csv("results.csv", index=False)
 print("wrote results.csv")

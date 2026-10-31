@@ -106,6 +106,13 @@
   .ring circle { fill: none; stroke-width: 7; }
   .ring .track { stroke: rgba(255,255,255,.08); }
   .ring .fill { stroke: var(--accent); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1); }
+  .tile.mvf { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 20px; align-items: end; }
+  .tile.mvf .hd { grid-column: 1 / -1; }
+  .tile.mvf .v { margin-top: 0; }
+  .tile.mvf .who { font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 10px; }
+  .tile.mvf .who.lead::after { content: " ▲"; color: var(--good); }
+  .tile.mvf .split { border-left: 1px solid var(--line); padding-left: 20px; }
+  .tile.mvf .split .v { font-size: 34px; }
   .streak-dots { display: flex; gap: 4px; margin-top: 12px; flex-wrap: wrap; }
   .streak-dots i { width: 10px; height: 10px; border-radius: 3px; background: var(--bad); opacity: .9; }
   .streak-dots i.w { background: var(--good); }
@@ -273,6 +280,8 @@
     nav.tabs { margin: 20px -16px 0; padding: 10px 16px; }
     .hero { padding-top: 32px; }
     .tile .v { font-size: 36px; }
+    .tile.mvf { grid-template-columns: 1fr 1fr; }
+    .tile.mvf .split { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 14px; }
     .tile.main .v { font-size: 54px; }
     .grid { grid-template-columns: 1fr; }
     .row { grid-template-columns: minmax(0,1fr) 64px; }
@@ -322,6 +331,15 @@
         <div class="k">Form</div>
         <div class="v" id="s-streak">—</div>
         <div class="streak-dots" id="s-dots"></div>
+      </div>
+      <div class="tile mvf">
+        <div class="hd">
+          <div class="k">Model vs Favorite</div>
+          <div class="s" id="vs-sub">The baseline always picks the betting favorite. Starts once games with pregame odds are graded.</div>
+        </div>
+        <div><div class="who" id="vs-m-who">Model</div><div class="v" id="vs-m">—</div><div class="s" id="vs-m-rec"></div></div>
+        <div><div class="who" id="vs-f-who">Favorite</div><div class="v" id="vs-f">—</div><div class="s" id="vs-f-rec"></div></div>
+        <div class="split"><div class="who">When they disagreed</div><div class="v" id="vs-d">—</div><div class="s" id="vs-d-sub"></div></div>
       </div>
     </div>
   </div>
@@ -443,6 +461,8 @@ function parseCSV(txt) {
     o.backfilled = String(o.backfilled).toLowerCase() === "true";
     o.conf = parseFloat(o.conf); o.p_home = parseFloat(o.p_home);
     o.home_pts = +o.home_pts; o.away_pts = +o.away_pts;
+    // Blank for games graded without pregame odds.
+    o.fav_correct = { true: true, false: false }[String(o.fav_correct).toLowerCase()] ?? null;
     return o;
   });
 }
@@ -574,6 +594,28 @@ function renderStats() {
     document.getElementById("s-dots").innerHTML = last.map(r => `<i class="${r.correct ? "w" : ""}" title="${esc(r.away)} @ ${esc(r.home)}"></i>`).join("");
   }
   document.getElementById("c-past").textContent = n || "";
+  renderVsFavorite(all);
+}
+
+// Model vs the betting favorite, counted only on games where both made a pick,
+// so the two records cover exactly the same games.
+function renderVsFavorite(all) {
+  const both = all.filter(r => r.fav && r.fav_correct !== null);
+  if (!both.length) return;
+  const set = (id, v) => document.getElementById(id).innerHTML = v;
+  const acc = w => `${(w / both.length * 100).toFixed(1)}<small>%</small>`;
+  const mw = both.filter(r => r.correct).length, fw = both.filter(r => r.fav_correct).length;
+  set("vs-m", acc(mw)); set("vs-m-rec", `${mw}–${both.length - mw}`);
+  set("vs-f", acc(fw)); set("vs-f-rec", `${fw}–${both.length - fw}`);
+  document.getElementById("vs-m-who").classList.toggle("lead", mw > fw);
+  document.getElementById("vs-f-who").classList.toggle("lead", fw > mw);
+  set("vs-sub", `${both.length} graded game${both.length > 1 ? "s" : ""} with pregame odds. The baseline always picks the betting favorite.`);
+  const split = both.filter(r => r.pick !== r.fav);
+  const sm = split.filter(r => r.correct).length, sf = split.filter(r => r.fav_correct).length;
+  set("vs-d", split.length ? `${sm}–${sf}` : "0");
+  set("vs-d-sub", split.length
+    ? `${split.length} game${split.length > 1 ? "s" : ""}: model won ${sm}, favorite won ${sf}`
+    : "They have agreed on every pick so far");
 }
 
 function renderDays(el, rows, shown, more) {

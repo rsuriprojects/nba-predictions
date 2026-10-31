@@ -32,6 +32,8 @@ jobs:
         env:
           SEASON: ${{ vars.SEASON || 2027 }}
           TEST_DATE: ${{ vars.TEST_DATE }}
+          # Read from the environment only; never echoed or written to a file.
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python predict.py
 
       - name: score past predictions
