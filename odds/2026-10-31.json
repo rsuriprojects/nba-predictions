@@ -1,0 +1,75 @@
+{
+  "fetched_at_utc": "2026-10-31T13:42:19.192614+00:00",
+  "games": [
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-10-31T19:10:00Z",
+      "away": "Portland Trail Blazers",
+      "home": "Utah Jazz",
+      "fav": "Portland Trail Blazers",
+      "fav_ml": -310,
+      "fav_prob": 0.7256,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-10-31T22:10:00Z",
+      "away": "Philadelphia 76ers",
+      "home": "Charlotte Hornets",
+      "fav": "Philadelphia 76ers",
+      "fav_ml": -121,
+      "fav_prob": 0.5241,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-10-31T23:10:00Z",
+      "away": "Atlanta Hawks",
+      "home": "New Orleans Pelicans",
+      "fav": "Atlanta Hawks",
+      "fav_ml": -180,
+      "fav_prob": 0.6171,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-11-01T00:10:00Z",
+      "away": "Cleveland Cavaliers",
+      "home": "Milwaukee Bucks",
+      "fav": "Cleveland Cavaliers",
+      "fav_ml": -370,
+      "fav_prob": 0.7549,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-11-01T00:10:00Z",
+      "away": "Sacramento Kings",
+      "home": "Memphis Grizzlies",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -375,
+      "fav_prob": 0.7578,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-11-01T00:10:00Z",
+      "away": "Minnesota Timberwolves",
+      "home": "San Antonio Spurs",
+      "fav": "San Antonio Spurs",
+      "fav_ml": -600,
+      "fav_prob": 0.8192,
+      "books": 9
+    },
+    {
+      "game_date": "2026-10-31",
+      "commence_time": "2026-11-01T00:40:00Z",
+      "away": "Oklahoma City Thunder",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -140,
+      "fav_prob": 0.5635,
+      "books": 9
+    }
+  ]
+}
