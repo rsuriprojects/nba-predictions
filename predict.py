@@ -4,6 +4,7 @@ from datetime import datetime, timezone, timedelta
 import pandas as pd, numpy as np
 
 from nba_source import fetch_preseason
+from odds import favorites_for
 
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
@@ -120,6 +121,17 @@ def predict_day(base_elo, sched, pre, day, backfilled=False):
             out.append(row)
     return out
 
+def add_favorites(rows, odds):
+    """Put the betting favorite next to the model's pick, where there is a line."""
+    for r in rows:
+        o = odds.get((r["home"], r["away"]))
+        if o and o["fav"]:
+            r["fav"] = o["fav"]
+            r["fav_ml"] = o["fav_ml"]
+            r["fav_prob"] = o["fav_prob"]
+    n = sum("fav" in r for r in rows)
+    print(f"betting favorite found for {n} of {len(rows)} games")
+
 def write_day(rows, day):
     os.makedirs("predictions", exist_ok=True)
     path = f"predictions/{day.date()}.json"
@@ -201,12 +213,17 @@ def main():
             write_day(rows, day)
 
     rows = predict_day(elo, sched, pre, today)
+    # The favorite baseline only exists for real mornings: there are no
+    # pregame odds for a TEST_DATE or a backfilled day.
+    if rows and not TEST_DATE:
+        add_favorites(rows, favorites_for(today))
     if rows:
         path = write_day(rows, today)
         print(f"wrote {len(rows)} predictions to {path}")
         for r in rows:
             tag = "" if r["season_type"] == "regular" else " [preseason]"
-            print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{tag}")
+            fav = f" (fav {r['fav']} {r['fav_prob']:.0%})" if "fav" in r else ""
+            print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{fav}{tag}")
     else:
         print(f"no games on {today.date()}")
 
