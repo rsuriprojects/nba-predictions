@@ -1,0 +1,62 @@
+[
+  {
+    "logged_at_utc": "2026-11-01T14:19:30.657256+00:00",
+    "game_date": "2026-11-01",
+    "season_type": "regular",
+    "away": "Boston Celtics",
+    "home": "Orlando Magic",
+    "home_elo": 1543.5,
+    "away_elo": 1612.8,
+    "p_home": 0.4594,
+    "pick": "Boston Celtics",
+    "source": "elo",
+    "fav": "Boston Celtics",
+    "fav_ml": -250,
+    "fav_prob": 0.6853
+  },
+  {
+    "logged_at_utc": "2026-11-01T14:19:30.657284+00:00",
+    "game_date": "2026-11-01",
+    "season_type": "regular",
+    "away": "Brooklyn Nets",
+    "home": "Indiana Pacers",
+    "home_elo": 1361.5,
+    "away_elo": 1327.6,
+    "p_home": 0.5853,
+    "pick": "Indiana Pacers",
+    "source": "elo",
+    "fav": "Indiana Pacers",
+    "fav_ml": -170,
+    "fav_prob": 0.6037
+  },
+  {
+    "logged_at_utc": "2026-11-01T14:19:30.657297+00:00",
+    "game_date": "2026-11-01",
+    "season_type": "regular",
+    "away": "Los Angeles Clippers",
+    "home": "Golden State Warriors",
+    "home_elo": 1466.9,
+    "away_elo": 1492.6,
+    "p_home": 0.513,
+    "pick": "Golden State Warriors",
+    "source": "elo",
+    "fav": "Golden State Warriors",
+    "fav_ml": -135,
+    "fav_prob": 0.5516
+  },
+  {
+    "logged_at_utc": "2026-11-01T14:19:30.657308+00:00",
+    "game_date": "2026-11-01",
+    "season_type": "regular",
+    "away": "Toronto Raptors",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1583.7,
+    "away_elo": 1525.1,
+    "p_home": 0.6144,
+    "pick": "Los Angeles Lakers",
+    "source": "elo",
+    "fav": "Los Angeles Lakers",
+    "fav_ml": -150,
+    "fav_prob": 0.5779
+  }
+]

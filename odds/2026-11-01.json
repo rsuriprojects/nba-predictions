@@ -1,0 +1,45 @@
+{
+  "fetched_at_utc": "2026-11-01T14:19:30.972761+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-01",
+      "commence_time": "2026-11-01T20:40:00Z",
+      "away": "Boston Celtics",
+      "home": "Orlando Magic",
+      "fav": "Boston Celtics",
+      "fav_ml": -250,
+      "fav_prob": 0.6853,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-01",
+      "commence_time": "2026-11-01T22:10:00Z",
+      "away": "Brooklyn Nets",
+      "home": "Indiana Pacers",
+      "fav": "Indiana Pacers",
+      "fav_ml": -170,
+      "fav_prob": 0.6037,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-01",
+      "commence_time": "2026-11-02T01:40:00Z",
+      "away": "Los Angeles Clippers",
+      "home": "Golden State Warriors",
+      "fav": "Golden State Warriors",
+      "fav_ml": -135,
+      "fav_prob": 0.5516,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-01",
+      "commence_time": "2026-11-02T02:10:00Z",
+      "away": "Toronto Raptors",
+      "home": "Los Angeles Lakers",
+      "fav": "Los Angeles Lakers",
+      "fav_ml": -150,
+      "fav_prob": 0.5779,
+      "books": 9
+    }
+  ]
+}

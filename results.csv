@@ -146,3 +146,10 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-30,regular,Denver Nuggets,Phoenix Suns,Denver Nuggets,0.4813,0.5187,127,120,-7,Denver Nuggets,True,False,,,
 2026-10-30,regular,Orlando Magic,Toronto Raptors,Toronto Raptors,0.5513,0.5513,121,114,-7,Orlando Magic,False,False,,,
 2026-10-30,regular,Charlotte Hornets,Washington Wizards,Charlotte Hornets,0.287,0.713,79,95,16,Washington Wizards,False,False,,,
+2026-10-31,regular,Philadelphia 76ers,Charlotte Hornets,Philadelphia 76ers,0.491,0.509,109,104,-5,Philadelphia 76ers,True,False,Philadelphia 76ers,0.5241,True
+2026-10-31,regular,Oklahoma City Thunder,Houston Rockets,Oklahoma City Thunder,0.3672,0.6328,98,119,21,Houston Rockets,False,False,Houston Rockets,0.5635,True
+2026-10-31,regular,Sacramento Kings,Memphis Grizzlies,Memphis Grizzlies,0.6182,0.6182,105,136,31,Memphis Grizzlies,True,False,Memphis Grizzlies,0.7578,True
+2026-10-31,regular,Cleveland Cavaliers,Milwaukee Bucks,Cleveland Cavaliers,0.3483,0.6517,136,111,-25,Cleveland Cavaliers,True,False,Cleveland Cavaliers,0.7549,True
+2026-10-31,regular,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,0.3682,0.6318,99,121,22,New Orleans Pelicans,False,False,Atlanta Hawks,0.6171,False
+2026-10-31,regular,Minnesota Timberwolves,San Antonio Spurs,San Antonio Spurs,0.6954,0.6954,111,121,10,San Antonio Spurs,True,False,San Antonio Spurs,0.8192,True
+2026-10-31,regular,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,0.3268,0.6732,112,90,-22,Portland Trail Blazers,True,False,Portland Trail Blazers,0.7256,True
