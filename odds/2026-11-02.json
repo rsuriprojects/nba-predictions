@@ -1,0 +1,155 @@
+{
+  "fetched_at_utc": "2026-11-02T17:09:38.161427+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:10:00Z",
+      "away": "Oklahoma City Thunder",
+      "home": "Cleveland Cavaliers",
+      "fav": "Cleveland Cavaliers",
+      "fav_ml": -170,
+      "fav_prob": 0.6058,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:40:00Z",
+      "away": "Atlanta Hawks",
+      "home": "Indiana Pacers",
+      "fav": "Atlanta Hawks",
+      "fav_ml": -200,
+      "fav_prob": 0.6398,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:40:00Z",
+      "away": "Brooklyn Nets",
+      "home": "New York Knicks",
+      "fav": "New York Knicks",
+      "fav_ml": -950,
+      "fav_prob": 0.8678,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:40:00Z",
+      "away": "Detroit Pistons",
+      "home": "Charlotte Hornets",
+      "fav": "Detroit Pistons",
+      "fav_ml": -216,
+      "fav_prob": 0.6559,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:40:00Z",
+      "away": "Chicago Bulls",
+      "home": "Philadelphia 76ers",
+      "fav": "Philadelphia 76ers",
+      "fav_ml": -510,
+      "fav_prob": 0.8039,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T00:40:00Z",
+      "away": "Washington Wizards",
+      "home": "Orlando Magic",
+      "fav": "Orlando Magic",
+      "fav_ml": -150,
+      "fav_prob": 0.5784,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T01:10:00Z",
+      "away": "Sacramento Kings",
+      "home": "Dallas Mavericks",
+      "fav": "Dallas Mavericks",
+      "fav_ml": -435,
+      "fav_prob": 0.7797,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T01:10:00Z",
+      "away": "New Orleans Pelicans",
+      "home": "Memphis Grizzlies",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -190,
+      "fav_prob": 0.6332,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T01:10:00Z",
+      "away": "Milwaukee Bucks",
+      "home": "Minnesota Timberwolves",
+      "fav": "Minnesota Timberwolves",
+      "fav_ml": -500,
+      "fav_prob": 0.8015,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T01:40:00Z",
+      "away": "Boston Celtics",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -195,
+      "fav_prob": 0.6341,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T01:40:00Z",
+      "away": "Utah Jazz",
+      "home": "San Antonio Spurs",
+      "fav": "San Antonio Spurs",
+      "fav_ml": -1126,
+      "fav_prob": 0.8797,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T02:10:00Z",
+      "away": "Portland Trail Blazers",
+      "home": "Denver Nuggets",
+      "fav": "Denver Nuggets",
+      "fav_ml": -170,
+      "fav_prob": 0.6084,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T03:10:00Z",
+      "away": "Phoenix Suns",
+      "home": "Golden State Warriors",
+      "fav": "Golden State Warriors",
+      "fav_ml": -146,
+      "fav_prob": 0.5711,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T03:10:00Z",
+      "away": "Toronto Raptors",
+      "home": "Los Angeles Clippers",
+      "fav": "Toronto Raptors",
+      "fav_ml": -200,
+      "fav_prob": 0.6402,
+      "books": 8
+    },
+    {
+      "game_date": "2026-11-02",
+      "commence_time": "2026-11-03T03:10:00Z",
+      "away": "Miami Heat",
+      "home": "Los Angeles Lakers",
+      "fav": "Los Angeles Lakers",
+      "fav_ml": -125,
+      "fav_prob": 0.534,
+      "books": 9
+    }
+  ]
+}

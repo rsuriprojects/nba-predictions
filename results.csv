@@ -153,3 +153,7 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-10-31,regular,Atlanta Hawks,New Orleans Pelicans,Atlanta Hawks,0.3682,0.6318,99,121,22,New Orleans Pelicans,False,False,Atlanta Hawks,0.6171,False
 2026-10-31,regular,Minnesota Timberwolves,San Antonio Spurs,San Antonio Spurs,0.6954,0.6954,111,121,10,San Antonio Spurs,True,False,San Antonio Spurs,0.8192,True
 2026-10-31,regular,Portland Trail Blazers,Utah Jazz,Portland Trail Blazers,0.3268,0.6732,112,90,-22,Portland Trail Blazers,True,False,Portland Trail Blazers,0.7256,True
+2026-11-01,regular,Los Angeles Clippers,Golden State Warriors,Golden State Warriors,0.513,0.513,112,124,12,Golden State Warriors,True,False,Golden State Warriors,0.5516,True
+2026-11-01,regular,Brooklyn Nets,Indiana Pacers,Indiana Pacers,0.5853,0.5853,98,90,-8,Brooklyn Nets,False,False,Indiana Pacers,0.6037,False
+2026-11-01,regular,Toronto Raptors,Los Angeles Lakers,Los Angeles Lakers,0.6144,0.6144,125,131,6,Los Angeles Lakers,True,False,Los Angeles Lakers,0.5779,True
+2026-11-01,regular,Boston Celtics,Orlando Magic,Boston Celtics,0.4594,0.5406,108,97,-11,Boston Celtics,True,False,Boston Celtics,0.6853,True
