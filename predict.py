@@ -5,11 +5,13 @@ import pandas as pd, numpy as np
 
 from nba_source import fetch_preseason
 from odds import favorites_for
+from rosters import roster_z
 
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
 MONTHS = ["october","november","december","january","february","march","april"]
 BASE, K, HCA, CARRY = 1500, 15, 65, 0.5
+ROSTER_W = 60          # Elo points per standard deviation of roster strength
 
 def fetch_season(year):
     frames = []
@@ -62,11 +64,11 @@ def games_on(sched, today):
         return sched
     return sched[sched["date"] == today]
 
-# Fit on 2014-15 to 2022-23 with the Elo settings above.
-W  = np.array([0.7915, 0.0342, 0.0113, -0.0456, 0.1222])
+# Fit on 2014-15 to 2022-23 with the Elo and roster settings above.
+W  = np.array([0.8038, 0.0318, 0.0122, -0.0479, 0.1212])
 MU = np.array([0.0, 2.2, 2.05, 0.13, 0.23])
-SD = np.array([118.32, 0.91, 0.92, 0.34, 0.42])
-B  = 0.3361
+SD = np.array([124.11, 0.91, 0.92, 0.34, 0.42])
+B  = 0.3365
 
 # Preseason: last season's ratings say much less (stars rest, rosters changed).
 # Backtested on the 2022-23 to 2025-26 preseasons (263 games), counting the
@@ -188,15 +190,22 @@ def main():
         et_now = datetime.now(timezone.utc) - timedelta(hours=5)   # shift to US Eastern
         today = pd.Timestamp(et_now).tz_localize(None).normalize()  # drop the UTC label
 
-    # --- carry over last season's ratings ---
-    prev = fetch_season(SEASON - 1)
-    elo = {}
-    if len(prev):
-        elo = update_elo({}, prev.dropna(subset=["home_pts","away_pts"]))
-        elo = {t: BASE + CARRY*(v - BASE) for t, v in elo.items()}
-        print(f"carried {len(elo)} ratings from {SEASON-1}")
+    # --- starting ratings: from this season's rosters ---
+    # If the player stats can't be fetched, fall back to carrying over part of
+    # last season's Elo.
+    z = roster_z(SEASON)
+    if z:
+        elo = {t: BASE + ROSTER_W*v for t, v in z.items()}
+        print(f"rated {len(elo)} rosters for {SEASON}")
     else:
-        print(f"no {SEASON-1} data; starting everyone at {BASE}")
+        prev = fetch_season(SEASON - 1)
+        elo = {}
+        if len(prev):
+            elo = update_elo({}, prev.dropna(subset=["home_pts","away_pts"]))
+            elo = {t: BASE + CARRY*(v - BASE) for t, v in elo.items()}
+            print(f"no roster data; carried {len(elo)} ratings from {SEASON-1}")
+        else:
+            print(f"no {SEASON-1} data; starting everyone at {BASE}")
 
     # Regular season comes from Basketball Reference; preseason from ESPN,
     # because Basketball Reference does not publish preseason games.
