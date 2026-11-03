@@ -77,6 +77,8 @@ for f in sorted(glob.glob("predictions/*.json")):
             "fav": p.get("fav", ""),
             "fav_prob": p.get("fav_prob", ""),
             "fav_correct": (p["fav"] == a["winner"]) if p.get("fav") else "",
+            # The same pick without injuries, for checking whether they help.
+            "p_home_no_inj": p.get("p_home_no_inj", ""),
         })
 
 if not rows:
@@ -107,6 +109,18 @@ if len(both):
     print(f"favorite {fav_ok.sum()} / {len(both)} = {fav_ok.mean():.1%}")
     print(f"disagreed on {len(split)}: model won {split['correct'].sum()}, "
           f"favorite won {(split['fav_correct'] == True).sum()}")
+    print()
+
+# With vs without injuries, on games where injuries were checked.
+inj = d[d["p_home_no_inj"] != ""]
+if len(inj):
+    home_won = inj["winner"] == inj["home"]
+    plain_ok = (inj["p_home_no_inj"].astype(float) > 0.5) == home_won
+    changed = inj[(inj["p_home"] > 0.5) != (inj["p_home_no_inj"].astype(float) > 0.5)]
+    print("=== WITH vs WITHOUT INJURIES ===")
+    print(f"with     {inj['correct'].sum()} / {len(inj)} = {inj['correct'].mean():.1%}")
+    print(f"without  {plain_ok.sum()} / {len(inj)} = {plain_ok.mean():.1%}")
+    print(f"injuries flipped {len(changed)} picks: {changed['correct'].sum()} of them right")
     print()
 
 d.to_csv("results.csv", index=False)

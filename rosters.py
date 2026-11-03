@@ -12,6 +12,7 @@ Backtested on 2023-24 to 2026-27 (3,919 games): starting each season from the
 roster alone beat carrying over last season's Elo, 67.5% vs 67.1%, and 67.1% vs
 66.0% over each team's first 15 games.
 """
+import functools
 import time
 
 import numpy as np
@@ -29,6 +30,7 @@ def _team_name(code):
     return BR_CODES.get(code) or TRICODE.get(code)
 
 
+@functools.lru_cache(maxsize=None)
 def fetch_players(year):
     """Basketball Reference advanced stats for one season, or an empty table."""
     url = f"https://www.basketball-reference.com/leagues/NBA_{year}_advanced.html"
@@ -54,9 +56,16 @@ def _first_team(df, keep):
     return {p: _team_name(t) for p, t in zip(df["Player"], df["Team"]) if _team_name(t)}
 
 
-def roster_z(season):
-    """{team: roster z-score} for `season`, or {} if the data isn't there."""
-    now, last, before = (fetch_players(season - k) for k in (0, 1, 2))
+def player_values(season):
+    """{player: value} from the two seasons before `season` (VORP, 70/30)."""
+    v1, v2 = _vorp(fetch_players(season - 1)), _vorp(fetch_players(season - 2))
+    return {p: LAST_WEIGHT * v1.get(p, 0) + (1 - LAST_WEIGHT) * v2.get(p, 0)
+            for p in set(v1) | set(v2)}
+
+
+def team_totals(season):
+    """{team: summed player value} for `season`, or {} if the data isn't there."""
+    now, last = fetch_players(season), fetch_players(season - 1)
     if len(last) == 0:
         return {}
     if len(now):
@@ -64,12 +73,17 @@ def roster_z(season):
     else:
         teams = _first_team(last, keep="last")
         print("  no games played yet; using where each player finished last season")
-    v1, v2 = _vorp(last), _vorp(before)
+    value = player_values(season)
     total = {}
     for player, team in teams.items():
-        value = LAST_WEIGHT * v1.get(player, 0) + (1 - LAST_WEIGHT) * v2.get(player, 0)
-        total[team] = total.get(team, 0) + value
-    if len(total) < 25:
+        total[team] = total.get(team, 0) + value.get(player, 0)
+    return total if len(total) >= 25 else {}
+
+
+def roster_z(season):
+    """{team: roster z-score} for `season`, or {} if the data isn't there."""
+    total = team_totals(season)
+    if not total:
         return {}
     xs = np.array(list(total.values()))
     return {t: float((x - xs.mean()) / xs.std()) for t, x in total.items()}

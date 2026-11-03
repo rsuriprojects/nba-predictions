@@ -6,6 +6,7 @@ import pandas as pd, numpy as np
 from nba_source import fetch_preseason
 from odds import favorites_for
 from rosters import roster_z
+from injuries import injury_costs
 
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
@@ -35,6 +36,11 @@ def fetch_season(year):
         if col not in df.columns:
             df[col] = np.nan
         df[col] = pd.to_numeric(df[col], errors="coerce")
+    # Tip-off in US Eastern, e.g. "7:30p", so a late run never picks a game
+    # that has already started.
+    if "Start (ET)" in df.columns:
+        t = df["Start (ET)"].astype(str).str.strip().str.replace(r"([ap])$", r"\1m", regex=True)
+        df["tip"] = pd.to_datetime(df["Date"] + " " + t, format="%a, %b %d, %Y %I:%M%p", errors="coerce")
     return df.dropna(subset=["date"]).sort_values("date").reset_index(drop=True)
 
 def update_elo(r, played):
@@ -105,13 +111,30 @@ def state_before(base_elo, sched, day):
         played = played[played["date"] < day]
     return update_elo(dict(base_elo), played), rest_days(played, day)
 
-def predict_day(base_elo, sched, pre, day, backfilled=False):
+def predict_day(base_elo, sched, pre, day, backfilled=False, inj=None, now=None):
+    """Picks for `day`. `inj` is today's injury_costs; `now` (Eastern) skips
+    games that have already tipped off."""
     elo, rest = state_before(base_elo, sched, day)
     out = []
     for slate, season_type in ((games_on(sched, day), "regular"),
                                (games_on(pre, day), "preseason")):
         for g in slate.itertuples():
-            rh, ra, p, source = game_prob(elo, rest, g, season_type)
+            if now is not None and pd.notna(getattr(g, "tip", pd.NaT)) and g.tip <= now:
+                print(f"  skipped {g.away} @ {g.home}: already started")
+                continue
+            hurt = {}
+            if inj and season_type == "regular":
+                hurt = {t: inj[t] for t in (g.home, g.away) if t in inj}
+            if hurt:
+                adj = dict(elo)
+                for t, h in hurt.items():
+                    adj[t] = adj.get(t, BASE) - h["elo"]
+                _, _, p_plain, _ = game_prob(elo, rest, g, season_type)
+                _, _, p, source = game_prob(adj, rest, g, season_type)
+                rh, ra = elo.get(g.home, BASE), elo.get(g.away, BASE)
+            else:
+                rh, ra, p, source = game_prob(elo, rest, g, season_type)
+                p_plain = p
             row = {
                 "logged_at_utc": datetime.now(timezone.utc).isoformat(),
                 "game_date": str(day.date()),
@@ -122,6 +145,14 @@ def predict_day(base_elo, sched, pre, day, backfilled=False):
                 "pick": g.home if p > 0.5 else g.away,
                 "source": source,
             }
+            if inj is not None and season_type == "regular":
+                # What the pick would have been without injuries, to check
+                # whether they help (score.py compares the two).
+                row["p_home_no_inj"] = round(p_plain, 4)
+                for side, t in (("home", g.home), ("away", g.away)):
+                    if t in hurt:
+                        row[f"inj_{side}"] = hurt[t]["elo"]
+                        row[f"out_{side}"] = hurt[t]["out"]
             if backfilled:
                 # Logged after the game, but computed only from data that
                 # existed before it. Flagged so the site can say so.
@@ -227,7 +258,14 @@ def main():
             print(f"backfilled {len(rows)} predictions for {day.date()}")
             write_day(rows, day)
 
-    rows = predict_day(elo, sched, pre, today)
+    # Injuries only exist for real mornings, like the odds.
+    inj, now_et = None, None
+    if not TEST_DATE:
+        now_et = pd.Timestamp(datetime.now(timezone.utc) - timedelta(hours=5)).tz_localize(None)
+        played = sched.dropna(subset=["home_pts", "away_pts"]) if len(sched) else sched
+        team_games = pd.concat([played["home"], played["away"]]).value_counts().to_dict() if len(played) else {}
+        inj = injury_costs(SEASON, team_games)
+    rows = predict_day(elo, sched, pre, today, inj=inj, now=now_et)
     # The favorite baseline only exists for real mornings: there are no
     # pregame odds for a TEST_DATE or a backfilled day.
     if rows and not TEST_DATE:
@@ -238,7 +276,8 @@ def main():
         for r in rows:
             tag = "" if r["season_type"] == "regular" else " [preseason]"
             fav = f" (fav {r['fav']} {r['fav_prob']:.0%})" if "fav" in r else ""
-            print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{fav}{tag}")
+            hurt = "".join(f" (out {', '.join(r['out_'+s])})" for s in ("away", "home") if "out_"+s in r)
+            print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{fav}{tag}{hurt}")
     else:
         print(f"no games on {today.date()}")
 
