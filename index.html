@@ -184,6 +184,9 @@
   .tag { font: 700 10px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; border: 1px solid; }
   .tag.pre { color: var(--accent-2); border-color: rgba(255,179,71,.35); background: rgba(255,179,71,.08); }
   .tag.bf { color: var(--ink-3); border-color: var(--line); }
+  .tag.inj { color: var(--bad); border-color: rgba(255,84,112,.35); background: rgba(255,84,112,.08); }
+  .out-line { margin-top: 10px; font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+  .out-line b { color: var(--ink-2); font-weight: 600; }
   .teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin: 16px 0 14px; }
   .team { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; min-width: 0; }
   .badge {
@@ -433,7 +436,7 @@
   </section>
 
   <footer>
-    <span>Elo (K=20, home court +65) · last season carried at 75% · preseason is logged but never moves ratings.</span>
+    <span>Elo with margin of victory (K=15, home court +65) · each season starts from roster strength · players ruled out today lower their team's rating · preseason is logged but never moves ratings.</span>
     <span>Data: Basketball Reference, ESPN</span>
   </footer>
 </div>
@@ -486,6 +489,7 @@ function parseCSV(txt) {
     o.correct = String(o.correct).toLowerCase() === "true";
     o.backfilled = String(o.backfilled).toLowerCase() === "true";
     o.conf = parseFloat(o.conf); o.p_home = parseFloat(o.p_home);
+    o.p_home_no_inj = o.p_home_no_inj ? parseFloat(o.p_home_no_inj) : null;
     o.home_pts = +o.home_pts; o.away_pts = +o.away_pts;
     // Blank for games graded without pregame odds.
     o.fav_correct = { true: true, false: false }[String(o.fav_correct).toLowerCase()] ?? null;
@@ -508,6 +512,8 @@ function probBar(g) {
     <div class="prob-bar"><span style="width:${pa*100}%;background:${color(g.away)}"></span><span style="width:${ph*100}%;background:${color(g.home)}"></span></div>
     <div class="prob-lbl"><span>${pct(pa)}</span><span>${pct(ph)}</span></div></div>`;
 }
+const injuryFlip = g => g.p_home_no_inj != null && !isNaN(g.p_home_no_inj) &&
+  (g.p_home > .5) !== (g.p_home_no_inj > .5);
 function card(g, { result = null } = {}) {
   const conf = Math.max(g.p_home, 1 - g.p_home);
   const done = result != null;
@@ -521,11 +527,18 @@ function card(g, { result = null } = {}) {
   const tags = [
     typeOf(g) === "preseason" ? `<span class="tag pre">Preseason</span>` : "",
     g.backfilled ? `<span class="tag bf" title="Logged after the game, computed only from data available before it">Backfilled</span>` : "",
+    injuryFlip(g) ? `<span class="tag inj" title="Without injuries the model would have picked the other team">Injury flip</span>` : "",
   ].join(" ");
+  // Main players ruled out, biggest loss first (today's games only).
+  const out = ["away", "home"].filter(s => (g["out_" + s] || []).length).map(s => {
+    const names = g["out_" + s], more = names.length > 2 ? ` +${names.length - 2}` : "";
+    return `<b>${esc(short(g[s]))}</b> out: ${names.slice(0, 2).map(esc).join(", ")}${more}`;
+  });
   return `<article class="game ${isMine(g) ? "mine" : ""}" style="--c-away:${color(g.away)};--c-home:${color(g.home)}">
     <div class="game-top"><span>${done ? "Final" : relDay(g.game_date)}</span><span>${tags}</span></div>
     <div class="teams">${team(g.away, "away")}<div class="vs">@</div>${team(g.home, "home")}</div>
     ${probBar(g)}
+    ${out.length ? `<div class="out-line">${out.join("<br>")}</div>` : ""}
     <div class="pick-line">
       <span>Pick: <b>${esc(g.pick)}</b></span>
       ${done

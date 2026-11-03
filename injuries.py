@@ -76,9 +76,10 @@ def injury_costs(season, team_games):
             if cost >= 1:
                 t = out.setdefault(name, {"elo": 0.0, "out": []})
                 t["elo"] += cost
-                t["out"].append(player)
+                t["out"].append((cost, player))
     for t in out.values():
         t["elo"] = round(min(t["elo"], MAX_COST), 1)
+        t["out"] = [p for _, p in sorted(t["out"], reverse=True)]    # biggest loss first
     print(f"  injuries: {sum(len(t['out']) for t in out.values())} players out "
           f"who matter, across {len(out)} teams")
     return out
