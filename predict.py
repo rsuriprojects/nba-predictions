@@ -9,7 +9,7 @@ from odds import favorites_for
 SEASON = int(os.environ.get("SEASON", 2027))
 TEST_DATE = os.environ.get("TEST_DATE")
 MONTHS = ["october","november","december","january","february","march","april"]
-BASE, K, HCA, CARRY = 1500, 20, 65, 0.75
+BASE, K, HCA, CARRY = 1500, 15, 65, 0.5
 
 def fetch_season(year):
     frames = []
@@ -40,8 +40,13 @@ def update_elo(r, played):
         rh, ra = r.get(g.home, BASE), r.get(g.away, BASE)
         exp = 1/(1+10**(-((rh+HCA)-ra)/400))
         act = 1.0 if g.home_pts > g.away_pts else 0.0
-        r[g.home] = rh + K*(act-exp)
-        r[g.away] = ra - K*(act-exp)
+        # Bigger wins move ratings more (538's NBA margin multiplier), damped
+        # when the stronger team wins big. Backtested on 2023-24 to 2026-27:
+        # 67.1% vs 66.7% without it.
+        win_gap = (rh+HCA-ra) if act else (ra-rh-HCA)
+        mult = (abs(g.home_pts - g.away_pts) + 3)**0.8 / (7.5 + 0.006*win_gap)
+        r[g.home] = rh + K*mult*(act-exp)
+        r[g.away] = ra - K*mult*(act-exp)
     return r
 
 def rest_days(played, today):
@@ -57,10 +62,11 @@ def games_on(sched, today):
         return sched
     return sched[sched["date"] == today]
 
-W  = np.array([0.6109, 0.0868, -0.0450, -0.0933, 0.0850])
-MU = np.array([0.0, 2.2, 2.2, 0.22, 0.22])
-SD = np.array([124.3, 1.3, 1.3, 0.41, 0.41])
-B  = 0.18
+# Fit on 2014-15 to 2022-23 with the Elo settings above.
+W  = np.array([0.7915, 0.0342, 0.0113, -0.0456, 0.1222])
+MU = np.array([0.0, 2.2, 2.05, 0.13, 0.23])
+SD = np.array([118.32, 0.91, 0.92, 0.34, 0.42])
+B  = 0.3361
 
 # Preseason: last season's ratings say much less (stars rest, rosters changed).
 # Backtested on the 2022-23 to 2025-26 preseasons (263 games), counting the
