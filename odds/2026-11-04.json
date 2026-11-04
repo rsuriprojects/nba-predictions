@@ -1,0 +1,145 @@
+{
+  "fetched_at_utc": "2026-11-04T20:26:19.978425+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T00:00:00Z",
+      "away": "Philadelphia 76ers",
+      "home": "Detroit Pistons",
+      "fav": "Detroit Pistons",
+      "fav_ml": -140,
+      "fav_prob": 0.5582,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T00:10:00Z",
+      "away": "Atlanta Hawks",
+      "home": "Washington Wizards",
+      "fav": "Atlanta Hawks",
+      "fav_ml": -150,
+      "fav_prob": 0.5777,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T00:30:00Z",
+      "away": "Charlotte Hornets",
+      "home": "Brooklyn Nets",
+      "fav": "Charlotte Hornets",
+      "fav_ml": -166,
+      "fav_prob": 0.6001,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T00:40:00Z",
+      "away": "Milwaukee Bucks",
+      "home": "Boston Celtics",
+      "fav": "Boston Celtics",
+      "fav_ml": -500,
+      "fav_prob": 0.7977,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T00:40:00Z",
+      "away": "Chicago Bulls",
+      "home": "New York Knicks",
+      "fav": "New York Knicks",
+      "fav_ml": -590,
+      "fav_prob": 0.8213,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T01:00:00Z",
+      "away": "Cleveland Cavaliers",
+      "home": "Oklahoma City Thunder",
+      "fav": "Oklahoma City Thunder",
+      "fav_ml": -160,
+      "fav_prob": 0.5926,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T01:10:00Z",
+      "away": "Indiana Pacers",
+      "home": "Memphis Grizzlies",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -230,
+      "fav_prob": 0.6699,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T01:10:00Z",
+      "away": "Utah Jazz",
+      "home": "New Orleans Pelicans",
+      "fav": "New Orleans Pelicans",
+      "fav_ml": -200,
+      "fav_prob": 0.6419,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T01:30:00Z",
+      "away": "Minnesota Timberwolves",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -280,
+      "fav_prob": 0.7078,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T02:00:00Z",
+      "away": "Toronto Raptors",
+      "home": "Denver Nuggets",
+      "fav": "Denver Nuggets",
+      "fav_ml": -190,
+      "fav_prob": 0.6292,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T02:00:00Z",
+      "away": "Portland Trail Blazers",
+      "home": "Phoenix Suns",
+      "fav": "Portland Trail Blazers",
+      "fav_ml": -150,
+      "fav_prob": 0.5761,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T02:30:00Z",
+      "away": "Dallas Mavericks",
+      "home": "San Antonio Spurs",
+      "fav": "San Antonio Spurs",
+      "fav_ml": -590,
+      "fav_prob": 0.8175,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T03:10:00Z",
+      "away": "Los Angeles Lakers",
+      "home": "Sacramento Kings",
+      "fav": "Los Angeles Lakers",
+      "fav_ml": -600,
+      "fav_prob": 0.8238,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-04",
+      "commence_time": "2026-11-05T03:40:00Z",
+      "away": "Miami Heat",
+      "home": "Los Angeles Clippers",
+      "fav": "Miami Heat",
+      "fav_ml": -216,
+      "fav_prob": 0.6565,
+      "books": 9
+    }
+  ]
+}
