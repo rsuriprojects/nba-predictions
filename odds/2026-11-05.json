@@ -1,0 +1,25 @@
+{
+  "fetched_at_utc": "2026-11-05T20:39:40.939738+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-05",
+      "commence_time": "2026-11-06T02:10:00Z",
+      "away": "Orlando Magic",
+      "home": "Phoenix Suns",
+      "fav": "Phoenix Suns",
+      "fav_ml": -115,
+      "fav_prob": 0.5115,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-05",
+      "commence_time": "2026-11-06T03:10:00Z",
+      "away": "Miami Heat",
+      "home": "Golden State Warriors",
+      "fav": "Golden State Warriors",
+      "fav_ml": -260,
+      "fav_prob": 0.6977,
+      "books": 9
+    }
+  ]
+}

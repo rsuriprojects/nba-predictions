@@ -1,0 +1,47 @@
+[
+  {
+    "logged_at_utc": "2026-11-05T20:39:40.763404+00:00",
+    "game_date": "2026-11-05",
+    "season_type": "regular",
+    "away": "Orlando Magic",
+    "home": "Phoenix Suns",
+    "home_elo": 1465.3,
+    "away_elo": 1493.4,
+    "p_home": 0.5037,
+    "pick": "Phoenix Suns",
+    "source": "elo",
+    "p_home_no_inj": 0.4841,
+    "inj_home": 23.3,
+    "out_home": [
+      "Jordan Goodwin"
+    ],
+    "inj_away": 35.4,
+    "out_away": [
+      "Jalen Suggs",
+      "Paolo Banchero"
+    ],
+    "fav": "Phoenix Suns",
+    "fav_ml": -115,
+    "fav_prob": 0.5115
+  },
+  {
+    "logged_at_utc": "2026-11-05T20:39:40.763454+00:00",
+    "game_date": "2026-11-05",
+    "season_type": "regular",
+    "away": "Miami Heat",
+    "home": "Golden State Warriors",
+    "home_elo": 1511.2,
+    "away_elo": 1492.6,
+    "p_home": 0.6607,
+    "pick": "Golden State Warriors",
+    "source": "elo",
+    "p_home_no_inj": 0.6708,
+    "inj_home": 7.0,
+    "out_home": [
+      "Gui Santos"
+    ],
+    "fav": "Golden State Warriors",
+    "fav_ml": -260,
+    "fav_prob": 0.6977
+  }
+]
