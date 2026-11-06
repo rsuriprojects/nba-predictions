@@ -186,3 +186,5 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-04,regular,Los Angeles Lakers,Sacramento Kings,Los Angeles Lakers,0.3035,0.6965,116,103,-13,Los Angeles Lakers,True,False,Los Angeles Lakers,0.8238,True,0.3035
 2026-11-04,regular,Dallas Mavericks,San Antonio Spurs,San Antonio Spurs,0.7605,0.7605,111,112,1,San Antonio Spurs,True,False,San Antonio Spurs,0.8175,True,0.7574
 2026-11-04,regular,Atlanta Hawks,Washington Wizards,Atlanta Hawks,0.4162,0.5838,120,105,-15,Atlanta Hawks,True,False,Atlanta Hawks,0.5777,True,0.4077
+2026-11-05,regular,Miami Heat,Golden State Warriors,Golden State Warriors,0.6607,0.6607,100,120,20,Golden State Warriors,True,False,Golden State Warriors,0.6977,True,0.6708
+2026-11-05,regular,Orlando Magic,Phoenix Suns,Phoenix Suns,0.5037,0.5037,104,117,13,Phoenix Suns,True,False,Phoenix Suns,0.5115,True,0.4841
