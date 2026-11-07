@@ -188,3 +188,12 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-04,regular,Atlanta Hawks,Washington Wizards,Atlanta Hawks,0.4162,0.5838,120,105,-15,Atlanta Hawks,True,False,Atlanta Hawks,0.5777,True,0.4077
 2026-11-05,regular,Miami Heat,Golden State Warriors,Golden State Warriors,0.6607,0.6607,100,120,20,Golden State Warriors,True,False,Golden State Warriors,0.6977,True,0.6708
 2026-11-05,regular,Orlando Magic,Phoenix Suns,Phoenix Suns,0.5037,0.5037,104,117,13,Phoenix Suns,True,False,Phoenix Suns,0.5115,True,0.4841
+2026-11-06,regular,Washington Wizards,Atlanta Hawks,Atlanta Hawks,0.7332,0.7332,132,139,7,Atlanta Hawks,True,False,Atlanta Hawks,0.7234,True,0.7413
+2026-11-06,regular,Boston Celtics,Charlotte Hornets,Boston Celtics,0.3057,0.6943,119,80,-39,Boston Celtics,True,False,Boston Celtics,0.7597,True,0.3532
+2026-11-06,regular,Philadelphia 76ers,Cleveland Cavaliers,Cleveland Cavaliers,0.5498,0.5498,95,119,24,Cleveland Cavaliers,True,False,Philadelphia 76ers,0.5691,False,0.5644
+2026-11-06,regular,Utah Jazz,Dallas Mavericks,Dallas Mavericks,0.6833,0.6833,100,112,12,Dallas Mavericks,True,False,Dallas Mavericks,0.6901,True,0.6634
+2026-11-06,regular,Portland Trail Blazers,Los Angeles Lakers,Los Angeles Lakers,0.6206,0.6206,118,124,6,Los Angeles Lakers,True,False,Los Angeles Lakers,0.5788,True,0.5873
+2026-11-06,regular,Oklahoma City Thunder,Memphis Grizzlies,Memphis Grizzlies,0.5037,0.5037,128,97,-31,Oklahoma City Thunder,False,False,Oklahoma City Thunder,0.6092,True,0.3907
+2026-11-06,regular,Toronto Raptors,Milwaukee Bucks,Toronto Raptors,0.3816,0.6184,121,107,-14,Toronto Raptors,True,False,Toronto Raptors,0.6234,True,0.3392
+2026-11-06,regular,Minnesota Timberwolves,New Orleans Pelicans,Minnesota Timberwolves,0.4628,0.5372,115,109,-6,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.5918,True,0.3963
+2026-11-06,regular,San Antonio Spurs,Sacramento Kings,San Antonio Spurs,0.2571,0.7429,124,109,-15,San Antonio Spurs,True,False,San Antonio Spurs,0.8901,True,0.2571
