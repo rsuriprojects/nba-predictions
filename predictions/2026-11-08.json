@@ -1,0 +1,135 @@
+[
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728381+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Miami Heat",
+    "home": "Sacramento Kings",
+    "home_elo": 1368.0,
+    "away_elo": 1483.7,
+    "p_home": 0.3881,
+    "pick": "Miami Heat",
+    "source": "elo",
+    "p_home_no_inj": 0.3881,
+    "fav": "Miami Heat",
+    "fav_ml": -446,
+    "fav_prob": 0.78
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728432+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Philadelphia 76ers",
+    "home": "Chicago Bulls",
+    "home_elo": 1403.5,
+    "away_elo": 1557.6,
+    "p_home": 0.3331,
+    "pick": "Philadelphia 76ers",
+    "source": "elo",
+    "p_home_no_inj": 0.3436,
+    "inj_home": 7.2,
+    "out_home": [
+      "Zach Collins"
+    ],
+    "fav": "Philadelphia 76ers",
+    "fav_ml": -415,
+    "fav_prob": 0.7712
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728481+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Los Angeles Lakers",
+    "home": "Detroit Pistons",
+    "home_elo": 1596.2,
+    "away_elo": 1561.6,
+    "p_home": 0.5903,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.6399,
+    "inj_home": 32.4,
+    "out_home": [
+      "Jalen Duren",
+      "Isaiah Joe"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -270,
+    "fav_prob": 0.6946
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728513+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Utah Jazz",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1564.8,
+    "away_elo": 1379.4,
+    "p_home": 0.7886,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo",
+    "p_home_no_inj": 0.8148,
+    "inj_home": 37.8,
+    "out_home": [
+      "Anthony Edwards"
+    ],
+    "inj_away": 12.4,
+    "out_away": [
+      "Jaren Jackson Jr."
+    ],
+    "fav": "Minnesota Timberwolves",
+    "fav_ml": -650,
+    "fav_prob": 0.8309
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728538+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Brooklyn Nets",
+    "home": "Dallas Mavericks",
+    "home_elo": 1463.4,
+    "away_elo": 1408.4,
+    "p_home": 0.7134,
+    "pick": "Dallas Mavericks",
+    "source": "elo",
+    "p_home_no_inj": 0.7134,
+    "fav": "Dallas Mavericks",
+    "fav_ml": -319,
+    "fav_prob": 0.7274
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728559+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "Boston Celtics",
+    "home": "Milwaukee Bucks",
+    "home_elo": 1386.5,
+    "away_elo": 1601.1,
+    "p_home": 0.2481,
+    "pick": "Boston Celtics",
+    "source": "elo",
+    "p_home_no_inj": 0.2481,
+    "fav": "Boston Celtics",
+    "fav_ml": -715,
+    "fav_prob": 0.8408
+  },
+  {
+    "logged_at_utc": "2026-11-08T18:21:50.728583+00:00",
+    "game_date": "2026-11-08",
+    "season_type": "regular",
+    "away": "New Orleans Pelicans",
+    "home": "Los Angeles Clippers",
+    "home_elo": 1404.0,
+    "away_elo": 1445.8,
+    "p_home": 0.5094,
+    "pick": "Los Angeles Clippers",
+    "source": "elo",
+    "p_home_no_inj": 0.52,
+    "inj_home": 6.6,
+    "out_home": [
+      "Isaiah Jackson"
+    ],
+    "fav": "New Orleans Pelicans",
+    "fav_ml": -123,
+    "fav_prob": 0.5258
+  }
+]
