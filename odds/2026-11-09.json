@@ -1,0 +1,85 @@
+{
+  "fetched_at_utc": "2026-11-09T22:59:53.770502+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T00:10:00Z",
+      "away": "Los Angeles Lakers",
+      "home": "Atlanta Hawks",
+      "fav": "Atlanta Hawks",
+      "fav_ml": -143,
+      "fav_prob": 0.5644,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T00:10:00Z",
+      "away": "Cleveland Cavaliers",
+      "home": "Charlotte Hornets",
+      "fav": "Cleveland Cavaliers",
+      "fav_ml": -350,
+      "fav_prob": 0.7452,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T00:10:00Z",
+      "away": "Washington Wizards",
+      "home": "Detroit Pistons",
+      "fav": "Detroit Pistons",
+      "fav_ml": -500,
+      "fav_prob": 0.8006,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T00:40:00Z",
+      "away": "Memphis Grizzlies",
+      "home": "Toronto Raptors",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -123,
+      "fav_prob": 0.507,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T01:10:00Z",
+      "away": "Indiana Pacers",
+      "home": "Dallas Mavericks",
+      "fav": "Dallas Mavericks",
+      "fav_ml": -170,
+      "fav_prob": 0.6072,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T01:40:00Z",
+      "away": "Denver Nuggets",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -172,
+      "fav_prob": 0.6093,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T02:10:00Z",
+      "away": "San Antonio Spurs",
+      "home": "Phoenix Suns",
+      "fav": "San Antonio Spurs",
+      "fav_ml": -370,
+      "fav_prob": 0.7542,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-09",
+      "commence_time": "2026-11-10T03:10:00Z",
+      "away": "New Orleans Pelicans",
+      "home": "Golden State Warriors",
+      "fav": "Golden State Warriors",
+      "fav_ml": -575,
+      "fav_prob": 0.8138,
+      "books": 9
+    }
+  ]
+}

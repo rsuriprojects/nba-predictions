@@ -204,3 +204,10 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-07,regular,Washington Wizards,Oklahoma City Thunder,Oklahoma City Thunder,0.8167,0.8167,75,114,39,Oklahoma City Thunder,True,False,Oklahoma City Thunder,0.8159,True,0.8587
 2026-11-07,regular,Houston Rockets,Phoenix Suns,Houston Rockets,0.3838,0.6162,99,102,3,Phoenix Suns,False,False,Houston Rockets,0.7,False,0.3692
 2026-11-07,regular,San Antonio Spurs,Portland Trail Blazers,San Antonio Spurs,0.4903,0.5097,125,103,-22,San Antonio Spurs,True,False,San Antonio Spurs,0.6494,True,0.5207
+2026-11-08,regular,Philadelphia 76ers,Chicago Bulls,Philadelphia 76ers,0.3331,0.6669,127,121,-6,Philadelphia 76ers,True,False,Philadelphia 76ers,0.7712,True,0.3436
+2026-11-08,regular,Brooklyn Nets,Dallas Mavericks,Dallas Mavericks,0.7134,0.7134,93,130,37,Dallas Mavericks,True,False,Dallas Mavericks,0.7274,True,0.7134
+2026-11-08,regular,Los Angeles Lakers,Detroit Pistons,Detroit Pistons,0.5903,0.5903,121,116,-5,Los Angeles Lakers,False,False,Detroit Pistons,0.6946,False,0.6399
+2026-11-08,regular,New Orleans Pelicans,Los Angeles Clippers,Los Angeles Clippers,0.5094,0.5094,123,139,16,Los Angeles Clippers,True,False,New Orleans Pelicans,0.5258,False,0.52
+2026-11-08,regular,Boston Celtics,Milwaukee Bucks,Boston Celtics,0.2481,0.7519,117,97,-20,Boston Celtics,True,False,Boston Celtics,0.8408,True,0.2481
+2026-11-08,regular,Utah Jazz,Minnesota Timberwolves,Minnesota Timberwolves,0.7886,0.7886,100,115,15,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.8309,True,0.8148
+2026-11-08,regular,Miami Heat,Sacramento Kings,Miami Heat,0.3881,0.6119,114,108,-6,Miami Heat,True,False,Miami Heat,0.78,True,0.3881
