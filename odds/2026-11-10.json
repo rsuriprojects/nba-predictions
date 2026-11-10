@@ -1,0 +1,65 @@
+{
+  "fetched_at_utc": "2026-11-10T20:28:15.335445+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T00:40:00Z",
+      "away": "Milwaukee Bucks",
+      "home": "New York Knicks",
+      "fav": "New York Knicks",
+      "fav_ml": -1055,
+      "fav_prob": 0.8788,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T01:10:00Z",
+      "away": "Boston Celtics",
+      "home": "Philadelphia 76ers",
+      "fav": "Boston Celtics",
+      "fav_ml": -120,
+      "fav_prob": 0.5231,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T02:10:00Z",
+      "away": "Los Angeles Clippers",
+      "home": "Phoenix Suns",
+      "fav": "Phoenix Suns",
+      "fav_ml": -171,
+      "fav_prob": 0.6046,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T02:10:00Z",
+      "away": "Miami Heat",
+      "home": "Utah Jazz",
+      "fav": "Miami Heat",
+      "fav_ml": -430,
+      "fav_prob": 0.7764,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T03:10:00Z",
+      "away": "Orlando Magic",
+      "home": "Sacramento Kings",
+      "fav": "Orlando Magic",
+      "fav_ml": -245,
+      "fav_prob": 0.6809,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-10",
+      "commence_time": "2026-11-11T04:10:00Z",
+      "away": "Oklahoma City Thunder",
+      "home": "Portland Trail Blazers",
+      "fav": "Oklahoma City Thunder",
+      "fav_ml": -125,
+      "fav_prob": 0.5366,
+      "books": 9
+    }
+  ]
+}

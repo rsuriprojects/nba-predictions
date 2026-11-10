@@ -211,3 +211,11 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-08,regular,Boston Celtics,Milwaukee Bucks,Boston Celtics,0.2481,0.7519,117,97,-20,Boston Celtics,True,False,Boston Celtics,0.8408,True,0.2481
 2026-11-08,regular,Utah Jazz,Minnesota Timberwolves,Minnesota Timberwolves,0.7886,0.7886,100,115,15,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.8309,True,0.8148
 2026-11-08,regular,Miami Heat,Sacramento Kings,Miami Heat,0.3881,0.6119,114,108,-6,Miami Heat,True,False,Miami Heat,0.78,True,0.3881
+2026-11-09,regular,Los Angeles Lakers,Atlanta Hawks,Atlanta Hawks,0.6854,0.6854,124,114,-10,Los Angeles Lakers,False,False,Atlanta Hawks,0.5644,False,0.5735
+2026-11-09,regular,Cleveland Cavaliers,Charlotte Hornets,Cleveland Cavaliers,0.3069,0.6931,112,124,12,Charlotte Hornets,False,False,Cleveland Cavaliers,0.7452,False,0.3687
+2026-11-09,regular,Indiana Pacers,Dallas Mavericks,Dallas Mavericks,0.5949,0.5949,122,125,3,Dallas Mavericks,True,False,Dallas Mavericks,0.6072,True,0.5741
+2026-11-09,regular,Washington Wizards,Detroit Pistons,Detroit Pistons,0.771,0.771,111,122,11,Detroit Pistons,True,False,Detroit Pistons,0.8006,True,0.7964
+2026-11-09,regular,New Orleans Pelicans,Golden State Warriors,Golden State Warriors,0.8724,0.8724,87,138,51,Golden State Warriors,True,False,Golden State Warriors,0.8138,True,0.7543
+2026-11-09,regular,Denver Nuggets,Houston Rockets,Houston Rockets,0.5885,0.5885,100,110,10,Houston Rockets,True,False,Houston Rockets,0.6093,True,0.6019
+2026-11-09,regular,San Antonio Spurs,Phoenix Suns,San Antonio Spurs,0.3826,0.6174,122,96,-26,San Antonio Spurs,True,False,San Antonio Spurs,0.7542,True,0.3708
+2026-11-09,regular,Memphis Grizzlies,Toronto Raptors,Toronto Raptors,0.5752,0.5752,118,102,-16,Memphis Grizzlies,False,False,Memphis Grizzlies,0.507,True,0.6846
