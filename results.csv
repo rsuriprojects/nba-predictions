@@ -219,3 +219,9 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-09,regular,Denver Nuggets,Houston Rockets,Houston Rockets,0.5885,0.5885,100,110,10,Houston Rockets,True,False,Houston Rockets,0.6093,True,0.6019
 2026-11-09,regular,San Antonio Spurs,Phoenix Suns,San Antonio Spurs,0.3826,0.6174,122,96,-26,San Antonio Spurs,True,False,San Antonio Spurs,0.7542,True,0.3708
 2026-11-09,regular,Memphis Grizzlies,Toronto Raptors,Toronto Raptors,0.5752,0.5752,118,102,-16,Memphis Grizzlies,False,False,Memphis Grizzlies,0.507,True,0.6846
+2026-11-10,regular,Milwaukee Bucks,New York Knicks,New York Knicks,0.8267,0.8267,85,117,32,New York Knicks,True,False,New York Knicks,0.8788,True,0.8267
+2026-11-10,regular,Boston Celtics,Philadelphia 76ers,Boston Celtics,0.4954,0.5046,123,101,-22,Boston Celtics,True,False,Boston Celtics,0.5231,True,0.4954
+2026-11-10,regular,Los Angeles Clippers,Phoenix Suns,Phoenix Suns,0.6098,0.6098,110,133,23,Phoenix Suns,True,False,Phoenix Suns,0.6046,True,0.6098
+2026-11-10,regular,Oklahoma City Thunder,Portland Trail Blazers,Portland Trail Blazers,0.5181,0.5181,103,123,20,Portland Trail Blazers,True,False,Oklahoma City Thunder,0.5366,False,0.4228
+2026-11-10,regular,Orlando Magic,Sacramento Kings,Orlando Magic,0.4271,0.5729,107,100,-7,Orlando Magic,True,False,Orlando Magic,0.6809,True,0.3841
+2026-11-10,regular,Miami Heat,Utah Jazz,Miami Heat,0.2787,0.7213,115,109,-6,Miami Heat,True,False,Miami Heat,0.7764,True,0.3894
