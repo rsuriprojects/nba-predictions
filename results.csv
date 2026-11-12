@@ -225,3 +225,13 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-10,regular,Oklahoma City Thunder,Portland Trail Blazers,Portland Trail Blazers,0.5181,0.5181,103,123,20,Portland Trail Blazers,True,False,Oklahoma City Thunder,0.5366,False,0.4228
 2026-11-10,regular,Orlando Magic,Sacramento Kings,Orlando Magic,0.4271,0.5729,107,100,-7,Orlando Magic,True,False,Orlando Magic,0.6809,True,0.3841
 2026-11-10,regular,Miami Heat,Utah Jazz,Miami Heat,0.2787,0.7213,115,109,-6,Miami Heat,True,False,Miami Heat,0.7764,True,0.3894
+2026-11-11,regular,San Antonio Spurs,Chicago Bulls,San Antonio Spurs,0.2681,0.7319,124,119,-5,San Antonio Spurs,True,True,,,,
+2026-11-11,regular,Golden State Warriors,Houston Rockets,Houston Rockets,0.6696,0.6696,108,115,7,Houston Rockets,True,True,,,,
+2026-11-11,regular,Washington Wizards,Indiana Pacers,Indiana Pacers,0.6462,0.6462,101,114,13,Indiana Pacers,True,True,,,,
+2026-11-11,regular,Denver Nuggets,Memphis Grizzlies,Denver Nuggets,0.4502,0.5498,123,118,-5,Denver Nuggets,True,True,,,,
+2026-11-11,regular,Los Angeles Lakers,Milwaukee Bucks,Los Angeles Lakers,0.23,0.77,123,112,-11,Los Angeles Lakers,True,True,,,,
+2026-11-11,regular,Brooklyn Nets,New Orleans Pelicans,New Orleans Pelicans,0.6145,0.6145,145,111,-34,Brooklyn Nets,False,True,,,,
+2026-11-11,regular,Cleveland Cavaliers,New York Knicks,New York Knicks,0.5638,0.5638,115,107,-8,Cleveland Cavaliers,False,True,,,,
+2026-11-11,regular,Oklahoma City Thunder,Portland Trail Blazers,Oklahoma City Thunder,0.4798,0.5202,108,118,10,Portland Trail Blazers,False,True,,,,
+2026-11-11,regular,Boston Celtics,Toronto Raptors,Boston Celtics,0.4937,0.5063,98,93,-5,Boston Celtics,True,True,,,,
+2026-11-11,regular,Orlando Magic,Utah Jazz,Orlando Magic,0.4095,0.5905,123,108,-15,Orlando Magic,True,True,,,,

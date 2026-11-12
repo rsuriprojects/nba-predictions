@@ -1,0 +1,94 @@
+[
+  {
+    "logged_at_utc": "2026-11-12T20:49:04.686913+00:00",
+    "game_date": "2026-11-12",
+    "season_type": "regular",
+    "away": "Toronto Raptors",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1547.8,
+    "away_elo": 1527.6,
+    "p_home": 0.6848,
+    "pick": "Philadelphia 76ers",
+    "source": "elo",
+    "p_home_no_inj": 0.6653,
+    "inj_home": 72.2,
+    "out_home": [
+      "LeBron James"
+    ],
+    "inj_away": 85.9,
+    "out_away": [
+      "Scottie Barnes",
+      "Kawhi Leonard",
+      "Trayce Jackson-Davis"
+    ],
+    "fav": "Philadelphia 76ers",
+    "fav_ml": -269,
+    "fav_prob": 0.7003
+  },
+  {
+    "logged_at_utc": "2026-11-12T20:49:04.686963+00:00",
+    "game_date": "2026-11-12",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Washington Wizards",
+    "home_elo": 1386.2,
+    "away_elo": 1591.2,
+    "p_home": 0.255,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.2298,
+    "inj_home": 4.7,
+    "out_home": [
+      "Justin Champagnie"
+    ],
+    "inj_away": 25.9,
+    "out_away": [
+      "Jalen Duren",
+      "Isaiah Joe"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -438,
+    "fav_prob": 0.7829
+  },
+  {
+    "logged_at_utc": "2026-11-12T20:49:04.686993+00:00",
+    "game_date": "2026-11-12",
+    "season_type": "regular",
+    "away": "Dallas Mavericks",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1567.6,
+    "away_elo": 1477.2,
+    "p_home": 0.6741,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo",
+    "p_home_no_inj": 0.721,
+    "inj_home": 34.4,
+    "out_home": [
+      "Anthony Edwards"
+    ],
+    "fav": "Minnesota Timberwolves",
+    "fav_ml": -220,
+    "fav_prob": 0.6612
+  },
+  {
+    "logged_at_utc": "2026-11-12T20:49:04.687024+00:00",
+    "game_date": "2026-11-12",
+    "season_type": "regular",
+    "away": "Charlotte Hornets",
+    "home": "Phoenix Suns",
+    "home_elo": 1473.8,
+    "away_elo": 1444.1,
+    "p_home": 0.6776,
+    "pick": "Phoenix Suns",
+    "source": "elo",
+    "p_home_no_inj": 0.6194,
+    "inj_away": 39.5,
+    "out_away": [
+      "Brandon Miller",
+      "Kon Knueppel"
+    ],
+    "fav": "Phoenix Suns",
+    "fav_ml": -235,
+    "fav_prob": 0.6719
+  }
+]

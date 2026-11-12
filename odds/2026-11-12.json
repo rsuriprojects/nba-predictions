@@ -1,0 +1,45 @@
+{
+  "fetched_at_utc": "2026-11-12T20:49:04.840771+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-12",
+      "commence_time": "2026-11-13T00:10:00Z",
+      "away": "Detroit Pistons",
+      "home": "Washington Wizards",
+      "fav": "Detroit Pistons",
+      "fav_ml": -438,
+      "fav_prob": 0.7829,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-12",
+      "commence_time": "2026-11-13T00:10:00Z",
+      "away": "Toronto Raptors",
+      "home": "Philadelphia 76ers",
+      "fav": "Philadelphia 76ers",
+      "fav_ml": -269,
+      "fav_prob": 0.7003,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-12",
+      "commence_time": "2026-11-13T01:10:00Z",
+      "away": "Dallas Mavericks",
+      "home": "Minnesota Timberwolves",
+      "fav": "Minnesota Timberwolves",
+      "fav_ml": -220,
+      "fav_prob": 0.6612,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-12",
+      "commence_time": "2026-11-13T02:10:00Z",
+      "away": "Charlotte Hornets",
+      "home": "Phoenix Suns",
+      "fav": "Phoenix Suns",
+      "fav_ml": -235,
+      "fav_prob": 0.6719,
+      "books": 9
+    }
+  ]
+}
