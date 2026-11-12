@@ -266,18 +266,27 @@ def main():
         team_games = pd.concat([played["home"], played["away"]]).value_counts().to_dict() if len(played) else {}
         inj = injury_costs(SEASON, team_games)
     rows = predict_day(elo, sched, pre, today, inj=inj, now=now_et)
+    # The job runs several times a day, because GitHub often starts it hours
+    # late and a source can briefly miss games. Picks already logged today
+    # are never changed; a later run only adds games that are missing.
+    path = f"predictions/{today.date()}.json"
+    logged = json.load(open(path)) if os.path.exists(path) and not TEST_DATE else []
+    have = {(r["home"], r["away"]) for r in logged}
+    rows = [r for r in rows if (r["home"], r["away"]) not in have]
     # The favorite baseline only exists for real mornings: there are no
     # pregame odds for a TEST_DATE or a backfilled day.
     if rows and not TEST_DATE:
         add_favorites(rows, favorites_for(today))
     if rows:
-        path = write_day(rows, today)
-        print(f"wrote {len(rows)} predictions to {path}")
+        path = write_day(logged + rows, today)
+        print(f"wrote {len(rows)} new predictions to {path} ({len(logged)} already logged)")
         for r in rows:
             tag = "" if r["season_type"] == "regular" else " [preseason]"
             fav = f" (fav {r['fav']} {r['fav_prob']:.0%})" if "fav" in r else ""
             hurt = "".join(f" (out {', '.join(r['out_'+s])})" for s in ("away", "home") if "out_"+s in r)
             print(f"  {r['away']} @ {r['home']}: {r['p_home']:.1%} -> {r['pick']}{fav}{tag}{hurt}")
+    elif logged:
+        print(f"all {len(logged)} games on {today.date()} already logged")
     else:
         print(f"no games on {today.date()}")
 
