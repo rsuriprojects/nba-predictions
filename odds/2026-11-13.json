@@ -1,0 +1,95 @@
+{
+  "fetched_at_utc": "2026-11-13T20:29:29.091786+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T00:10:00Z",
+      "away": "New York Knicks",
+      "home": "Indiana Pacers",
+      "fav": "New York Knicks",
+      "fav_ml": -335,
+      "fav_prob": 0.7375,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T00:10:00Z",
+      "away": "Milwaukee Bucks",
+      "home": "Orlando Magic",
+      "fav": "Orlando Magic",
+      "fav_ml": -395,
+      "fav_prob": 0.7646,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T01:10:00Z",
+      "away": "Atlanta Hawks",
+      "home": "Chicago Bulls",
+      "fav": "Atlanta Hawks",
+      "fav_ml": -275,
+      "fav_prob": 0.7029,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T01:10:00Z",
+      "away": "Cleveland Cavaliers",
+      "home": "Miami Heat",
+      "fav": "Miami Heat",
+      "fav_ml": -135,
+      "fav_prob": 0.5541,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T01:10:00Z",
+      "away": "Memphis Grizzlies",
+      "home": "New Orleans Pelicans",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -160,
+      "fav_prob": 0.5906,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T01:40:00Z",
+      "away": "Utah Jazz",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -1200,
+      "fav_prob": 0.8839,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T02:40:00Z",
+      "away": "Golden State Warriors",
+      "home": "San Antonio Spurs",
+      "fav": "San Antonio Spurs",
+      "fav_ml": -650,
+      "fav_prob": 0.8312,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T03:10:00Z",
+      "away": "Portland Trail Blazers",
+      "home": "Sacramento Kings",
+      "fav": "Portland Trail Blazers",
+      "fav_ml": -468,
+      "fav_prob": 0.789,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-13",
+      "commence_time": "2026-11-14T03:40:00Z",
+      "away": "Oklahoma City Thunder",
+      "home": "Los Angeles Clippers",
+      "fav": "Oklahoma City Thunder",
+      "fav_ml": -275,
+      "fav_prob": 0.705,
+      "books": 9
+    }
+  ]
+}

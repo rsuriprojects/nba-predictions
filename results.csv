@@ -235,3 +235,7 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-11,regular,Oklahoma City Thunder,Portland Trail Blazers,Oklahoma City Thunder,0.4798,0.5202,108,118,10,Portland Trail Blazers,False,True,,,,
 2026-11-11,regular,Boston Celtics,Toronto Raptors,Boston Celtics,0.4937,0.5063,98,93,-5,Boston Celtics,True,True,,,,
 2026-11-11,regular,Orlando Magic,Utah Jazz,Orlando Magic,0.4095,0.5905,123,108,-15,Orlando Magic,True,True,,,,
+2026-11-12,regular,Dallas Mavericks,Minnesota Timberwolves,Minnesota Timberwolves,0.6741,0.6741,94,133,39,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.6612,True,0.721
+2026-11-12,regular,Toronto Raptors,Philadelphia 76ers,Philadelphia 76ers,0.6848,0.6848,112,123,11,Philadelphia 76ers,True,False,Philadelphia 76ers,0.7003,True,0.6653
+2026-11-12,regular,Charlotte Hornets,Phoenix Suns,Phoenix Suns,0.6776,0.6776,96,101,5,Phoenix Suns,True,False,Phoenix Suns,0.6719,True,0.6194
+2026-11-12,regular,Detroit Pistons,Washington Wizards,Detroit Pistons,0.255,0.745,144,140,-4,Detroit Pistons,True,False,Detroit Pistons,0.7829,True,0.2298
