@@ -239,3 +239,12 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-12,regular,Toronto Raptors,Philadelphia 76ers,Philadelphia 76ers,0.6848,0.6848,112,123,11,Philadelphia 76ers,True,False,Philadelphia 76ers,0.7003,True,0.6653
 2026-11-12,regular,Charlotte Hornets,Phoenix Suns,Phoenix Suns,0.6776,0.6776,96,101,5,Phoenix Suns,True,False,Phoenix Suns,0.6719,True,0.6194
 2026-11-12,regular,Detroit Pistons,Washington Wizards,Detroit Pistons,0.255,0.745,144,140,-4,Detroit Pistons,True,False,Detroit Pistons,0.7829,True,0.2298
+2026-11-13,regular,Atlanta Hawks,Chicago Bulls,Atlanta Hawks,0.3969,0.6031,117,125,8,Chicago Bulls,False,False,Atlanta Hawks,0.7029,False,0.3952
+2026-11-13,regular,Utah Jazz,Houston Rockets,Houston Rockets,0.8894,0.8894,118,125,7,Houston Rockets,True,False,Houston Rockets,0.8839,True,0.8642
+2026-11-13,regular,New York Knicks,Indiana Pacers,New York Knicks,0.3606,0.6394,104,106,2,Indiana Pacers,False,False,New York Knicks,0.7375,False,0.3772
+2026-11-13,regular,Oklahoma City Thunder,Los Angeles Clippers,Oklahoma City Thunder,0.3612,0.6388,112,113,1,Los Angeles Clippers,False,False,Oklahoma City Thunder,0.705,False,0.2729
+2026-11-13,regular,Cleveland Cavaliers,Miami Heat,Miami Heat,0.6041,0.6041,121,133,12,Miami Heat,True,False,Miami Heat,0.5541,True,0.4655
+2026-11-13,regular,Memphis Grizzlies,New Orleans Pelicans,Memphis Grizzlies,0.3753,0.6247,142,111,-31,Memphis Grizzlies,True,False,Memphis Grizzlies,0.5906,True,0.4218
+2026-11-13,regular,Milwaukee Bucks,Orlando Magic,Orlando Magic,0.7201,0.7201,99,107,8,Orlando Magic,True,False,Orlando Magic,0.7646,True,0.7486
+2026-11-13,regular,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,0.3015,0.6985,120,107,-13,Portland Trail Blazers,True,False,Portland Trail Blazers,0.789,True,0.2831
+2026-11-13,regular,Golden State Warriors,San Antonio Spurs,San Antonio Spurs,0.8162,0.8162,85,123,38,San Antonio Spurs,True,False,San Antonio Spurs,0.8312,True,0.6968

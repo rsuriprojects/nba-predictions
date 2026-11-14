@@ -1,0 +1,104 @@
+[
+  {
+    "logged_at_utc": "2026-11-14T16:42:21.254964+00:00",
+    "game_date": "2026-11-14",
+    "season_type": "regular",
+    "away": "Chicago Bulls",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1577.8,
+    "away_elo": 1415.1,
+    "p_home": 0.8031,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo",
+    "p_home_no_inj": 0.8334,
+    "inj_home": 31.5,
+    "out_home": [
+      "Anthony Edwards"
+    ],
+    "fav": "Minnesota Timberwolves",
+    "fav_ml": -950,
+    "fav_prob": 0.8691
+  },
+  {
+    "logged_at_utc": "2026-11-14T16:42:21.255008+00:00",
+    "game_date": "2026-11-14",
+    "season_type": "regular",
+    "away": "Brooklyn Nets",
+    "home": "Memphis Grizzlies",
+    "home_elo": 1505.2,
+    "away_elo": 1420.3,
+    "p_home": 0.6545,
+    "pick": "Memphis Grizzlies",
+    "source": "elo",
+    "p_home_no_inj": 0.6609,
+    "inj_home": 4.4,
+    "out_home": [
+      "Scotty Pippen Jr."
+    ],
+    "fav": "Memphis Grizzlies",
+    "fav_ml": -155,
+    "fav_prob": 0.5862
+  },
+  {
+    "logged_at_utc": "2026-11-14T16:42:21.255034+00:00",
+    "game_date": "2026-11-14",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Miami Heat",
+    "home_elo": 1501.8,
+    "away_elo": 1594.2,
+    "p_home": 0.4157,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.3792,
+    "inj_away": 23.6,
+    "out_away": [
+      "Jalen Duren",
+      "Isaiah Joe"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -198,
+    "fav_prob": 0.6383
+  },
+  {
+    "logged_at_utc": "2026-11-14T16:42:21.255057+00:00",
+    "game_date": "2026-11-14",
+    "season_type": "regular",
+    "away": "Denver Nuggets",
+    "home": "New Orleans Pelicans",
+    "home_elo": 1382.8,
+    "away_elo": 1574.6,
+    "p_home": 0.1877,
+    "pick": "Denver Nuggets",
+    "source": "elo",
+    "p_home_no_inj": 0.2454,
+    "inj_home": 52.7,
+    "out_home": [
+      "Trey Murphy III",
+      "Dejounte Murray"
+    ],
+    "fav": "Denver Nuggets",
+    "fav_ml": -625,
+    "fav_prob": 0.8281
+  },
+  {
+    "logged_at_utc": "2026-11-14T16:42:21.255075+00:00",
+    "game_date": "2026-11-14",
+    "season_type": "regular",
+    "away": "Dallas Mavericks",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1554.2,
+    "away_elo": 1466.7,
+    "p_home": 0.6406,
+    "pick": "Cleveland Cavaliers",
+    "source": "elo",
+    "p_home_no_inj": 0.6619,
+    "inj_home": 14.5,
+    "out_home": [
+      "Sam Merrill"
+    ],
+    "fav": "Dallas Mavericks",
+    "fav_ml": -130,
+    "fav_prob": 0.5447
+  }
+]
