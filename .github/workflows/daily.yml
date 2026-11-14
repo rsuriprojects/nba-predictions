@@ -2,12 +2,14 @@ name: daily predictions
 
 on:
   schedule:
-    # 8:17am, 10:47am and 1:17pm US Eastern in winter (an hour later in
-    # summer). The first is late enough that the morning injury report is out.
-    # GitHub often starts scheduled runs hours late, and a source can briefly
-    # miss games, so later runs add any game the first one missed. They never
-    # change a pick already logged, and the odds are still fetched once a day.
-    # predict.py skips any game that has already tipped off.
+    # Five tries a day, from 5:17am to 1:17pm US Eastern in winter (an hour
+    # later in summer). GitHub has been starting scheduled runs 5-7 hours
+    # late, so the early slots usually land mid-morning; a source can also
+    # briefly miss games. Every run grades last night and adds any game not
+    # yet logged; none changes a pick already logged, and the odds are still
+    # fetched once a day. predict.py skips any game that has already tipped off.
+    - cron: '17 10 * * *'
+    - cron: '47 11 * * *'
     - cron: '17 13 * * *'
     - cron: '47 15 * * *'
     - cron: '17 18 * * *'
