@@ -248,3 +248,8 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-13,regular,Milwaukee Bucks,Orlando Magic,Orlando Magic,0.7201,0.7201,99,107,8,Orlando Magic,True,False,Orlando Magic,0.7646,True,0.7486
 2026-11-13,regular,Portland Trail Blazers,Sacramento Kings,Portland Trail Blazers,0.3015,0.6985,120,107,-13,Portland Trail Blazers,True,False,Portland Trail Blazers,0.789,True,0.2831
 2026-11-13,regular,Golden State Warriors,San Antonio Spurs,San Antonio Spurs,0.8162,0.8162,85,123,38,San Antonio Spurs,True,False,San Antonio Spurs,0.8312,True,0.6968
+2026-11-14,regular,Dallas Mavericks,Cleveland Cavaliers,Cleveland Cavaliers,0.6406,0.6406,117,127,10,Cleveland Cavaliers,True,False,Dallas Mavericks,0.5447,False,0.6619
+2026-11-14,regular,Brooklyn Nets,Memphis Grizzlies,Memphis Grizzlies,0.6545,0.6545,110,129,19,Memphis Grizzlies,True,False,Memphis Grizzlies,0.5862,True,0.6609
+2026-11-14,regular,Detroit Pistons,Miami Heat,Detroit Pistons,0.4157,0.5843,117,137,20,Miami Heat,False,False,Detroit Pistons,0.6383,False,0.3792
+2026-11-14,regular,Chicago Bulls,Minnesota Timberwolves,Minnesota Timberwolves,0.8031,0.8031,117,106,-11,Chicago Bulls,False,False,Minnesota Timberwolves,0.8691,False,0.8334
+2026-11-14,regular,Denver Nuggets,New Orleans Pelicans,Denver Nuggets,0.1877,0.8123,116,108,-8,Denver Nuggets,True,False,Denver Nuggets,0.8281,True,0.2454
