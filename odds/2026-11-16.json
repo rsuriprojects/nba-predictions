@@ -1,0 +1,85 @@
+{
+  "fetched_at_utc": "2026-11-16T20:27:41.574169+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T00:10:00Z",
+      "away": "Orlando Magic",
+      "home": "Boston Celtics",
+      "fav": "Boston Celtics",
+      "fav_ml": -360,
+      "fav_prob": 0.75,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T00:10:00Z",
+      "away": "Chicago Bulls",
+      "home": "Cleveland Cavaliers",
+      "fav": "Cleveland Cavaliers",
+      "fav_ml": -359,
+      "fav_prob": 0.7488,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T00:10:00Z",
+      "away": "Memphis Grizzlies",
+      "home": "Washington Wizards",
+      "fav": "Memphis Grizzlies",
+      "fav_ml": -160,
+      "fav_prob": 0.5909,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T00:40:00Z",
+      "away": "Philadelphia 76ers",
+      "home": "Brooklyn Nets",
+      "fav": "Philadelphia 76ers",
+      "fav_ml": -215,
+      "fav_prob": 0.6564,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T00:40:00Z",
+      "away": "Houston Rockets",
+      "home": "Miami Heat",
+      "fav": "Houston Rockets",
+      "fav_ml": -130,
+      "fav_prob": 0.5462,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T01:10:00Z",
+      "away": "Golden State Warriors",
+      "home": "New Orleans Pelicans",
+      "fav": "Golden State Warriors",
+      "fav_ml": -161,
+      "fav_prob": 0.5955,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T01:10:00Z",
+      "away": "Portland Trail Blazers",
+      "home": "Minnesota Timberwolves",
+      "fav": "Minnesota Timberwolves",
+      "fav_ml": -135,
+      "fav_prob": 0.5516,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-16",
+      "commence_time": "2026-11-17T02:10:00Z",
+      "away": "Phoenix Suns",
+      "home": "Denver Nuggets",
+      "fav": "Denver Nuggets",
+      "fav_ml": -410,
+      "fav_prob": 0.7716,
+      "books": 9
+    }
+  ]
+}
