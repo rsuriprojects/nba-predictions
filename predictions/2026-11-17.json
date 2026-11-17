@@ -1,0 +1,117 @@
+[
+  {
+    "logged_at_utc": "2026-11-17T19:11:23.023123+00:00",
+    "game_date": "2026-11-17",
+    "season_type": "regular",
+    "away": "New York Knicks",
+    "home": "Toronto Raptors",
+    "home_elo": 1516.5,
+    "away_elo": 1568.9,
+    "p_home": 0.4571,
+    "pick": "New York Knicks",
+    "source": "elo",
+    "p_home_no_inj": 0.4854,
+    "inj_home": 17.5,
+    "out_home": [
+      "Kawhi Leonard"
+    ],
+    "fav": "New York Knicks",
+    "fav_ml": -174,
+    "fav_prob": 0.6114
+  },
+  {
+    "logged_at_utc": "2026-11-17T19:11:23.023172+00:00",
+    "game_date": "2026-11-17",
+    "season_type": "regular",
+    "away": "Portland Trail Blazers",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1567.0,
+    "away_elo": 1549.5,
+    "p_home": 0.5906,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo",
+    "p_home_no_inj": 0.6209,
+    "inj_home": 31.2,
+    "out_home": [
+      "Anthony Edwards",
+      "Jonathan Kuminga"
+    ],
+    "inj_away": 11.6,
+    "out_away": [
+      "Ja Morant",
+      "Vit Krejci"
+    ],
+    "fav": "Minnesota Timberwolves",
+    "fav_ml": -125,
+    "fav_prob": 0.5337
+  },
+  {
+    "logged_at_utc": "2026-11-17T19:11:23.023211+00:00",
+    "game_date": "2026-11-17",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "San Antonio Spurs",
+    "home_elo": 1630.0,
+    "away_elo": 1580.7,
+    "p_home": 0.7114,
+    "pick": "San Antonio Spurs",
+    "source": "elo",
+    "p_home_no_inj": 0.6487,
+    "inj_away": 44.6,
+    "out_away": [
+      "Duncan Robinson",
+      "Jalen Duren",
+      "Isaiah Joe"
+    ],
+    "fav": "San Antonio Spurs",
+    "fav_ml": -437,
+    "fav_prob": 0.7797
+  },
+  {
+    "logged_at_utc": "2026-11-17T19:11:23.023245+00:00",
+    "game_date": "2026-11-17",
+    "season_type": "regular",
+    "away": "Utah Jazz",
+    "home": "Los Angeles Clippers",
+    "home_elo": 1414.8,
+    "away_elo": 1357.5,
+    "p_home": 0.7337,
+    "pick": "Los Angeles Clippers",
+    "source": "elo",
+    "p_home_no_inj": 0.6575,
+    "inj_away": 55.8,
+    "out_away": [
+      "Lauri Markkanen",
+      "Jaxson Hayes",
+      "Jaren Jackson Jr."
+    ],
+    "fav": "Los Angeles Clippers",
+    "fav_ml": -238,
+    "fav_prob": 0.677
+  },
+  {
+    "logged_at_utc": "2026-11-17T19:11:23.023272+00:00",
+    "game_date": "2026-11-17",
+    "season_type": "regular",
+    "away": "Charlotte Hornets",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1587.5,
+    "away_elo": 1438.0,
+    "p_home": 0.6779,
+    "pick": "Los Angeles Lakers",
+    "source": "elo",
+    "p_home_no_inj": 0.7772,
+    "inj_home": 81.4,
+    "out_home": [
+      "Austin Reaves",
+      "Walker Kessler"
+    ],
+    "inj_away": 3.4,
+    "out_away": [
+      "Kon Knueppel"
+    ],
+    "fav": "Los Angeles Lakers",
+    "fav_ml": -290,
+    "fav_prob": 0.713
+  }
+]

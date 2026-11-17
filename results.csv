@@ -262,3 +262,11 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-15,regular,New York Knicks,Toronto Raptors,New York Knicks,0.3979,0.6021,112,108,-4,New York Knicks,True,False,New York Knicks,0.632,True,0.5109
 2026-11-15,regular,San Antonio Spurs,Utah Jazz,San Antonio Spurs,0.1377,0.8623,110,102,-8,San Antonio Spurs,True,False,San Antonio Spurs,0.8935,True,0.1907
 2026-11-15,regular,Houston Rockets,Washington Wizards,Houston Rockets,0.2605,0.7395,147,119,-28,Houston Rockets,True,False,Houston Rockets,0.7434,True,0.245
+2026-11-16,regular,Orlando Magic,Boston Celtics,Boston Celtics,0.7433,0.7433,115,105,-10,Orlando Magic,False,False,Boston Celtics,0.75,False,0.7313
+2026-11-16,regular,Philadelphia 76ers,Brooklyn Nets,Brooklyn Nets,0.5177,0.5177,135,123,-12,Philadelphia 76ers,False,False,Philadelphia 76ers,0.6564,True,0.4086
+2026-11-16,regular,Chicago Bulls,Cleveland Cavaliers,Cleveland Cavaliers,0.6517,0.6517,115,126,11,Cleveland Cavaliers,True,False,Cleveland Cavaliers,0.7488,True,0.7516
+2026-11-16,regular,Phoenix Suns,Denver Nuggets,Denver Nuggets,0.7774,0.7774,117,105,-12,Phoenix Suns,False,False,Denver Nuggets,0.7716,False,0.7774
+2026-11-16,regular,Houston Rockets,Miami Heat,Houston Rockets,0.4917,0.5083,110,128,18,Miami Heat,False,False,Houston Rockets,0.5462,False,0.4801
+2026-11-16,regular,Portland Trail Blazers,Minnesota Timberwolves,Minnesota Timberwolves,0.5581,0.5581,98,106,8,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.5516,True,0.5844
+2026-11-16,regular,Golden State Warriors,New Orleans Pelicans,Golden State Warriors,0.4164,0.5836,94,115,21,New Orleans Pelicans,False,False,Golden State Warriors,0.5955,False,0.3477
+2026-11-16,regular,Memphis Grizzlies,Washington Wizards,Memphis Grizzlies,0.4252,0.5748,136,120,-16,Memphis Grizzlies,True,False,Memphis Grizzlies,0.5909,True,0.315
