@@ -270,3 +270,8 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-16,regular,Portland Trail Blazers,Minnesota Timberwolves,Minnesota Timberwolves,0.5581,0.5581,98,106,8,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.5516,True,0.5844
 2026-11-16,regular,Golden State Warriors,New Orleans Pelicans,Golden State Warriors,0.4164,0.5836,94,115,21,New Orleans Pelicans,False,False,Golden State Warriors,0.5955,False,0.3477
 2026-11-16,regular,Memphis Grizzlies,Washington Wizards,Memphis Grizzlies,0.4252,0.5748,136,120,-16,Memphis Grizzlies,True,False,Memphis Grizzlies,0.5909,True,0.315
+2026-11-17,regular,Utah Jazz,Los Angeles Clippers,Los Angeles Clippers,0.7337,0.7337,132,107,-25,Utah Jazz,False,False,Los Angeles Clippers,0.677,False,0.6575
+2026-11-17,regular,Charlotte Hornets,Los Angeles Lakers,Los Angeles Lakers,0.6779,0.6779,114,118,4,Los Angeles Lakers,True,False,Los Angeles Lakers,0.713,True,0.7772
+2026-11-17,regular,Portland Trail Blazers,Minnesota Timberwolves,Minnesota Timberwolves,0.5906,0.5906,105,106,1,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.5337,True,0.6209
+2026-11-17,regular,Detroit Pistons,San Antonio Spurs,San Antonio Spurs,0.7114,0.7114,105,93,-12,Detroit Pistons,False,False,San Antonio Spurs,0.7797,False,0.6487
+2026-11-17,regular,New York Knicks,Toronto Raptors,New York Knicks,0.4571,0.5429,111,102,-9,New York Knicks,True,False,New York Knicks,0.6114,True,0.4854
