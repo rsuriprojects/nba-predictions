@@ -11,7 +11,10 @@ scaled by the share of his team's games he has played this season. A star out
 since opening night costs ~0; a star who has played every game costs full value.
 
 This could not be backtested (old injury reports aren't kept), so every pick
-also saves p_home_no_inj, and score.py compares the two.
+also saves p_home_no_inj, and score.py compares the two. Over the first 93
+graded games (Nov 4-17, 2026) full strength (20) picked more winners but was
+overconfident (log loss 0.581 vs 0.573 with no injuries); half strength kept
+the extra winners with almost none of the overconfidence, so it's now 10.
 """
 import re
 import unicodedata
@@ -21,7 +24,7 @@ from rosters import LAST_WEIGHT, MULTI, _team_name, fetch_players
 
 INJURY_URL = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
 OUT = {"Out", "Suspension"}
-ELO_PER_VORP = 20       # per 82 games; see above
+ELO_PER_VORP = 10       # per 82 games; half the estimate above, see below
 MIN_GAMES = 20          # fewer games than this and a per-game rate is noise
 MAX_COST = 200          # many players out: the replacement-level math stops holding
 
