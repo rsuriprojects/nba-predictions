@@ -275,3 +275,15 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-17,regular,Portland Trail Blazers,Minnesota Timberwolves,Minnesota Timberwolves,0.5906,0.5906,105,106,1,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.5337,True,0.6209
 2026-11-17,regular,Detroit Pistons,San Antonio Spurs,San Antonio Spurs,0.7114,0.7114,105,93,-12,Detroit Pistons,False,False,San Antonio Spurs,0.7797,False,0.6487
 2026-11-17,regular,New York Knicks,Toronto Raptors,New York Knicks,0.4571,0.5429,111,102,-9,New York Knicks,True,False,New York Knicks,0.6114,True,0.4854
+2026-11-18,regular,Chicago Bulls,Brooklyn Nets,Brooklyn Nets,0.5381,0.5381,137,107,-30,Chicago Bulls,False,False,Brooklyn Nets,0.5704,False,0.5381
+2026-11-18,regular,Memphis Grizzlies,Cleveland Cavaliers,Cleveland Cavaliers,0.6193,0.6193,124,121,-3,Memphis Grizzlies,False,False,Cleveland Cavaliers,0.6316,False,0.6356
+2026-11-18,regular,Golden State Warriors,Dallas Mavericks,Dallas Mavericks,0.6372,0.6372,94,116,22,Dallas Mavericks,True,False,Dallas Mavericks,0.6288,True,0.4996
+2026-11-18,regular,Boston Celtics,Denver Nuggets,Boston Celtics,0.4808,0.5192,101,105,4,Denver Nuggets,False,False,Boston Celtics,0.5627,False,0.4808
+2026-11-18,regular,Houston Rockets,Indiana Pacers,Houston Rockets,0.3308,0.6692,119,104,-15,Houston Rockets,True,False,Houston Rockets,0.7216,True,0.3375
+2026-11-18,regular,Utah Jazz,Los Angeles Lakers,Los Angeles Lakers,0.8774,0.8774,109,97,-12,Utah Jazz,False,False,Los Angeles Lakers,0.7829,False,0.8512
+2026-11-18,regular,Milwaukee Bucks,Miami Heat,Miami Heat,0.8155,0.8155,130,137,7,Miami Heat,True,False,Miami Heat,0.8342,True,0.7991
+2026-11-18,regular,Detroit Pistons,New Orleans Pelicans,Detroit Pistons,0.3194,0.6806,122,109,-13,Detroit Pistons,True,False,Detroit Pistons,0.6872,True,0.3258
+2026-11-18,regular,Atlanta Hawks,Oklahoma City Thunder,Oklahoma City Thunder,0.6737,0.6737,117,112,-5,Atlanta Hawks,False,False,Oklahoma City Thunder,0.683,False,0.7105
+2026-11-18,regular,Philadelphia 76ers,Orlando Magic,Orlando Magic,0.5647,0.5647,121,116,-5,Philadelphia 76ers,False,False,Philadelphia 76ers,0.5068,True,0.4857
+2026-11-18,regular,Phoenix Suns,Sacramento Kings,Phoenix Suns,0.3576,0.6424,128,107,-21,Phoenix Suns,True,False,Phoenix Suns,0.6928,True,0.3576
+2026-11-18,regular,Washington Wizards,Toronto Raptors,Toronto Raptors,0.6415,0.6415,103,99,-4,Washington Wizards,False,False,Toronto Raptors,0.6277,False,0.7354
