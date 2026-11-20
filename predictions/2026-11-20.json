@@ -1,0 +1,209 @@
+[
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.910948+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Houston Rockets",
+    "home": "Denver Nuggets",
+    "home_elo": 1568.5,
+    "away_elo": 1608.5,
+    "p_home": 0.509,
+    "pick": "Denver Nuggets",
+    "source": "elo",
+    "p_home_no_inj": 0.5054,
+    "inj_away": 2.2,
+    "out_away": [
+      "Clint Capela"
+    ],
+    "fav": "Denver Nuggets",
+    "fav_ml": -120,
+    "fav_prob": 0.5246
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911003+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Phoenix Suns",
+    "home": "Utah Jazz",
+    "home_elo": 1396.9,
+    "away_elo": 1495.4,
+    "p_home": 0.3863,
+    "pick": "Phoenix Suns",
+    "source": "elo",
+    "p_home_no_inj": 0.4116,
+    "inj_home": 16.3,
+    "out_home": [
+      "Lauri Markkanen",
+      "Jaren Jackson Jr."
+    ],
+    "fav": "Phoenix Suns",
+    "fav_ml": -181,
+    "fav_prob": 0.6207
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911042+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "New Orleans Pelicans",
+    "home": "Oklahoma City Thunder",
+    "home_elo": 1596.1,
+    "away_elo": 1389.4,
+    "p_home": 0.8393,
+    "pick": "Oklahoma City Thunder",
+    "source": "elo",
+    "p_home_no_inj": 0.8347,
+    "inj_home": 16.2,
+    "out_home": [
+      "Chet Holmgren",
+      "Jalen Williams",
+      "Cason Wallace"
+    ],
+    "inj_away": 21.4,
+    "out_away": [
+      "Trey Murphy III",
+      "Dejounte Murray"
+    ],
+    "fav": "Oklahoma City Thunder",
+    "fav_ml": -600,
+    "fav_prob": 0.8236
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911078+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Washington Wizards",
+    "home": "Chicago Bulls",
+    "home_elo": 1446.2,
+    "away_elo": 1375.5,
+    "p_home": 0.679,
+    "pick": "Chicago Bulls",
+    "source": "elo",
+    "p_home_no_inj": 0.6766,
+    "inj_away": 1.7,
+    "out_away": [
+      "Justin Champagnie"
+    ],
+    "fav": "Chicago Bulls",
+    "fav_ml": -136,
+    "fav_prob": 0.5551
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911106+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Sacramento Kings",
+    "home": "Los Angeles Lakers",
+    "home_elo": 1570.7,
+    "away_elo": 1336.9,
+    "p_home": 0.8372,
+    "pick": "Los Angeles Lakers",
+    "source": "elo",
+    "p_home_no_inj": 0.8575,
+    "inj_home": 24.3,
+    "out_home": [
+      "Austin Reaves"
+    ],
+    "fav": "Los Angeles Lakers",
+    "fav_ml": -900,
+    "fav_prob": 0.8633
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911132+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Indiana Pacers",
+    "home": "Cleveland Cavaliers",
+    "home_elo": 1556.2,
+    "away_elo": 1441.0,
+    "p_home": 0.7025,
+    "pick": "Cleveland Cavaliers",
+    "source": "elo",
+    "p_home_no_inj": 0.7362,
+    "inj_home": 30.2,
+    "out_home": [
+      "Evan Mobley",
+      "Jaylon Tyson"
+    ],
+    "inj_away": 4.4,
+    "out_away": [
+      "Tyrese Haliburton"
+    ],
+    "fav": "Cleveland Cavaliers",
+    "fav_ml": -225,
+    "fav_prob": 0.6651
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911157+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Orlando Magic",
+    "home": "Brooklyn Nets",
+    "home_elo": 1387.7,
+    "away_elo": 1505.4,
+    "p_home": 0.3882,
+    "pick": "Orlando Magic",
+    "source": "elo",
+    "p_home_no_inj": 0.3819,
+    "inj_away": 4.1,
+    "out_away": [
+      "Paolo Banchero"
+    ],
+    "fav": "Orlando Magic",
+    "fav_ml": -257,
+    "fav_prob": 0.6903
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911208+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Charlotte Hornets",
+    "home": "Atlanta Hawks",
+    "home_elo": 1525.1,
+    "away_elo": 1435.9,
+    "p_home": 0.7177,
+    "pick": "Atlanta Hawks",
+    "source": "elo",
+    "p_home_no_inj": 0.705,
+    "inj_home": 12.9,
+    "out_home": [
+      "CJ McCollum",
+      "Jock Landale"
+    ],
+    "inj_away": 22.4,
+    "out_away": [
+      "Grayson Allen",
+      "Grant Williams",
+      "Kon Knueppel"
+    ],
+    "fav": "Atlanta Hawks",
+    "fav_ml": -245,
+    "fav_prob": 0.6839
+  },
+  {
+    "logged_at_utc": "2026-11-20T18:37:21.911235+00:00",
+    "game_date": "2026-11-20",
+    "season_type": "regular",
+    "away": "Toronto Raptors",
+    "home": "Detroit Pistons",
+    "home_elo": 1598.6,
+    "away_elo": 1500.2,
+    "p_home": 0.7351,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.7146,
+    "inj_home": 15.2,
+    "out_home": [
+      "Duncan Robinson",
+      "Jalen Duren"
+    ],
+    "inj_away": 31.1,
+    "out_away": [
+      "RJ Barrett",
+      "Collin Murray-Boyles",
+      "Kawhi Leonard"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -260,
+    "fav_prob": 0.696
+  }
+]

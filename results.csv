@@ -287,3 +287,7 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-18,regular,Philadelphia 76ers,Orlando Magic,Orlando Magic,0.5647,0.5647,121,116,-5,Philadelphia 76ers,False,False,Philadelphia 76ers,0.5068,True,0.4857
 2026-11-18,regular,Phoenix Suns,Sacramento Kings,Phoenix Suns,0.3576,0.6424,128,107,-21,Phoenix Suns,True,False,Phoenix Suns,0.6928,True,0.3576
 2026-11-18,regular,Washington Wizards,Toronto Raptors,Toronto Raptors,0.6415,0.6415,103,99,-4,Washington Wizards,False,False,Toronto Raptors,0.6277,False,0.7354
+2026-11-19,regular,Golden State Warriors,Memphis Grizzlies,Memphis Grizzlies,0.6681,0.6681,98,126,28,Memphis Grizzlies,True,False,Memphis Grizzlies,0.6758,True,0.6441
+2026-11-19,regular,Portland Trail Blazers,Milwaukee Bucks,Portland Trail Blazers,0.2832,0.7168,124,114,-10,Portland Trail Blazers,True,False,Portland Trail Blazers,0.7892,True,0.253
+2026-11-19,regular,New York Knicks,Minnesota Timberwolves,Minnesota Timberwolves,0.5373,0.5373,102,99,-3,New York Knicks,False,False,New York Knicks,0.5095,True,0.5575
+2026-11-19,regular,Los Angeles Clippers,San Antonio Spurs,San Antonio Spurs,0.8407,0.8407,112,124,12,San Antonio Spurs,True,False,San Antonio Spurs,0.874,True,0.8499
