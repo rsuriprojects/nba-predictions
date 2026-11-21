@@ -1,0 +1,127 @@
+[
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.161946+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "Milwaukee Bucks",
+    "home": "Philadelphia 76ers",
+    "home_elo": 1568.7,
+    "away_elo": 1358.9,
+    "p_home": 0.8097,
+    "pick": "Philadelphia 76ers",
+    "source": "elo",
+    "p_home_no_inj": 0.8422,
+    "inj_home": 35.0,
+    "out_home": [
+      "Jaylen Brown",
+      "Dean Wade"
+    ],
+    "fav": "Philadelphia 76ers",
+    "fav_ml": -567,
+    "fav_prob": 0.8114
+  },
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.161991+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "Portland Trail Blazers",
+    "home": "New York Knicks",
+    "home_elo": 1581.8,
+    "away_elo": 1551.9,
+    "p_home": 0.6242,
+    "pick": "New York Knicks",
+    "source": "elo",
+    "p_home_no_inj": 0.6165,
+    "inj_away": 5.0,
+    "out_away": [
+      "Ja Morant",
+      "Vit Krejci"
+    ],
+    "fav": "New York Knicks",
+    "fav_ml": -155,
+    "fav_prob": 0.5888
+  },
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.162015+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "Los Angeles Clippers",
+    "home": "Dallas Mavericks",
+    "home_elo": 1467.6,
+    "away_elo": 1390.7,
+    "p_home": 0.693,
+    "pick": "Dallas Mavericks",
+    "source": "elo",
+    "p_home_no_inj": 0.693,
+    "fav": "Dallas Mavericks",
+    "fav_ml": -205,
+    "fav_prob": 0.6463
+  },
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.162040+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "Memphis Grizzlies",
+    "home": "Minnesota Timberwolves",
+    "home_elo": 1563.9,
+    "away_elo": 1535.4,
+    "p_home": 0.6515,
+    "pick": "Minnesota Timberwolves",
+    "source": "elo",
+    "p_home_no_inj": 0.6143,
+    "inj_home": 11.8,
+    "out_home": [
+      "Anthony Edwards"
+    ],
+    "inj_away": 36.5,
+    "out_away": [
+      "Ty Jerome",
+      "Jerami Grant",
+      "Javon Small",
+      "Scotty Pippen Jr."
+    ],
+    "fav": "Minnesota Timberwolves",
+    "fav_ml": -235,
+    "fav_prob": 0.6733
+  },
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.162067+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "New Orleans Pelicans",
+    "home": "San Antonio Spurs",
+    "home_elo": 1619.5,
+    "away_elo": 1389.4,
+    "p_home": 0.8524,
+    "pick": "San Antonio Spurs",
+    "source": "elo",
+    "p_home_no_inj": 0.8562,
+    "inj_home": 10.1,
+    "out_home": [
+      "Dylan Harper"
+    ],
+    "inj_away": 5.3,
+    "out_away": [
+      "Dejounte Murray"
+    ],
+    "fav": "San Antonio Spurs",
+    "fav_ml": -1580,
+    "fav_prob": 0.901
+  },
+  {
+    "logged_at_utc": "2026-11-21T17:30:01.162082+00:00",
+    "game_date": "2026-11-21",
+    "season_type": "regular",
+    "away": "Boston Celtics",
+    "home": "Sacramento Kings",
+    "home_elo": 1336.9,
+    "away_elo": 1614.8,
+    "p_home": 0.1869,
+    "pick": "Boston Celtics",
+    "source": "elo",
+    "p_home_no_inj": 0.1869,
+    "fav": "Boston Celtics",
+    "fav_ml": -770,
+    "fav_prob": 0.8502
+  }
+]

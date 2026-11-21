@@ -1,6 +1,6 @@
 {
- "generated_at_utc": "2026-11-20T23:59:56.948629+00:00",
- "today": "2026-11-20",
+ "generated_at_utc": "2026-11-21T17:30:05.047802+00:00",
+ "today": "2026-11-21",
  "elo": {
   "San Antonio Spurs": 1619.5,
   "Boston Celtics": 1614.8,
@@ -34,105 +34,6 @@
   "Sacramento Kings": 1336.9
  },
  "games": [
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Charlotte Hornets",
-   "home": "Atlanta Hawks",
-   "home_elo": 1525.1,
-   "away_elo": 1435.9,
-   "p_home": 0.705,
-   "pick": "Atlanta Hawks",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Orlando Magic",
-   "home": "Brooklyn Nets",
-   "home_elo": 1387.7,
-   "away_elo": 1505.4,
-   "p_home": 0.3819,
-   "pick": "Orlando Magic",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Washington Wizards",
-   "home": "Chicago Bulls",
-   "home_elo": 1446.2,
-   "away_elo": 1375.5,
-   "p_home": 0.6766,
-   "pick": "Chicago Bulls",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Indiana Pacers",
-   "home": "Cleveland Cavaliers",
-   "home_elo": 1556.2,
-   "away_elo": 1441.0,
-   "p_home": 0.7362,
-   "pick": "Cleveland Cavaliers",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Houston Rockets",
-   "home": "Denver Nuggets",
-   "home_elo": 1568.5,
-   "away_elo": 1608.5,
-   "p_home": 0.5054,
-   "pick": "Denver Nuggets",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Toronto Raptors",
-   "home": "Detroit Pistons",
-   "home_elo": 1598.6,
-   "away_elo": 1500.2,
-   "p_home": 0.7146,
-   "pick": "Detroit Pistons",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Sacramento Kings",
-   "home": "Los Angeles Lakers",
-   "home_elo": 1570.7,
-   "away_elo": 1336.9,
-   "p_home": 0.8575,
-   "pick": "Los Angeles Lakers",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "New Orleans Pelicans",
-   "home": "Oklahoma City Thunder",
-   "home_elo": 1596.1,
-   "away_elo": 1389.4,
-   "p_home": 0.8347,
-   "pick": "Oklahoma City Thunder",
-   "source": "elo"
-  },
-  {
-   "game_date": "2026-11-20",
-   "season_type": "regular",
-   "away": "Phoenix Suns",
-   "home": "Utah Jazz",
-   "home_elo": 1396.9,
-   "away_elo": 1495.4,
-   "p_home": 0.4116,
-   "pick": "Phoenix Suns",
-   "source": "elo"
-  },
   {
    "game_date": "2026-11-21",
    "season_type": "regular",
