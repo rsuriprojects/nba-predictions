@@ -300,3 +300,9 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-20,regular,Sacramento Kings,Los Angeles Lakers,Los Angeles Lakers,0.8372,0.8372,104,106,2,Los Angeles Lakers,True,False,Los Angeles Lakers,0.8633,True,0.8575
 2026-11-20,regular,New Orleans Pelicans,Oklahoma City Thunder,Oklahoma City Thunder,0.8393,0.8393,120,126,6,Oklahoma City Thunder,True,False,Oklahoma City Thunder,0.8236,True,0.8347
 2026-11-20,regular,Phoenix Suns,Utah Jazz,Phoenix Suns,0.3863,0.6137,111,101,-10,Phoenix Suns,True,False,Phoenix Suns,0.6207,True,0.4116
+2026-11-21,regular,Los Angeles Clippers,Dallas Mavericks,Dallas Mavericks,0.693,0.693,100,110,10,Dallas Mavericks,True,False,Dallas Mavericks,0.6463,True,0.693
+2026-11-21,regular,Memphis Grizzlies,Minnesota Timberwolves,Minnesota Timberwolves,0.6515,0.6515,95,104,9,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.6733,True,0.6143
+2026-11-21,regular,Portland Trail Blazers,New York Knicks,New York Knicks,0.6242,0.6242,96,97,1,New York Knicks,True,False,New York Knicks,0.5888,True,0.6165
+2026-11-21,regular,Milwaukee Bucks,Philadelphia 76ers,Philadelphia 76ers,0.8097,0.8097,129,132,3,Philadelphia 76ers,True,False,Philadelphia 76ers,0.8114,True,0.8422
+2026-11-21,regular,Boston Celtics,Sacramento Kings,Boston Celtics,0.1869,0.8131,96,97,1,Sacramento Kings,False,False,Boston Celtics,0.8502,False,0.1869
+2026-11-21,regular,New Orleans Pelicans,San Antonio Spurs,San Antonio Spurs,0.8524,0.8524,91,114,23,San Antonio Spurs,True,False,San Antonio Spurs,0.901,True,0.8562

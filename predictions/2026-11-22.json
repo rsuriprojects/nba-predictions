@@ -1,0 +1,159 @@
+[
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835803+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Orlando Magic",
+    "home": "Washington Wizards",
+    "home_elo": 1382.8,
+    "away_elo": 1508.3,
+    "p_home": 0.3734,
+    "pick": "Orlando Magic",
+    "source": "elo",
+    "p_home_no_inj": 0.3701,
+    "inj_home": 1.6,
+    "out_home": [
+      "Justin Champagnie"
+    ],
+    "inj_away": 3.8,
+    "out_away": [
+      "Paolo Banchero"
+    ],
+    "fav": "Orlando Magic",
+    "fav_ml": -200,
+    "fav_prob": 0.641
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835842+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Boston Celtics",
+    "home": "Golden State Warriors",
+    "home_elo": 1481.4,
+    "away_elo": 1609.1,
+    "p_home": 0.3814,
+    "pick": "Boston Celtics",
+    "source": "elo",
+    "p_home_no_inj": 0.4413,
+    "inj_home": 38.2,
+    "out_home": [
+      "Stephen Curry",
+      "Brandon Williams"
+    ],
+    "fav": "Boston Celtics",
+    "fav_ml": -350,
+    "fav_prob": 0.7457
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835865+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Indiana Pacers",
+    "home": "New York Knicks",
+    "home_elo": 1583.9,
+    "away_elo": 1437.7,
+    "p_home": 0.7542,
+    "pick": "New York Knicks",
+    "source": "elo",
+    "p_home_no_inj": 0.7411,
+    "inj_away": 10.7,
+    "out_away": [
+      "T.J. McConnell",
+      "Tyrese Haliburton"
+    ],
+    "fav": "New York Knicks",
+    "fav_ml": -350,
+    "fav_prob": 0.7457
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835888+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Dallas Mavericks",
+    "home": "Utah Jazz",
+    "home_elo": 1390.0,
+    "away_elo": 1471.9,
+    "p_home": 0.4817,
+    "pick": "Dallas Mavericks",
+    "source": "elo",
+    "p_home_no_inj": 0.5065,
+    "inj_home": 15.3,
+    "out_home": [
+      "Lauri Markkanen",
+      "Jaren Jackson Jr."
+    ],
+    "fav": "Utah Jazz",
+    "fav_ml": -110,
+    "fav_prob": 0.5026
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835906+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Atlanta Hawks",
+    "home_elo": 1530.0,
+    "away_elo": 1591.6,
+    "p_home": 0.4738,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.4704,
+    "inj_home": 12.1,
+    "out_home": [
+      "CJ McCollum",
+      "Jock Landale"
+    ],
+    "inj_away": 14.2,
+    "out_away": [
+      "Duncan Robinson",
+      "Jalen Duren"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -120,
+    "fav_prob": 0.5242
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835921+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Oklahoma City Thunder",
+    "home": "Miami Heat",
+    "home_elo": 1530.7,
+    "away_elo": 1597.6,
+    "p_home": 0.5429,
+    "pick": "Miami Heat",
+    "source": "elo",
+    "p_home_no_inj": 0.4794,
+    "inj_away": 39.3,
+    "out_away": [
+      "Alex Caruso",
+      "Jaylin Williams",
+      "Chet Holmgren",
+      "Jalen Williams",
+      "Cason Wallace"
+    ],
+    "fav": "Miami Heat",
+    "fav_ml": -170,
+    "fav_prob": 0.6067
+  },
+  {
+    "logged_at_utc": "2026-11-22T17:49:23.835940+00:00",
+    "game_date": "2026-11-22",
+    "season_type": "regular",
+    "away": "Denver Nuggets",
+    "home": "Chicago Bulls",
+    "home_elo": 1438.9,
+    "away_elo": 1575.0,
+    "p_home": 0.3262,
+    "pick": "Denver Nuggets",
+    "source": "elo",
+    "p_home_no_inj": 0.3542,
+    "inj_home": 19.3,
+    "out_home": [
+      "Norman Powell"
+    ],
+    "fav": "Denver Nuggets",
+    "fav_ml": -437,
+    "fav_prob": 0.7808
+  }
+]
