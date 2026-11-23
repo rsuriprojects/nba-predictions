@@ -306,3 +306,10 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-21,regular,Milwaukee Bucks,Philadelphia 76ers,Philadelphia 76ers,0.8097,0.8097,129,132,3,Philadelphia 76ers,True,False,Philadelphia 76ers,0.8114,True,0.8422
 2026-11-21,regular,Boston Celtics,Sacramento Kings,Boston Celtics,0.1869,0.8131,96,97,1,Sacramento Kings,False,False,Boston Celtics,0.8502,False,0.1869
 2026-11-21,regular,New Orleans Pelicans,San Antonio Spurs,San Antonio Spurs,0.8524,0.8524,91,114,23,San Antonio Spurs,True,False,San Antonio Spurs,0.901,True,0.8562
+2026-11-22,regular,Detroit Pistons,Atlanta Hawks,Detroit Pistons,0.4738,0.5262,97,107,10,Atlanta Hawks,False,False,Detroit Pistons,0.5242,False,0.4704
+2026-11-22,regular,Denver Nuggets,Chicago Bulls,Denver Nuggets,0.3262,0.6738,151,145,-6,Denver Nuggets,True,False,Denver Nuggets,0.7808,True,0.3542
+2026-11-22,regular,Boston Celtics,Golden State Warriors,Boston Celtics,0.3814,0.6186,87,88,1,Golden State Warriors,False,False,Boston Celtics,0.7457,False,0.4413
+2026-11-22,regular,Oklahoma City Thunder,Miami Heat,Miami Heat,0.5429,0.5429,113,123,10,Miami Heat,True,False,Miami Heat,0.6067,True,0.4794
+2026-11-22,regular,Indiana Pacers,New York Knicks,New York Knicks,0.7542,0.7542,106,113,7,New York Knicks,True,False,New York Knicks,0.7457,True,0.7411
+2026-11-22,regular,Dallas Mavericks,Utah Jazz,Dallas Mavericks,0.4817,0.5183,116,114,-2,Dallas Mavericks,True,False,Utah Jazz,0.5026,False,0.5065
+2026-11-22,regular,Orlando Magic,Washington Wizards,Orlando Magic,0.3734,0.6266,96,116,20,Washington Wizards,False,False,Orlando Magic,0.641,False,0.3701
