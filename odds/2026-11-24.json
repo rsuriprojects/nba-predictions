@@ -1,0 +1,35 @@
+{
+  "fetched_at_utc": "2026-11-24T20:39:39.251775+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-24",
+      "commence_time": "2026-11-25T00:11:00Z",
+      "away": "Detroit Pistons",
+      "home": "Orlando Magic",
+      "fav": "Detroit Pistons",
+      "fav_ml": -135,
+      "fav_prob": 0.5481,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-24",
+      "commence_time": "2026-11-25T01:10:00Z",
+      "away": "Boston Celtics",
+      "home": "Washington Wizards",
+      "fav": "Boston Celtics",
+      "fav_ml": -450,
+      "fav_prob": 0.7844,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-24",
+      "commence_time": "2026-11-25T03:10:00Z",
+      "away": "Dallas Mavericks",
+      "home": "Denver Nuggets",
+      "fav": "Denver Nuggets",
+      "fav_ml": -297,
+      "fav_prob": 0.72,
+      "books": 9
+    }
+  ]
+}

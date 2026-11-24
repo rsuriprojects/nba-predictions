@@ -1,0 +1,67 @@
+[
+  {
+    "logged_at_utc": "2026-11-24T20:39:39.133218+00:00",
+    "game_date": "2026-11-24",
+    "season_type": "regular",
+    "away": "Dallas Mavericks",
+    "home": "Denver Nuggets",
+    "home_elo": 1579.3,
+    "away_elo": 1475.0,
+    "p_home": 0.7224,
+    "pick": "Denver Nuggets",
+    "source": "elo",
+    "p_home_no_inj": 0.7224,
+    "fav": "Denver Nuggets",
+    "fav_ml": -297,
+    "fav_prob": 0.72
+  },
+  {
+    "logged_at_utc": "2026-11-24T20:39:39.133252+00:00",
+    "game_date": "2026-11-24",
+    "season_type": "regular",
+    "away": "Boston Celtics",
+    "home": "Washington Wizards",
+    "home_elo": 1397.7,
+    "away_elo": 1605.2,
+    "p_home": 0.2758,
+    "pick": "Boston Celtics",
+    "source": "elo",
+    "p_home_no_inj": 0.2567,
+    "inj_home": 1.6,
+    "out_home": [
+      "Justin Champagnie"
+    ],
+    "inj_away": 16.7,
+    "out_away": [
+      "Mitchell Robinson"
+    ],
+    "fav": "Boston Celtics",
+    "fav_ml": -450,
+    "fav_prob": 0.7844
+  },
+  {
+    "logged_at_utc": "2026-11-24T20:39:39.133273+00:00",
+    "game_date": "2026-11-24",
+    "season_type": "regular",
+    "away": "Detroit Pistons",
+    "home": "Orlando Magic",
+    "home_elo": 1492.9,
+    "away_elo": 1583.9,
+    "p_home": 0.4389,
+    "pick": "Detroit Pistons",
+    "source": "elo",
+    "p_home_no_inj": 0.4235,
+    "inj_home": 3.6,
+    "out_home": [
+      "Paolo Banchero"
+    ],
+    "inj_away": 13.3,
+    "out_away": [
+      "Duncan Robinson",
+      "Jalen Duren"
+    ],
+    "fav": "Detroit Pistons",
+    "fav_ml": -135,
+    "fav_prob": 0.5481
+  }
+]

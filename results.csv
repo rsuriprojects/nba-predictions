@@ -313,3 +313,13 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-22,regular,Indiana Pacers,New York Knicks,New York Knicks,0.7542,0.7542,106,113,7,New York Knicks,True,False,New York Knicks,0.7457,True,0.7411
 2026-11-22,regular,Dallas Mavericks,Utah Jazz,Dallas Mavericks,0.4817,0.5183,116,114,-2,Dallas Mavericks,True,False,Utah Jazz,0.5026,False,0.5065
 2026-11-22,regular,Orlando Magic,Washington Wizards,Orlando Magic,0.3734,0.6266,96,116,20,Washington Wizards,False,False,Orlando Magic,0.641,False,0.3701
+2026-11-23,regular,Memphis Grizzlies,Charlotte Hornets,Memphis Grizzlies,0.4016,0.5984,117,111,-6,Memphis Grizzlies,True,False,Memphis Grizzlies,0.5741,True,0.4187
+2026-11-23,regular,Cleveland Cavaliers,Chicago Bulls,Cleveland Cavaliers,0.3488,0.6512,108,122,14,Chicago Bulls,False,False,Cleveland Cavaliers,0.745,False,0.3338
+2026-11-23,regular,Los Angeles Clippers,Houston Rockets,Houston Rockets,0.8469,0.8469,104,116,12,Houston Rockets,True,False,Houston Rockets,0.8307,True,0.8469
+2026-11-23,regular,Oklahoma City Thunder,Indiana Pacers,Oklahoma City Thunder,0.3902,0.6098,120,125,5,Indiana Pacers,False,False,Oklahoma City Thunder,0.6656,False,0.3496
+2026-11-23,regular,Utah Jazz,Los Angeles Lakers,Los Angeles Lakers,0.8572,0.8572,94,109,15,Los Angeles Lakers,True,False,Los Angeles Lakers,0.851,True,0.8567
+2026-11-23,regular,Brooklyn Nets,Minnesota Timberwolves,Minnesota Timberwolves,0.8044,0.8044,116,142,26,Minnesota Timberwolves,True,False,Minnesota Timberwolves,0.8119,True,0.8155
+2026-11-23,regular,Phoenix Suns,New Orleans Pelicans,Phoenix Suns,0.3777,0.6223,123,119,-4,Phoenix Suns,True,False,Phoenix Suns,0.5809,True,0.3849
+2026-11-23,regular,Portland Trail Blazers,Philadelphia 76ers,Philadelphia 76ers,0.6118,0.6118,128,111,-17,Portland Trail Blazers,False,False,Philadelphia 76ers,0.565,False,0.6045
+2026-11-23,regular,San Antonio Spurs,Sacramento Kings,San Antonio Spurs,0.1857,0.8143,123,107,-16,San Antonio Spurs,True,False,San Antonio Spurs,0.8274,True,0.1766
+2026-11-23,regular,Milwaukee Bucks,Toronto Raptors,Toronto Raptors,0.7596,0.7596,116,111,-5,Milwaukee Bucks,False,False,Toronto Raptors,0.7856,False,0.7829
