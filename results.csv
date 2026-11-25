@@ -323,3 +323,6 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-23,regular,Portland Trail Blazers,Philadelphia 76ers,Philadelphia 76ers,0.6118,0.6118,128,111,-17,Portland Trail Blazers,False,False,Philadelphia 76ers,0.565,False,0.6045
 2026-11-23,regular,San Antonio Spurs,Sacramento Kings,San Antonio Spurs,0.1857,0.8143,123,107,-16,San Antonio Spurs,True,False,San Antonio Spurs,0.8274,True,0.1766
 2026-11-23,regular,Milwaukee Bucks,Toronto Raptors,Toronto Raptors,0.7596,0.7596,116,111,-5,Milwaukee Bucks,False,False,Toronto Raptors,0.7856,False,0.7829
+2026-11-24,regular,Dallas Mavericks,Denver Nuggets,Denver Nuggets,0.7224,0.7224,120,101,-19,Dallas Mavericks,False,False,Denver Nuggets,0.72,False,0.7224
+2026-11-24,regular,Detroit Pistons,Orlando Magic,Detroit Pistons,0.4389,0.5611,104,86,-18,Detroit Pistons,True,False,Detroit Pistons,0.5481,True,0.4235
+2026-11-24,regular,Boston Celtics,Washington Wizards,Boston Celtics,0.2758,0.7242,131,116,-15,Boston Celtics,True,False,Boston Celtics,0.7844,True,0.2567
