@@ -1,0 +1,55 @@
+{
+  "fetched_at_utc": "2026-11-28T18:14:45.291272+00:00",
+  "games": [
+    {
+      "game_date": "2026-11-28",
+      "commence_time": "2026-11-28T22:10:00Z",
+      "away": "Orlando Magic",
+      "home": "Washington Wizards",
+      "fav": "Orlando Magic",
+      "fav_ml": -168,
+      "fav_prob": 0.6039,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-28",
+      "commence_time": "2026-11-28T23:10:00Z",
+      "away": "Brooklyn Nets",
+      "home": "Charlotte Hornets",
+      "fav": "Charlotte Hornets",
+      "fav_ml": -265,
+      "fav_prob": 0.6989,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-28",
+      "commence_time": "2026-11-29T01:10:00Z",
+      "away": "Indiana Pacers",
+      "home": "Chicago Bulls",
+      "fav": "Chicago Bulls",
+      "fav_ml": -130,
+      "fav_prob": 0.5407,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-28",
+      "commence_time": "2026-11-29T01:10:00Z",
+      "away": "Oklahoma City Thunder",
+      "home": "Milwaukee Bucks",
+      "fav": "Oklahoma City Thunder",
+      "fav_ml": -560,
+      "fav_prob": 0.8148,
+      "books": 9
+    },
+    {
+      "game_date": "2026-11-28",
+      "commence_time": "2026-11-29T01:40:00Z",
+      "away": "Philadelphia 76ers",
+      "home": "Houston Rockets",
+      "fav": "Houston Rockets",
+      "fav_ml": -560,
+      "fav_prob": 0.8158,
+      "books": 9
+    }
+  ]
+}

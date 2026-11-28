@@ -335,3 +335,14 @@ game_date,season_type,away,home,pick,p_home,conf,away_pts,home_pts,margin,winner
 2026-11-25,regular,Minnesota Timberwolves,Oklahoma City Thunder,Oklahoma City Thunder,0.5651,0.5651,113,106,-7,Minnesota Timberwolves,False,False,Oklahoma City Thunder,0.5348,False,0.5854
 2026-11-25,regular,Miami Heat,Philadelphia 76ers,Philadelphia 76ers,0.6022,0.6022,104,111,7,Philadelphia 76ers,True,False,Philadelphia 76ers,0.5217,True,0.6022
 2026-11-25,regular,San Antonio Spurs,Portland Trail Blazers,San Antonio Spurs,0.4765,0.5235,111,116,5,Portland Trail Blazers,False,False,San Antonio Spurs,0.5929,False,0.4691
+2026-11-27,regular,Atlanta Hawks,Boston Celtics,Boston Celtics,0.6904,0.6904,87,86,-1,Atlanta Hawks,False,False,Boston Celtics,0.7488,False,0.6963
+2026-11-27,regular,Milwaukee Bucks,Detroit Pistons,Detroit Pistons,0.8129,0.8129,98,113,15,Detroit Pistons,True,False,Detroit Pistons,0.7825,True,0.8622
+2026-11-27,regular,Philadelphia 76ers,Indiana Pacers,Philadelphia 76ers,0.431,0.569,111,87,-24,Philadelphia 76ers,True,False,Philadelphia 76ers,0.5984,True,0.3959
+2026-11-27,regular,New Orleans Pelicans,Los Angeles Clippers,Los Angeles Clippers,0.5957,0.5957,105,104,-1,New Orleans Pelicans,False,False,Los Angeles Clippers,0.5506,False,0.5887
+2026-11-27,regular,Memphis Grizzlies,Minnesota Timberwolves,Minnesota Timberwolves,0.5743,0.5743,114,109,-5,Memphis Grizzlies,False,False,Minnesota Timberwolves,0.5776,False,0.6339
+2026-11-27,regular,Miami Heat,New York Knicks,New York Knicks,0.6045,0.6045,108,105,-3,Miami Heat,False,False,New York Knicks,0.58,False,0.6616
+2026-11-27,regular,Dallas Mavericks,Phoenix Suns,Phoenix Suns,0.5837,0.5837,113,109,-4,Dallas Mavericks,False,False,Phoenix Suns,0.5772,False,0.5837
+2026-11-27,regular,Golden State Warriors,Portland Trail Blazers,Portland Trail Blazers,0.703,0.703,94,116,22,Portland Trail Blazers,True,False,Portland Trail Blazers,0.7165,True,0.6891
+2026-11-27,regular,Los Angeles Lakers,San Antonio Spurs,San Antonio Spurs,0.6347,0.6347,96,99,3,San Antonio Spurs,True,False,San Antonio Spurs,0.6531,True,0.6474
+2026-11-27,regular,Brooklyn Nets,Toronto Raptors,Toronto Raptors,0.7283,0.7283,100,124,24,Toronto Raptors,True,False,Toronto Raptors,0.757,True,0.7431
+2026-11-27,regular,Denver Nuggets,Utah Jazz,Denver Nuggets,0.2951,0.7049,120,107,-13,Denver Nuggets,True,False,Denver Nuggets,0.7811,True,0.3139
